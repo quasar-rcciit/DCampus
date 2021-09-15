@@ -1,3 +1,3 @@
-# Camplify - Campus Life Simplified
-<br>
-Under Construction
+# DCampus - Campus Life Simplified
+<br> 
+Under Construction by Team Quasar
