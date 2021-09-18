@@ -1,0 +1,265 @@
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@300&display=swap');
+*{
+    margin:0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.admincont h1{
+    text-align: center;
+    margin-bottom: 1rem;
+}
+.admincont{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height:700px;
+}
+.admincont .adminformcont{
+    width:95%;
+    height:600px;
+    display:flex;
+    
+    justify-content: space-between;
+    align-items: center;
+    
+    padding: 10px;
+    border-radius: 17px;
+    color:white;
+    margin: auto;
+
+}
+.adminstyleinput input{
+    width:75%;
+    height: 38px;
+    border:1px solid blue;
+    border-radius: 6px;
+    margin-top: 1rem;
+    text-align: center;
+    background-color: white;
+    font-weight: 700;
+    font-family: 'Ubuntu', sans-serif;
+    /* box-shadow: 2px 1px 14px 0px rgba(0,0,0,0.75);
+-webkit-box-shadow: 2px 1px 14px 0px rgba(0,0,0,0.75);
+-moz-box-shadow: 2px 1px 14px 0px rgba(0,0,0,0.75); */
+margin-bottom: 1rem;
+}
+.adminstyleinput{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-color: black;
+    width:40%;
+    height:300px;
+    border-radius: 17px;
+}
+.changebtn{
+    outline:none;
+    border:1px solid white;
+    border-radius: 8px;
+    background-color: black;
+    color:white;
+    padding: 7px;
+    margin-top: 2rem;
+}
+.changebtn:hover{
+    background-color: white;
+    color:black;
+    transition: 0.2s all ease-in;
+}
+@media only screen and (max-width: 769px)
+{
+    .admincont h1{
+        text-align: center;
+        margin:4px
+    }
+    .admincont .adminformcont{
+        width:95%;
+        height:1000px;
+        display:flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+        
+        padding: 10px;
+        border-radius: 17px;
+        color:white;
+        margin: auto;
+    
+    }
+    .adminstyleinput input{
+        width:90%;
+        height: 38px;
+        border:1px solid blue;
+        border-radius: 6px;
+        margin-top: 1rem;
+        text-align: center;
+        background-color: white;
+        font-weight: 700;
+        font-family: 'Ubuntu', sans-serif;
+        /* box-shadow: 2px 1px 14px 0px rgba(0,0,0,0.75);
+    -webkit-box-shadow: 2px 1px 14px 0px rgba(0,0,0,0.75);
+    -moz-box-shadow: 2px 1px 14px 0px rgba(0,0,0,0.75); */
+    margin-bottom: 1rem;
+    }
+    .adminstyleinput{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        background-color: black;
+        width:60%;
+        height:300px;
+        border-radius: 17px;
+        margin-bottom: 1.3rem;
+    }
+} 
+@media only screen and (max-width: 526px)
+{
+    .admincont h1{
+        text-align: center;
+        margin:4px
+    }
+    .admincont .adminformcont{
+        width:95%;
+        height:1000px;
+        display:flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+        
+        padding: 10px;
+        border-radius: 17px;
+        color:white;
+        margin: auto;
+    
+    }
+    .adminstyleinput input{
+        width:90%;
+        height: 38px;
+        border:1px solid blue;
+        border-radius: 6px;
+        margin-top: 1rem;
+        text-align: center;
+        background-color: white;
+        font-weight: 700;
+        font-family: 'Ubuntu', sans-serif;
+        /* box-shadow: 2px 1px 14px 0px rgba(0,0,0,0.75);
+    -webkit-box-shadow: 2px 1px 14px 0px rgba(0,0,0,0.75);
+    -moz-box-shadow: 2px 1px 14px 0px rgba(0,0,0,0.75); */
+    margin-bottom: 1rem;
+    }
+    .adminstyleinput{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        background-color: black;
+        width:60%;
+        height:300px;
+        border-radius: 17px;
+        margin-bottom: 1.3rem;
+    }
+} 
+
+@media only screen and (max-width: 432px)
+{
+    .admincont h1{
+        text-align: center;
+        margin:1px;
+    }
+    .admincont .adminformcont{
+        width:95%;
+        height:1000px;
+        display:flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+        
+        padding: 10px;
+        border-radius: 17px;
+        color:white;
+        margin: auto;
+    
+    }
+    .adminstyleinput input{
+        width:90%;
+        height: 38px;
+        border:1px solid blue;
+        border-radius: 6px;
+        margin-top: 1rem;
+        text-align: center;
+        background-color: white;
+        font-weight: 700;
+        font-family: 'Ubuntu', sans-serif;
+        /* box-shadow: 2px 1px 14px 0px rgba(0,0,0,0.75);
+    -webkit-box-shadow: 2px 1px 14px 0px rgba(0,0,0,0.75);
+    -moz-box-shadow: 2px 1px 14px 0px rgba(0,0,0,0.75); */
+    margin-bottom: 1rem;
+    }
+    .adminstyleinput{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        background-color: black;
+        width:60%;
+        height:300px;
+        border-radius: 17px;
+        margin-bottom: 1.3rem;
+    }
+    .adminstyleinput label{
+        text-align: center;
+    }
+} 
+@media only screen and (max-width: 340px)
+{
+    .admincont h1{
+        text-align: center;
+        margin:1px;
+    }
+    .admincont .adminformcont{
+        width:95%;
+        height:1000px;
+        display:flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+        
+        padding: 10px;
+        border-radius: 17px;
+        color:white;
+        margin: auto;
+    
+    }
+    .adminstyleinput input{
+        width:90%;
+        height: 38px;
+        border:1px solid blue;
+        border-radius: 6px;
+        margin-top: 1rem;
+        text-align: center;
+        background-color: white;
+        font-weight: 700;
+        font-family: 'Ubuntu', sans-serif;
+        /* box-shadow: 2px 1px 14px 0px rgba(0,0,0,0.75);
+    -webkit-box-shadow: 2px 1px 14px 0px rgba(0,0,0,0.75);
+    -moz-box-shadow: 2px 1px 14px 0px rgba(0,0,0,0.75); */
+    margin-bottom: 1rem;
+    }
+    .adminstyleinput{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        background-color: black;
+        width:60%;
+        height:300px;
+        border-radius: 17px;
+        margin-bottom: 1.3rem;
+    }
+    .adminstyleinput label{
+        text-align: center;
+    }
+} 

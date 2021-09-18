@@ -3,6 +3,7 @@ import React from 'react'
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import Navbar from '../Navbar'
 import Display from './Display'
+import Owner from './Ownerf'
 import Admin from './Adminf'
 
 

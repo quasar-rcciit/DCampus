@@ -89,8 +89,24 @@ function Display() {
                   Some quick example text to build on the card title and make up
                   the bulk of the card's content.
                 </p>
-                <a href="/studentfood" class="btn btn-primary">
+                <a href="/foodiegenie" class="btn btn-primary">
                   Enter
+                </a>
+              </div>
+            </div>
+            <div class="card each_card">
+              <img
+                src="https://images.unsplash.com/photo-1560341208-305f47d5e901?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&h=650&q=80"
+                class="card-img-top"
+              />
+              <div class="card-body">
+                <h4 class="card-title">Canteen Owner</h4>
+                <p class="card-text">
+                  Some quick example text to build on the card title and make up
+                  the bulk of the card's content.
+                </p>
+                <a href="/foodiegenie-owner" class="btn btn-primary">
+                  Login
                 </a>
               </div>
             </div>
@@ -105,7 +121,7 @@ function Display() {
                   Some quick example text to build on the card title and make up
                   the bulk of the card's content.
                 </p>
-                <a href="/adminfood" class="btn btn-primary">
+                <a href="/foodiegenie-admin" class="btn btn-primary">
                   Login
                 </a>
               </div>

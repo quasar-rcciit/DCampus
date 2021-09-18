@@ -23,15 +23,17 @@ contract FoodOrder {
     string name;
     uint price;
     uint available;
+    string category;
   }
 
   mapping(uint => FoodItem) public foods;
 
 //all events
-  event ordered(uint orderNumber, uint hostelOrTable, uint number);
+  event ordered(uint orderNumber, uint index, uint hostelOrTable, uint number);
   event deletedItem(string _name);
-  event availabilityChanged(string _name, uint _available);
-  event addedFood(string _name, uint _price, uint _available);
+  event priceChanged(string name, uint _price);
+  event availabilityChanged(string name, uint _available);
+  event addedFood(string _name, uint _price, uint _available, string _category);
   event changedCollegeFees(uint _collegeFees);
   event changedCanteenOwner(address payable canteenOwner, address payable _canteenOwner);
   
@@ -52,60 +54,48 @@ contract FoodOrder {
   }
   
 //customer related
-  function order(string calldata _name, uint hostelOrTable, uint number) external payable onlyCustomer {
-    uint i = 0;
-    uint index = numberOfFoods+1;
-    for (i = 0; i < numberOfFoods; i++){
-      if (keccak256(abi.encodePacked(foods[i].name)) == keccak256(abi.encodePacked(_name))){
-          index = i;
-          break;
-      }
-    }
-    if (index != numberOfFoods+1){
-        emit ordered(orderNumber, hostelOrTable, number);
-        orderNumber++;
-        canteenOwner.transfer(foods[index].price-foods[index].price*collegeFees/100);
-        admin.transfer(foods[index].price-foods[index].price*(100-collegeFees)/100);
-    }
-    else{
-        msg.sender.transfer(msg.value);
-    }
+  function order(uint index, uint hostelOrTable, uint number) external payable onlyCustomer {
+    orderNumber++;
+    canteenOwner.transfer(foods[index].price-foods[index].price*collegeFees/100);
+    admin.transfer(foods[index].price-foods[index].price*(100-collegeFees)/100);
+    emit ordered(orderNumber-1, index, hostelOrTable, number);
   }
 
 //canteen management related
-  function addFood(string memory _name, uint _price, uint _available) public onlyOwner {
+  function addFood(string memory _name, uint _price, uint _available, string memory _category) public onlyOwner {
     foods[numberOfFoods].name = _name;
     foods[numberOfFoods].price = _price;
     foods[numberOfFoods].available = _available;
-    emit addedFood(_name, _price, _available);
+    foods[numberOfFoods].category = _category;
+    emit addedFood(_name, _price, _available, _category);
     numberOfFoods++;
   }
   
-  function availabilityChange(string memory _name, uint _available) public onlyOwner {
-    uint i = 0;
-    for (i = 0; i < numberOfFoods; i++){
-      if (keccak256(abi.encodePacked(foods[i].name)) == keccak256(abi.encodePacked(_name))){
-        foods[i].available = _available;
-        emit availabilityChanged (_name, _available);
-        break;
-      }
+  function availabilityChange(uint index) public onlyOwner {
+    if(foods[index].available == 0){
+      foods[index].available = 1;
     }
+    else{
+      foods[index].available = 0;
+    }
+    emit availabilityChanged (foods[index].name, foods[index].available);
+  }
+
+  function priceChange(uint index, uint _price) public onlyOwner {
+    foods[index].price = _price;
+    emit priceChanged (foods[index].name, _price);
   }
 
   function deleteItem(uint index) public onlyOwner {
-    if(numberOfFoods!=0){
+     if(numberOfFoods != 0 && index < numberOfFoods){
         emit deletedItem(foods[index].name);
-        foods[index] = foods[numberOfFoods-1];
+        delete foods[index];
         numberOfFoods--;
     }
   }
-
-  function returnPrice(uint index) public view returns(uint){
-      return foods[index].price;
-  }
   
 //ownership can be changed only by college authorities
-  function changeOwner(address payable _canteenOwner) public onlyOwner {
+  function changeOwner(address payable _canteenOwner) public onlyAdmin {
       emit changedCanteenOwner(canteenOwner, _canteenOwner);
       canteenOwner = _canteenOwner;
   }
@@ -115,5 +105,4 @@ contract FoodOrder {
     collegeFees = _collegeFees;
     emit changedCollegeFees(_collegeFees);
   }
-
 }
