@@ -76,9 +76,9 @@ function Display() {
           fugit in nesciunt aliquam, voluptas neque ipsum?
         </p>
         {/* <div className="container login_cards"> */}
-        <div className="card-group">
-          {/* <a
-            href="/lib-student"
+        <div className="container login_cards">
+          <a
+            href="/lib-student-ebook"
             class="card each_card text-dark text-decoration-none"
           >
             <img
@@ -88,15 +88,17 @@ function Display() {
               class="card-img-top"
             />
             <div class="card-body">
-              <h4 class="card-title">Students</h4>
+              <h4 class="card-title">E-Books</h4>
               <p class="card-text">
                 Some quick example text to build on the card title and make up
                 the bulk of the card's content.
               </p>
-              
+              {/* <a href="/lib-student" class="btn btn-primary">
+                Enter
+              </a> */}
             </div>
-          </a> */}
-          {/* <a
+          </a>
+          <a
             href="/lib-student-notes"
             class="card each_card text-dark text-decoration-none"
           >
@@ -107,70 +109,13 @@ function Display() {
               class="card-img-top"
             />
             <div class="card-body">
-              <h4 class="card-title">Notes</h4>
+              <h4 class="card-title">Class Notes</h4>
               <p class="card-text">
                 Some quick example text to build on the card title and make up
                 the bulk of the card's content.
               </p>
-            </div>
-          </a> */}
-          <a
-            href="/lib-student"
-            class="card each_card text-dark text-decoration-none"
-          >
-            <img
-              src="https://st2.depositphotos.com/1037238/6210/v/600/depositphotos_62104503-stock-illustration-kids-checking-out-books-in.jpg"
-              width="100"
-              height="200"
-              class="card-img-top"
-            />
-            <div class="card-body">
-              <h4 class="card-title">Students</h4>
-              <p class="card-text">
-                Some quick example text to build on the card title and make up
-                the bulk of the card's content.
-              </p>
-            </div>
-          </a>
-          <a
-            href="/lib-librarian"
-            class="card each_card text-dark text-decoration-none"
-          >
-            <img
-              src="https://media.istockphoto.com/vectors/modern-library-with-bookshelf-vector-illustration-vector-id994820870?b=1&k=6&m=994820870&s=170667a&w=0&h=-yVDQJB3vjLynRKoaCjo9tFOqvD4XcFHTdiCAz1JSiU="
-              width="100"
-              height="200"
-              class="card-img-top"
-            />
-            <div class="card-body">
-              <h4 class="card-title">Librarian</h4>
-              <p class="card-text">
-                Some quick example text to build on the card title and make up
-                the bulk of the card's content.
-              </p>
-              {/* <a href="/adminl" class="btn btn-primary">
-                Login
-              </a> */}
-            </div>
-          </a>
-          <a
-            href="/lib-admin"
-            class="card each_card text-dark text-decoration-none"
-          >
-            <img
-              src="https://img.freepik.com/free-vector/organic-flat-customer-support-illustration_23-2148899173.jpg?size=626&ext=jpg"
-              width="100"
-              height="200"
-              class="card-img-top"
-            />
-            <div class="card-body">
-              <h4 class="card-title">Admin</h4>
-              <p class="card-text">
-                Some quick example text to build on the card title and make up
-                the bulk of the card's content.
-              </p>
-              {/* <a href="/adminl" class="btn btn-primary">
-                Login
+              {/* <a href="/lib-student" class="btn btn-primary">
+                Enter
               </a> */}
             </div>
           </a>

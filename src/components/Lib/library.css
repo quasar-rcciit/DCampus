@@ -1,0 +1,110 @@
+.center {
+  padding: 5px;
+}
+.sidenav {
+  height: 100%; /* Full-height: remove this if you want "auto" height */
+  width: 25%; /* Set the width of the sidebar */
+  position: fixed; /* Fixed Sidebar (stay in place on scroll) */
+  z-index: 1; /* Stay on top */
+  top: 2; /* Stay at the top */
+  right: 0;
+  background-color: rgb(255, 255, 255); /* Black */
+  overflow-x: hidden; /* Disable horizontal scroll */
+  padding-top: 20px;
+}
+
+/* The navigation menu links */
+.sidenav a {
+  padding: 6px 8px 6px 16px;
+  text-decoration: none;
+  font-size: 25px;
+  color: #818181;
+  display: block;
+}
+
+/* When you mouse over the navigation links, change their color */
+.sidenav a:hover {
+  color: #f1f1f1;
+}
+
+.cardnav {
+  height: 75%; /* Full-height: remove this if you want "auto" height */
+  width: 73%; /* Set the width of the sidebar */
+  position: fixed; /* Fixed Sidebar (stay in place on scroll) */
+  z-index: 1; /* Stay on top */
+  top: 2; /* Stay at the top */
+  left: 0;
+  /* background-color: rgb(190, 126, 126); */
+  /* opacity: 0; */
+  overflow-x: hidden; /* Disable horizontal scroll */
+  padding-top: 20px;
+  padding: 2px;
+}
+
+.cardnav1 {
+  height: 80%; /* Full-height: remove this if you want "auto" height */
+  width: 73%; /* Set the width of the sidebar */
+  position: fixed; /* Fixed Sidebar (stay in place on scroll) */
+  left: 0.5%;
+  /* background-color: rgb(190, 126, 126); */
+  /* opacity: 0; */
+  overflow-x: hidden; /* Disable horizontal scroll */
+  padding-top: 1%;
+  padding: 0.25%;
+}
+.sidenav {
+  height: 100%;
+  width: 25%;
+  position: fixed;
+  right: 1%;
+  background-color: azure;
+  opacity: 0.9;
+  margin: 1%;
+  padding: 1.5%;
+  text-align: left;
+}
+
+.form_components {
+  margin-top: 1%;
+  margin-bottom: 4%;
+}
+.left {
+  text-align: left;
+}
+#myInput {
+  background-image: url("https://upload.wikimedia.org/wikipedia/commons/thumb/0/0b/Search_Icon.svg/1024px-Search_Icon.svg.png");
+  background-position: 10px 10px;
+  background-repeat: no-repeat;
+  width: 70%;
+  font-size: 16px;
+  padding: 0.5%;
+  border: 1px solid #ddd;
+  margin: 1%;
+  text-align: left;
+  align-items: left;
+}
+#RentInput {
+  background-image: url("https://upload.wikimedia.org/wikipedia/commons/thumb/0/0b/Search_Icon.svg/1024px-Search_Icon.svg.png");
+  background-position: 10px 10px;
+  background-repeat: no-repeat;
+  width: 70%;
+  font-size: 16px;
+  padding: 0.5%;
+  border: 1px solid #ddd;
+  margin: 1%;
+  text-align: left;
+  align-items: left;
+}
+
+.sidenav1 {
+  height: 100%;
+  width: 25%;
+  position: fixed;
+  right: 0.5%;
+  background-color: azure;
+  opacity: 0.9;
+  margin: 1%;
+  margin-top: 4.5%;
+  padding: 1.5%;
+  text-align: left;
+}

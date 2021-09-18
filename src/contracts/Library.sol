@@ -9,8 +9,8 @@ contract Library {
   uint256 public NoteCount = 0;
   
   constructor() public {
-      admin = 0x56906F27e29B3095fE67f1920aEf58740C767591;
-      librarian = 0x56906F27e29B3095fE67f1920aEf58740C767591;
+      admin = msg.sender;
+      librarian = msg.sender;
   }
   
   struct Book {
@@ -36,10 +36,17 @@ contract Library {
     string date;
     uint256 uploadTime;
     address uploader;
+    uint reports;
   }
     
   mapping(uint256 => Note) public notes;
     
+  struct Reporter{
+        bool reported;
+    }
+  
+  mapping(address => mapping(uint =>  Reporter)) public reporters;
+
   event BookUploaded(uint256 book_Id,string book_Hash,uint256 book_Size,string book_Name,string book_Description,string author,uint256 isbn,uint256 uploadTime,address uploader);
   event NoteUploaded(uint256 note_Id,string note_Hash,uint256 note_Size,string stream,string subjectcode,string teacher,string date,uint256 uploadTime,address uploader);
     
@@ -55,11 +62,16 @@ contract Library {
         _;
     }
     
-  modifier onlyUploader(uint256 _index){
-        require(msg.sender==notes[_index].uploader,"Only Note Uploader can access this");
+  modifier onlyUploaderorLibrarian(uint256 _index){
+        require(msg.sender==notes[_index].uploader || msg.sender==librarian,"Only Note Uploader can access this");
         _;
     }
     
+  modifier notuploader(uint256 _index){
+        require(msg.sender!=notes[_index].uploader,"Uploader can't report notes");
+        _;
+    }
+
   function changelibrarian(address _librarian) public onlyadmin() {
         librarian = _librarian;
     }
@@ -106,19 +118,35 @@ contract Library {
 
     NoteCount++;
 
-    notes[NoteCount] = Note(NoteCount,_note_Hash,_note_Size,_stream,_subjectcode,_teacher,_date,now,msg.sender);
+    notes[NoteCount] = Note(NoteCount,_note_Hash,_note_Size,_stream,_subjectcode,_teacher,_date,now,msg.sender,0);
     emit NoteUploaded(NoteCount,_note_Hash,_note_Size,_stream,_subjectcode,_teacher,_date,now,msg.sender);
     }
     
-  function deletenote(uint index) public onlyUploader(index){
+  function deletenote(uint index) public onlyUploaderorLibrarian(index){
         if(index != NoteCount){
-        notes[index]= Note(index,notes[NoteCount].note_Hash,notes[NoteCount].note_Size,notes[NoteCount].stream,notes[NoteCount].subjectcode,notes[NoteCount].teacher,notes[NoteCount].date,notes[NoteCount].uploadTime,notes[NoteCount].uploader);
-        notes[BookCount]= Note(0,"",0,"","","","",0,address(0));
+        notes[index]= Note(index,notes[NoteCount].note_Hash,notes[NoteCount].note_Size,notes[NoteCount].stream,notes[NoteCount].subjectcode,notes[NoteCount].teacher,notes[NoteCount].date,notes[NoteCount].uploadTime,notes[NoteCount].uploader,0);
+        notes[BookCount]= Note(0,"",0,"","","","",0,address(0),0);
         NoteCount --;}
         else
         {
-            notes[index]= Note(0,"",0,"","","","",0,address(0));
+            notes[index]= Note(0,"",0,"","","","",0,address(0),0);
             NoteCount--;
         }
     }
+  function reportnote(uint index) public notuploader(index){
+    uint before = notes[index].reports;
+    // require(!reporters[msg.sender].reported);
+    if(reporters[msg.sender][index].reported==false){
+
+    before++;
+    notes[index].reports = before;
+    reporters[msg.sender][index].reported=true;
+    }
+    else{
+    before--;
+    notes[index].reports = before;
+    reporters[msg.sender][index].reported=false;
+    }
+  }
+  
 }
