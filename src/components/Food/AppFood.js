@@ -51,6 +51,12 @@ class AppFood extends Component{
       const collegeFees = await foodOrder.methods.collegeFees().call();
       this.setState({ collegeFees });
 
+      const canteenOwner = await foodOrder.methods.canteenOwner().call();
+      this.setState({ canteenOwner });
+
+      const admin = await foodOrder.methods.admin().call();
+      this.setState({ admin });
+
       for (var i = 0; i < no_of_cards; i++) {
         const foodItem = await foodOrder.methods.foods(i).call();
         this.setState({
@@ -62,12 +68,12 @@ class AppFood extends Component{
     }
   }
 
-  addFood = (name, price, category, available) => {
+  addFood = (image, name, price, category, available) => {
     //Set state to loading
     this.setState({ loading: true });
 
     this.state.foodOrder.methods
-      .addFood(name, price, category, available)
+      .addFood(image, name, price, category, available)
       .send({ from: this.state.account })
       .on("transactionHash", (hash) => {
         this.setState({
@@ -186,8 +192,8 @@ class AppFood extends Component{
       loading: false,
       ownerAddress: 0,
       collegeFees: 0,
-      // type: null,
-      //name: null,
+      canteenOwner: "",
+      admin: "",
     };
     this.order=this.order.bind(this);
   }
@@ -202,6 +208,8 @@ class AppFood extends Component{
               no_of_cards={this.state.no_of_cards}
               order={this.order}
               foods={this.state.foods}
+              account={this.state.account}
+              canteenOwner={this.state.canteenOwner}
             />
             </Route>
             <Route path="/foodiegenie-admin">
@@ -210,6 +218,8 @@ class AppFood extends Component{
               changeOwner={this.changeOwner}
               ownerAddress={this.state.ownerAddress}
               collegeFees={this.state.collegeFees}
+              admin={this.state.admin}
+              account={this.state.account}
             />
             </Route>
             <Route path="/foodiegenie-owner">
@@ -219,6 +229,8 @@ class AppFood extends Component{
               deleteItem={this.deleteItem}
               availabilityChange={this.availabilityChange}
               priceChange={this.priceChange}
+              canteenOwner={this.state.canteenOwner}
+              account={this.state.account}
             />
             </Route>
           </Switch>
