@@ -26,20 +26,15 @@ function Display() {
           <a href="/foodiegenie">
             <h3 className="home_about_header">Order Food</h3>
           </a>
-          <p className="home_about_description">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod ea
-            accusantium iusto sapiente, numquam necessitatibus aliquid ad
-            nostrum architecto officia placeat molestiae minus libero, tenetur
-            corporis suscipit! Debitis tenetur, necessitatibus quibusdam nisi
-            corporis laudantium laboriosam, sint quaerat ratione deleniti
-            impedit temporibus illum culpa vero veritatis delectus explicabo non
-            molestias? Suscipit, quo reprehenderit asperiores impedit error odio
-            cupiditate? Vitae, quae illum est, laboriosam obcaecati facilis
-            suscipit quis at, consequuntur veniam voluptates sed iste quidem
-            eligendi pariatur voluptate neque non nam. Alias incidunt architecto
-            pariatur dolorem tempore vero exercitationem, aperiam tenetur, error
-            totam magni itaque unde explicabo facere reiciendis dicta
-            consequatur dolorum?
+          <p className="home_about_description_main">
+            Feeling hungry? Its obvious when you use your brain so much.
+            <br />
+            <strong> Order </strong>food from college cafe, eat at cafe or get
+            it <strong> delivered </strong>to your room. <br /> Pay using
+            <strong> Ethereum </strong>the next-gen currency. You can also
+            provide a <strong> feedback</strong> of your order once its done.{" "}
+            <br />
+            <em>A Zomato or Swiggy just for college. Isn't that awesome?</em>
           </p>
         </div>
         <div className="col-lg-6 d-flex align-items-center justify-content-center">
@@ -61,22 +56,15 @@ function Display() {
         <div className="col-lg-6 d-flex align-items-right justify-content-center">
           {/* <div className="col-lg-6"> */}
           <a href="/foodiegenie-owner">
-            <h3 className="home_about_header">Canteen Owners</h3>
+            <h3 className="home_about_header">Canteen Owner</h3>
           </a>
-          <p className="home_about_description">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod ea
-            accusantium iusto sapiente, numquam necessitatibus aliquid ad
-            nostrum architecto officia placeat molestiae minus libero, tenetur
-            corporis suscipit! Debitis tenetur, necessitatibus quibusdam nisi
-            corporis laudantium laboriosam, sint quaerat ratione deleniti
-            impedit temporibus illum culpa vero veritatis delectus explicabo non
-            molestias? Suscipit, quo reprehenderit asperiores impedit error odio
-            cupiditate? Vitae, quae illum est, laboriosam obcaecati facilis
-            suscipit quis at, consequuntur veniam voluptates sed iste quidem
-            eligendi pariatur voluptate neque non nam. Alias incidunt architecto
-            pariatur dolorem tempore vero exercitationem, aperiam tenetur, error
-            totam magni itaque unde explicabo facere reiciendis dicta
-            consequatur dolorum?
+          <p className="home_about_description_main">
+            <strong> Canteen </strong>authority adds the delicious and
+            fresh-made food items here. Toggle the{" "}
+            <strong> availability</strong> of any dish when needed and can also
+            <strong> update</strong> the prices of the items when needed.
+            <br />
+            <em>Go add your dishes now!</em>
           </p>
           {/* </div> */}
         </div>
@@ -86,20 +74,13 @@ function Display() {
           <a href="/foodiegenie-orders">
             <h3 className="home_about_header">Order History</h3>
           </a>
-          <p className="home_about_description">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod ea
-            accusantium iusto sapiente, numquam necessitatibus aliquid ad
-            nostrum architecto officia placeat molestiae minus libero, tenetur
-            corporis suscipit! Debitis tenetur, necessitatibus quibusdam nisi
-            corporis laudantium laboriosam, sint quaerat ratione deleniti
-            impedit temporibus illum culpa vero veritatis delectus explicabo non
-            molestias? Suscipit, quo reprehenderit asperiores impedit error odio
-            cupiditate? Vitae, quae illum est, laboriosam obcaecati facilis
-            suscipit quis at, consequuntur veniam voluptates sed iste quidem
-            eligendi pariatur voluptate neque non nam. Alias incidunt architecto
-            pariatur dolorem tempore vero exercitationem, aperiam tenetur, error
-            totam magni itaque unde explicabo facere reiciendis dicta
-            consequatur dolorum?
+          <p className="home_about_description_main">
+            <em>The heading is sufficient, isn't it?</em> <br />
+            Details such as <strong>Order no.</strong>,{" "}
+            <strong>Ordered Items</strong>, <strong>Quantity</strong>,{" "}
+            <strong>Price</strong>, <strong>Delivery Location</strong>,{" "}
+            <strong>Delivery status</strong>, <strong>Rating</strong> <br /> and
+            many more are displayed here.
           </p>
         </div>
         <div className="col-lg-6 d-flex align-items-center justify-content-center">
@@ -110,99 +91,8 @@ function Display() {
           </div>
         </div>
       </div>
-      {/* <div
-        id="carouselExampleInterval"
-        className="carousel slide"
-        data-bs-ride="carousel"
-      >
-        <div className="carousel-inner">
-          <div className="carousel-item active" data-bs-interval="3000">
-            <img
-              src="https://images.unsplash.com/photo-1494203484021-3c454daf695d?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&h=450&q=80"
-              className="d-block w-100"
-              alt="First image here"
-            />
-          </div>
-          <div className="carousel-item" data-bs-interval="3000">
-            <img
-              src="https://images.unsplash.com/photo-1617545293648-b4847530f8a8?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&h=450&q=80"
-              className="d-block w-100"
-              alt="Second image here"
-            />
-          </div>
-          <div className="carousel-item">
-            <img
-              src="https://images.unsplash.com/photo-1617544926793-e5dd78afc0b7?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1350&h=450&q=80"
-              className="d-block w-100"
-              alt="Third image here"
-            />
-          </div>
-        </div>
-        <button
-          className="carousel-control-prev"
-          type="button"
-          data-bs-target="#carouselExampleInterval"
-          data-bs-slide="prev"
-        >
-          <span
-            className="carousel-control-prev-icon"
-            aria-hidden="true"
-          ></span>
-          <span className="visually-hidden">Previous</span>
-        </button>
-        <button
-          className="carousel-control-next"
-          type="button"
-          data-bs-target="#carouselExampleInterval"
-          data-bs-slide="next"
-        >
-          <span
-            className="carousel-control-next-icon"
-            aria-hidden="true"
-          ></span>
-          <span className="visually-hidden">Next</span>
-        </button>
-      </div>
-      <Parallax
-        bgImage={
-          "https://i.pinimg.com/originals/8f/b8/41/8fb841d386e1acf32e2b36bd40c67f50.jpg"
-        }
-        strength={400}
-        renderLayer={(percentage) => (
-          <div
-            style={{
-              position: "absolute",
-              // background: `rgba(255, 125, 0, ${percentage * 1})`,
-              left: "50%",
-              top: "50%",
-              width: percentage * 500,
-              height: percentage * 500,
-            }}
-          />
-        )}
-      >
-        <div className="container about">
-          <h1 className="about_heading">About Us</h1>
-          <h4 className="sub_heading">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet,
-            velit.
-          </h4>
-          <p className="description">
-            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Corrupti
-            quidem maxime autem rerum soluta quos deleniti, impedit excepturi
-            odio odit nesciunt ex earum, reprehenderit hic architecto dolores.
-            Aliquid ab amet voluptates dolore delectus hic expedita eos dolorem
-            adipisci iure, veniam ad eaque, cumque explicabo. Fugiat, dicta,
-            laborum soluta excepturi dolor ad quis distinctio, consequuntur
-            laudantium enim rem blanditiis similique ab esse? Voluptate repellat
-            molestias ducimus voluptatibus unde fugiat placeat eligendi odit
-            tempora dolores similique deleniti nam corrupti ea optio, tenetur
-            assumenda nulla! Velit nostrum recusandae labore obcaecati modi sint
-            cupiditate illum sapiente commodi ea accusantium quam nihil, quidem,
-            laboriosam voluptas!
-          </p> */}
       <div className=" home_about_container">
-        <div className="container login_cards">
+        <div className="container login_cards" style={{ marginBottom: "2%" }}>
           <a
             href="/foodiegenie"
             class="card each_card text-dark text-decoration-none"
@@ -222,7 +112,7 @@ function Display() {
             </div>
           </a>
           <a
-            href="/landlords"
+            href="/foodiegenie-owner"
             class="card each_card text-dark text-decoration-none"
           >
             <img
@@ -232,7 +122,7 @@ function Display() {
               class="card-img-top"
             />
             <div class="card-body">
-              <h4 class="card-title">Canteen Owners</h4>
+              <h4 class="card-title">Canteen Owner</h4>
               <p class="card-text">
                 Some quick example text to build on the card title and make up
                 the bulk of the card's content.
