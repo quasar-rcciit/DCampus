@@ -1,0 +1,30 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@700&display=swap');
+.navbar {
+  font-family: 'Nunito', sans-serif;
+  font-size: 20px;
+  padding:12px;
+  font-size: 1.2rem;
+  background-color: #F2F1F1!important;
+}
+.nav-item {
+  margin: 0;
+  padding: 0;
+}
+.nav-link {
+  margin: 0;
+  padding: 0;
+}
+.dropdown {
+  margin: 0;
+  padding: 0;
+}
+.dropdown-menu li .dropdown-item:hover{
+ background-color:  #000;
+ color:white;
+}
+i{
+  color:grey;
+}
+i:hover{
+  color:rgb(172, 170, 170);
+}
