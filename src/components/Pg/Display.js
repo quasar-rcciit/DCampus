@@ -1,10 +1,95 @@
 import React from "react";
 import "./display.css";
+import "../home.css";
+import { render } from "react-dom";
+import { Parallax, Background } from "react-parallax";
+import transaction1 from "../../assets/transaction1.svg";
+import transaction2 from "../../assets/transaction2.svg";
+import transaction3 from "../../assets/transaction3.svg";
+import transaction4 from "../../assets/transaction4.svg";
+import house1 from "../../assets/house1.svg";
+import house2 from "../../assets/house2.svg";
+import house3 from "../../assets/house3.svg";
+import house4 from "../../assets/house4.svg";
+import business from "../../assets/business.svg";
+import additems from "../../assets/additems.svg";
+import homesale from "../../assets/homesale.svg";
 
 function Display() {
   return (
     <>
-      <div
+      <div className="row p-5 home_about_container">
+        <div className="col-lg-6">
+          <a href="/pgconnect">
+            <h3 className="home_about_header">Search Rooms</h3>
+          </a>
+          <p className="home_about_description_main">
+            Search all the college affiliated <strong> Paying guests</strong> at
+            a one-stop place. <strong> Browse</strong> through them and see
+            their details. These PGs are verified and are controlled by their
+            respective landlords and the college admin. Pay your rent using the
+            next-gen currency <strong> Ethereum</strong>. Felt bad about a PG?
+            You can also <strong> report</strong> it. <br />{" "}
+            <em>Feel Home Away From Home</em>
+          </p>
+        </div>
+        <div className="col-lg-6 d-flex align-items-center justify-content-center">
+          <div className="logo">
+            <a href="/pgconnect">
+              <img src={house1} width="300px" />
+            </a>
+          </div>
+        </div>
+      </div>
+      <div className="row p-5 home_about_container">
+        <div className="col-lg-6">
+          <div className="logo">
+            <a href="/landlords">
+              <img src={house3} width="480px" />
+            </a>
+          </div>
+        </div>
+        <div className="col-lg-6 d-flex align-items-right justify-content-center">
+          {/* <div className="col-lg-6"> */}
+          <a href="/landlords">
+            <h3 className="home_about_header">Landlord</h3>
+          </a>
+          <p className="home_about_description_main">
+            <strong> Landlords</strong> can provide the details of their own PG
+            and also <strong> disable </strong>
+            the PG when required. And due to certain activities if he/she wants
+            can also request <strong> termination</strong> of the current
+            agreement to the admin. Get you rents paid through{" "}
+            <strong> Etherum</strong>. <br />
+            <em>Govern your service!</em>
+          </p>
+          {/* </div> */}
+        </div>
+      </div>
+      <div className="row p-5 home_about_container">
+        <div className="col-lg-6">
+          <a href="/transactions">
+            <h3 className="home_about_header">Transactions</h3>
+          </a>
+          <p className="home_about_description_main">
+            <em>Phewwwww! Headache removed</em> <br />
+            <strong> Keep track</strong> of all the transactions that took place
+            regarding the Paying guest module. <strong> Landlords</strong> can{" "}
+            <br />
+            monitor their rents and students also recieve their{" "}
+            <strong> confirmation</strong> and <strong> documentation</strong>{" "}
+            of payment here.
+          </p>
+        </div>
+        <div className="col-lg-6 d-flex align-items-center justify-content-center">
+          <div className="logo">
+            <a href="/transactions">
+              <img src={transaction4} width="500px" />
+            </a>
+          </div>
+        </div>
+      </div>
+      {/* <div
         id="carouselExampleInterval"
         className="carousel slide"
         data-bs-ride="carousel"
@@ -56,6 +141,25 @@ function Display() {
           ></span>
           <span className="visually-hidden">Next</span>
         </button>
+      </div>
+      <Parallax
+        bgImage={
+          "https://i.pinimg.com/originals/8f/b8/41/8fb841d386e1acf32e2b36bd40c67f50.jpg"
+        }
+        strength={400}
+        renderLayer={(percentage) => (
+          <div
+            style={{
+              position: "absolute",
+              // background: `rgba(255, 125, 0, ${percentage * 1})`,
+              left: "50%",
+              top: "50%",
+              width: percentage * 500,
+              height: percentage * 500,
+            }}
+          />
+        )}
+      >
         <div className="container about">
           <h1 className="about_heading">About Us</h1>
           <h4 className="sub_heading">
@@ -75,43 +179,69 @@ function Display() {
             assumenda nulla! Velit nostrum recusandae labore obcaecati modi sint
             cupiditate illum sapiente commodi ea accusantium quam nihil, quidem,
             laboriosam voluptas!
-          </p>
-          <div className="container login_cards">
-            <div class="card each_card">
-              <img
-                src="https://images.unsplash.com/photo-1559308448-de7de9315f9b?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&h=650&q=80"
-                class="card-img-top"
-              />
-              <div class="card-body">
-                <h4 class="card-title">Students</h4>
-                <p class="card-text">
-                  Some quick example text to build on the card title and make up
-                  the bulk of the card's content.
-                </p>
-                <a href="/studentpg" class="btn btn-primary">
-                  Enter
-                </a>
-              </div>
+          </p> */}
+      <div className=" home_about_container">
+        <div className="container login_cards" style={{ marginBottom: "2%" }}>
+          <a
+            href="/pgconnect"
+            class="card each_card text-dark text-decoration-none"
+          >
+            <img
+              // src="https://images.unsplash.com/photo-1559308448-de7de9315f9b?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&h=650&q=80"
+              src={homesale}
+              height="220"
+              class="card-img-top"
+            />
+            <div class="card-body">
+              <h4 class="card-title">Students</h4>
+              <p class="card-text">
+                Some quick example text to build on the card title and make up
+                the bulk of the card's content.
+              </p>
             </div>
-            <div class="card each_card">
-              <img
-                src="https://images.unsplash.com/photo-1563461661026-49631dd5d68e?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&h=650&q=80"
-                class="card-img-top"
-              />
-              <div class="card-body">
-                <h4 class="card-title">Renters</h4>
-                <p class="card-text">
-                  Some quick example text to build on the card title and make up
-                  the bulk of the card's content.
-                </p>
-                <a href="/adminpg" class="btn btn-primary">
-                  Login
-                </a>
-              </div>
+          </a>
+          <a
+            href="/landlords"
+            class="card each_card text-dark text-decoration-none"
+          >
+            <img
+              // src="https://images.unsplash.com/photo-1559308448-de7de9315f9b?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&h=650&q=80"
+              src={additems}
+              height="220"
+              class="card-img-top"
+            />
+            <div class="card-body">
+              <h4 class="card-title">Landlord</h4>
+              <p class="card-text">
+                Some quick example text to build on the card title and make up
+                the bulk of the card's content.
+              </p>
             </div>
-          </div>
+          </a>
+
+          <a
+            href="/transactions"
+            class="card each_card text-dark text-decoration-none"
+          >
+            <img
+              // src="https://images.unsplash.com/photo-1563461661026-49631dd5d68e?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&h=650&q=80"
+              src={business}
+              height="220"
+              class="card-img-top"
+            />
+            <div class="card-body">
+              <h4 class="card-title">Transactions</h4>
+              <p class="card-text">
+                Some quick example text to build on the card title and make up
+                the bulk of the card's content.
+              </p>
+            </div>
+          </a>
         </div>
       </div>
+      {/* </div>
+      </Parallax> */}
+      {/* </div> */}
     </>
   );
 }

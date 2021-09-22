@@ -1,0 +1,160 @@
+.center {
+  padding: 5px;
+}
+.sidenavl {
+  height: 75%; /* Full-height: remove this if you want "auto" height */
+  width: 25%; /* Set the width of the sidebar */
+  position: fixed; /* Fixed Sidebar (stay in place on scroll) */
+  z-index: 1; /* Stay on top */
+  top: 2; /* Stay at the top */
+  right: 0;
+  background-color: #f0f0f0; /* Black */
+  overflow-x: hidden; /* Disable horizontal scroll */
+  padding-top: 20px;
+  text-align: left !important;
+}
+
+/* The navigation menu links */
+.sidenav a {
+  padding: 6px 8px 6px 16px;
+  text-decoration: none;
+  font-size: 25px;
+  color: #818181;
+  display: block;
+  text-align: left;
+}
+
+/* When you mouse over the navigation links, change their color */
+.sidenav a:hover {
+  color: #f1f1f1;
+}
+
+.cardnavl {
+  height: 75%; /* Full-height: remove this if you want "auto" height */
+  width: 73%; /* Set the width of the sidebar */
+  position: fixed; /* Fixed Sidebar (stay in place on scroll) */
+  z-index: 1; /* Stay on top */
+  top: 2; /* Stay at the top */
+  left: 0;
+  /* background-color: rgb(190, 126, 126); */
+  /* opacity: 0; */
+  overflow-x: hidden; /* Disable horizontal scroll */
+  padding-top: 20px;
+  padding: 2px;
+}
+.sidenav {
+  height: 100%;
+  width: 25%;
+  position: fixed;
+  right: 1%;
+  background-color: azure;
+  opacity: 0.9;
+  margin: 1%;
+  padding: 1.5%;
+  text-align: left;
+}
+
+.form_components {
+  margin-top: 1%;
+  margin-bottom: 4%;
+}
+
+.cardspg {
+  display: flex;
+  margin-top: 0.3%;
+  margin-bottom: 0.3%;
+}
+
+.three-dots:after {
+  cursor: pointer;
+  color: rgb(0, 0, 0);
+  content: '\2807';
+  font-size: 25px;
+  padding: 0 225px;
+  
+  text-align: left;
+}
+
+.dropdownpg {
+  position: absolute;
+  right: 10px;
+  background-color: rgb(221, 221, 221);
+  box-shadow: 0px 0px 3px 3px rgb(204, 204, 204);
+  outline: none;
+  opacity: 0;
+  z-index: -1;
+  max-height: 0;
+  transition: opacity 0.1s, z-index 0.1s;
+  border-radius: 8px;
+}
+
+.dropdownpg-container:focus {
+  outline: none;
+}
+
+.dropdownpg-container:focus .dropdownpg {
+  opacity: 1;
+  z-index: 100;
+  max-height: 100vh;
+  transition: opacity 0.2s, z-index 0.2s;
+}
+
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+}
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+input:checked + .slider {
+  background-color: #2196F3;
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px #2196F3;
+}
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(26px);
+  -ms-transform: translateX(26px);
+  transform: translateX(26px);
+}
+
+/* Rounded sliders */
+.slider.round {
+  border-radius: 34px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}
