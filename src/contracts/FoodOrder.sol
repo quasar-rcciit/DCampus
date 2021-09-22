@@ -20,16 +20,30 @@ contract FoodOrder {
   }
 
   struct FoodItem {
+    string image;
     string name;
     uint price;
     uint available;
     string category;
   }
 
+//number of orders
+  struct OrderItem{
+      address customer;
+      string name;
+      uint quantity;
+      uint hostelOrCanteen;
+      uint number;
+      uint delivered;
+      uint rating;
+      uint totalPrice;
+  }
+
   mapping(uint => FoodItem) public foods;
+  mapping(uint => OrderItem) public orders;
 
 //all events
-  event ordered(uint orderNumber, uint index, uint hostelOrTable, uint number);
+  event ordered(uint orderNumber, string name, uint hostelOrTable, uint number);
   event deletedItem(string _name);
   event priceChanged(string name, uint _price);
   event availabilityChanged(string name, uint _available);
@@ -49,20 +63,47 @@ contract FoodOrder {
   }
 //checks if customer
   modifier onlyCustomer {
-      require(address(msg.sender) != canteenOwner && address(msg.sender) != admin, "Not Customer");
+      require(address(msg.sender) != canteenOwner);
       _;
   }
   
 //customer related
-  function order(uint index, uint hostelOrTable, uint number) external payable onlyCustomer {
+  function order(uint index, uint quantity, uint hostelOrCanteen, uint number) external payable onlyCustomer {
+    require(index < numberOfFoods && index >= 0, "error!");
+    uint price = foods[index].price * quantity;
+    onOrder(msg.sender, foods[index].name, quantity, hostelOrCanteen, number, price);
+    canteenOwner.transfer(price - price*collegeFees/100);
+    admin.transfer(price - price*(100-collegeFees)/100);
+    emit ordered(orderNumber-1, foods[index].name, hostelOrCanteen, number);
+  }
+  
+  function onOrder(address _customer, string memory _name, uint _quantity, uint _hostelOrCanteen, uint _number, uint _totalPrice) internal {
+    orders[orderNumber].customer = _customer;
+    orders[orderNumber].name = _name;
+    orders[orderNumber].quantity = _quantity;
+    orders[orderNumber].hostelOrCanteen = _hostelOrCanteen;
+    orders[orderNumber].number = _number;
+    orders[orderNumber].delivered = 1;
+    orders[orderNumber].rating = 0;
+    orders[orderNumber].totalPrice = _totalPrice;
     orderNumber++;
-    canteenOwner.transfer(foods[index].price-foods[index].price*collegeFees/100);
-    admin.transfer(foods[index].price-foods[index].price*(100-collegeFees)/100);
-    emit ordered(orderNumber-1, index, hostelOrTable, number);
+  }
+  
+  //if value is 0, customer hasn't rated
+  function onOrderDelivered(uint index, uint _rating) public onlyCustomer{
+    require(orders[index].customer == msg.sender, "Can't rate!");
+    require(orders[index].delivered == 0, "Order not yet delivered!");
+    orders[index].rating = _rating;
   }
 
 //canteen management related
-  function addFood(string memory _name, uint _price, uint _available, string memory _category) public onlyOwner {
+  //if value is 1, then order hasn't been delivered
+  function orderDeliver(uint index) public onlyOwner {
+    orders[index].delivered = 0;
+  }
+
+  function addFood(string memory _image, string memory _name, uint _price, uint _available, string memory _category) public onlyOwner {
+    foods[numberOfFoods].image = _image;
     foods[numberOfFoods].name = _name;
     foods[numberOfFoods].price = _price;
     foods[numberOfFoods].available = _available;
@@ -71,7 +112,12 @@ contract FoodOrder {
     numberOfFoods++;
   }
   
+  function imageChange(uint index, string memory _newImage) public onlyOwner{
+      foods[index].image = _newImage;
+  }
+  
   function availabilityChange(uint index) public onlyOwner {
+    require(numberOfFoods >= 0 && index < numberOfFoods, "error!");
     if(foods[index].available == 0){
       foods[index].available = 1;
     }
@@ -87,11 +133,11 @@ contract FoodOrder {
   }
 
   function deleteItem(uint index) public onlyOwner {
-     if(numberOfFoods != 0 && index < numberOfFoods){
-        emit deletedItem(foods[index].name);
-        delete foods[index];
-        numberOfFoods--;
-    }
+     require(numberOfFoods >= 0 && index < numberOfFoods, "error!");
+     emit deletedItem(foods[index].name);
+     foods[index] = foods[numberOfFoods-1];
+     delete foods[numberOfFoods-1];
+     numberOfFoods--;
   }
   
 //ownership can be changed only by college authorities
