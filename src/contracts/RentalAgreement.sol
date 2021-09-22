@@ -2,16 +2,17 @@ pragma solidity ^0.5.16;
 pragma experimental ABIEncoderV2;
 
 contract RentalAgreement{
-    
     address payable admin;
     address payable tenant;
     address payable landlord;
     uint public no_of_rooms = 0;
     uint public no_of_agreement = 0;
     uint public no_of_rent = 0;
-    
+    uint public no_of_terminationrequest = 0;
+    uint public commisionpercentage = 5;
+
     constructor() public{
-        admin = 0x56906F27e29B3095fE67f1920aEf58740C767591;
+        admin = msg.sender;
     }
     
     struct Room{
@@ -19,14 +20,16 @@ contract RentalAgreement{
         uint agreementid;
         string housename;
         string houseaddress;
-        string hostelorpg;
         uint rent_per_month;
         uint securityDeposit;
         uint timestamp;
         bool vacant;
         address payable landlord;
         address payable currentTenant;
+        uint reports;
+        bool disableroom;
     }
+    
     mapping(uint => Room) public Room_by_No;
     
     struct RoomAgreement{
@@ -36,11 +39,13 @@ contract RentalAgreement{
         string RoomAddresss;
         uint rent_per_month;
         uint securityDeposit;
+        uint commisionpercentage;
         uint lockInPeriod;
         uint timestamp;
         address payable tenantAddress;
         address payable landlordAddress;
     }
+    
    mapping(uint => RoomAgreement) public RoomAgreement_by_No;
     
     struct Rent{
@@ -54,8 +59,36 @@ contract RentalAgreement{
         address payable tenantAddress;
         address payable landlordAddress;
     }
+    
    mapping(uint => Rent) public Rent_by_No;
     
+    struct RequestAgreementTermination{
+        uint terminationno;
+        uint roomid;
+        uint agreementid;
+        uint timestamp;
+        address landlord;
+        address tenant;
+        bool terminated;
+        bool rejected;
+        bool completed;
+    }
+
+    mapping(uint => RequestAgreementTermination) public RequestAgreementTermination_By_No;
+    
+    struct Reporter{
+        bool reported;
+    }
+  
+    mapping(address => mapping(uint =>  Reporter)) public reporters;
+  
+    struct Terminationreq{
+        bool requested;
+    }
+    
+    mapping(uint => mapping(uint =>  Terminationreq)) public terminationreq;
+
+
     modifier onlyAdmin() {
         require(msg.sender == admin, "Only Admin can access this");
         _;
@@ -111,30 +144,46 @@ contract RentalAgreement{
         require(now == time, "Time left to pay Rent");
         _;
     }
-    
-    function addRoom(string memory _housename, string memory _houseaddress, string memory _housetype, uint _rentcost, uint  _securitydeposit) public {
-        no_of_rooms ++;
-        bool _vacancy = true;
-        Room_by_No[no_of_rooms] = Room(no_of_rooms,0,_housename,_houseaddress, _housetype, _rentcost,_securitydeposit,0,_vacancy, msg.sender, address(0)); 
+
+    modifier notrequested(uint _index, uint _agreementid){
+        require(terminationreq[_index][_agreementid].requested == false, "Already Requested");
+        _;
     }
     
-   
-    function signAgreement(uint _index) public payable notLandLord(_index) enoughAgreementfee(_index) OnlyWhileVacant(_index){
+    modifier enabled(uint _index){
+        require(Room_by_No[_index].disableroom == false, "Room Already Disabled");
+        _;
+    }
+    
+    function addRoom(string memory _housename, string memory _houseaddress, uint _rentcost, uint  _securitydeposit) public {
+        no_of_rooms ++;
+        bool _vacancy = true;
+        Room_by_No[no_of_rooms] = Room(no_of_rooms,0,_housename,_houseaddress, _rentcost,_securitydeposit,0,_vacancy, msg.sender, address(0),0,false); 
+        
+    }
+    
+    function signAgreement(uint _index) public payable notLandLord(_index) enoughAgreementfee(_index) OnlyWhileVacant(_index) enabled( _index){
         address payable _landlord = Room_by_No[_index].landlord;
         uint totalfee = Room_by_No[_index].rent_per_month + Room_by_No[_index].securityDeposit;
         
-        _landlord.transfer(totalfee);
+        uint commision = (totalfee*commisionpercentage)/100;
+        uint rest = totalfee - commision;
+        admin.transfer(commision);
+        _landlord.transfer(rest);
+        
         no_of_agreement++;
 
         Room_by_No[_index].currentTenant = msg.sender;
         Room_by_No[_index].vacant = false;
         Room_by_No[_index].timestamp = block.timestamp;
         Room_by_No[_index].agreementid = no_of_agreement;
-        RoomAgreement_by_No[no_of_agreement]=RoomAgreement(_index,no_of_agreement,Room_by_No[_index].housename,Room_by_No[_index].houseaddress,Room_by_No[_index].rent_per_month,Room_by_No[_index].securityDeposit,365 days,block.timestamp,msg.sender,_landlord);
+        RoomAgreement_by_No[no_of_agreement]=RoomAgreement(_index,no_of_agreement,Room_by_No[_index].housename,Room_by_No[_index].houseaddress,Room_by_No[_index].rent_per_month,Room_by_No[_index].securityDeposit,commisionpercentage,365 days,block.timestamp,msg.sender,_landlord);
+        no_of_rent++;
+        Rent_by_No[no_of_rent] = Rent(no_of_rent,_index,no_of_agreement,Room_by_No[_index].housename,Room_by_No[_index].houseaddress,Room_by_No[_index].rent_per_month,now,msg.sender,_landlord);
         
     }
     
-    function payRent(uint _index) public payable sameTenant(_index) RentTimesUp(_index) enoughRent(_index){
+    function payRent(uint _index) public payable sameTenant(_index) RentTimesUp(_index) enoughRent(_index) enabled( _index){
         address payable _landlord = Room_by_No[_index].landlord;
         uint _rent = Room_by_No[_index].rent_per_month;
         
@@ -143,19 +192,55 @@ contract RentalAgreement{
         Room_by_No[_index].currentTenant = msg.sender;
         Room_by_No[_index].vacant = false;
         no_of_rent++;
-        Rent_by_No[no_of_rent]=Rent(no_of_rent,_index,Room_by_No[_index].agreementid,Room_by_No[_index].housename,Room_by_No[_index].houseaddress,_rent,now,msg.sender,Room_by_No[_index].landlord);
-        
+        Rent_by_No[no_of_rent] = Rent(no_of_rent,_index,Room_by_No[_index].agreementid,Room_by_No[_index].housename,Room_by_No[_index].houseaddress,_rent,now,msg.sender,Room_by_No[_index].landlord);
     }
-    function agreementCompleted(uint _index) public payable onlyLandlord(_index) AgreementTimesUp(_index){
+
+    function agreementCompleted(uint _index) public payable onlyLandlord(_index) AgreementTimesUp(_index) enabled( _index){
+        require(Room_by_No[_index].vacant == false, "Room is currently Occupied.");
         Room_by_No[_index].vacant = true;
-        
         address payable _Tenant = Room_by_No[_index].currentTenant;
         uint _securitydeposit = Room_by_No[_index].securityDeposit;
         _Tenant.transfer(_securitydeposit);
     }
     
-    function agreementTerminated(uint _index) public onlyLandlord(_index) AgreementTimesLeft(_index){
+    function agreementTerminated(uint _index, uint _terminateno) public onlyAdmin() AgreementTimesLeft(_index) enabled( _index){
+        require(RequestAgreementTermination_By_No[_terminateno].completed == false, "Request Already Completed");
         Room_by_No[_index].vacant = true;
+        RequestAgreementTermination_By_No[_terminateno].terminated = true;
+        RequestAgreementTermination_By_No[_terminateno].completed = true;
+
+    }
+
+    function reject(uint _index, uint _agreementno, uint _terminateno) public onlyAdmin() {
+        require(RequestAgreementTermination_By_No[_terminateno].completed == false, "Request Already Completed");
+        terminationreq[_index][_agreementno].requested = false;
+        RequestAgreementTermination_By_No[_terminateno].rejected = true;
+        RequestAgreementTermination_By_No[_terminateno].completed = true;
+    }
+    
+    function requestTermination(uint _index,uint _agreementid) public onlyLandlord(_index) AgreementTimesLeft(_index) notrequested(_index,_agreementid) enabled( _index){
+        terminationreq[_index][_agreementid].requested = true;
+        no_of_terminationrequest++;
+        RequestAgreementTermination_By_No[no_of_terminationrequest] = RequestAgreementTermination(no_of_terminationrequest,_index,_agreementid,now,Room_by_No[_index].landlord,Room_by_No[_index].currentTenant,false,false,false);
+        
+    }
+     
+    function changeCommision(uint _commision) public onlyAdmin() {
+        require(_commision >= 0, "can not be negative");
+        require(_commision < 100, "can not be equal or more than 100");
+        commisionpercentage = _commision;
+    }
+    
+    function diableRoom(uint _index) public onlyAdmin() {
+        if(Room_by_No[_index].disableroom == false){
+            Room_by_No[_index].disableroom = true;
+        }else{
+            Room_by_No[_index].disableroom = false;
+        }
+    }
+    
+    function Admin() public returns (address){
+        return(admin);
     }
     
     function totalfee(uint _index) public returns (uint){
@@ -167,17 +252,32 @@ contract RentalAgreement{
     
     function rent(uint _index) public returns (uint){
         uint rent = Room_by_No[_index].rent_per_month;
-         return(rent);
+        return(rent);
     }
 
     function securitydeposit(uint _index) public returns (uint){
         uint rent = Room_by_No[_index].securityDeposit;
-         return(rent);
+        return(rent);
     }
 
     function landlordAddress(uint _index) public returns (address){
         address landlordAddress = Room_by_No[_index].landlord;
-         return(landlordAddress);
+        return(landlordAddress);
     }
+
+    function reportroom(uint index) public notLandLord(index) enabled( index){
+        uint before = Room_by_No[index].reports;
+        if(reporters[msg.sender][index].reported==false){
+            before++;
+            Room_by_No[index].reports = before;
+            reporters[msg.sender][index].reported=true;
+        }
+        else{
+            before--;
+            Room_by_No[index].reports = before;
+            reporters[msg.sender][index].reported=false;
+        }
+    }
+
 }
     
