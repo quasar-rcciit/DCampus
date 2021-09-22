@@ -1,0 +1,34 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+footer{
+    background-color: black;
+    color: white;
+    height: 29px;
+     margin-top: 1px; 
+        /* padding: 10px; */
+}
+.footcont{
+    width:89%;
+    margin: auto;
+    height: 100%;
+    /* padding: 10px; */
+    
+}
+
+ul li{
+    list-style: none;
+}
+.footcont ul{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+
+}
+.aboutus a{
+    color: white;
+}
