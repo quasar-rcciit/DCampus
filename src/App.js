@@ -45,20 +45,20 @@ class App extends React.Component {
                 <Food></Food>
                 <Footer></Footer>
               </Route>
-              <Route path="/foodiegenie-admin">
-                <Navbar></Navbar>
-                <AppFood></AppFood>
-              </Route>
+              {/* <Route path="/foodiegenie-admin"> */}
+                {/* <Navbar></Navbar> */}
+                {/* <AppFood></AppFood>
+              </Route> */}
               <Route path="/foodiegenie-owner">
-                <Navbar></Navbar>
+                {/* <Navbar></Navbar> */}
                 <AppFood></AppFood>
               </Route>
               <Route path="/foodiegenie">
-                <Navbar></Navbar>
+                {/* <Navbar></Navbar> */}
                 <AppFood></AppFood>
               </Route>
               <Route path="/foodiegenie-orders">
-                <Navbar></Navbar>
+                {/* <Navbar></Navbar> */}
                 <AppFood></AppFood>
               </Route>
               <Route path="/transactions">

@@ -128,11 +128,6 @@ class Navbar extends Component {
                       Canteen Owner
                     </a>
                   </li>
-                  <li>
-                    <a className="dropdown-item" href="/foodiegenie-admin">
-                      College Admin
-                    </a>
-                  </li>
                 </ul>
               </li>
               {/* ============= */}
