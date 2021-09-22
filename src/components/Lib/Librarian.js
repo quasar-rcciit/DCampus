@@ -1,9 +1,15 @@
 import React, { Component } from "react";
-import { Button } from "react-bootstrap";
+import { Button, Card, Col, Container, Row } from "react-bootstrap";
 import "./library.css";
-import Card from "react-bootstrap/Card";
+//import Card from "react-bootstrap/Card";
 import Web3 from "web3";
 import moment from "moment";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faTrash,
+  faDownload,
+  faUpload,
+} from "@fortawesome/free-solid-svg-icons";
 
 class Librarian extends Component {
   render() {
@@ -19,15 +25,20 @@ class Librarian extends Component {
             this.props.uploadBook(name, description, author, isbn);
           }}
         >
-          <h1>
+          <h1 style={{ fontFamily: "'Be Vietnam Pro', sans-serif" }}>
             <b>Welcome Librarian</b>
           </h1>
-          <h4>Use this module to add books to the network</h4>
+          <h4
+            className="libraryhead4"
+            style={{ fontFamily: "'Be Vietnam Pro', sans-serif" }}
+          >
+            Use this module to add books to the network
+          </h4>
           <div class="sidenav">
             <div class="form-row">
               <div className="form-group form_components">
                 <h5 className="form_components" style={{ textAlign: "center" }}>
-                  Add Books To Network
+                  Upload Books In PDF
                 </h5>
                 <h6>Enter Book Name</h6>
                 <input
@@ -89,12 +100,15 @@ class Librarian extends Component {
                   required
                 />
               </div>
+
               <button
                 type="submit"
                 disabled={this.props.account != this.props.librarian}
                 className="btn btn-success col-md-1.5"
               >
-                <b>Upload</b>
+                <b>
+                  Upload &nbsp; <FontAwesomeIcon icon={faUpload} />
+                </b>
               </button>
             </div>
           </div>
@@ -103,41 +117,57 @@ class Librarian extends Component {
           <div class="card-group">
             {this.props.books.map((file, key) => {
               return (
-                <div class="cards">
-                  <Card
-                    border="success"
-                    style={{ height: "22rem", width: "11rem" }}
-                    key={key}
-                  >
-                    <Card.Img
-                      variant="top"
-                      src={
-                        "https://books.google.com/books/content?vid=isbn" +
-                        file.isbn +
-                        "&printsec=frontcover&img=1&zoom=0&edge=curl&source=gbs_api"
-                      }
-                      style={{ height: "9rem" }}
-                    />
-                    <Card.Body>
-                      <Card.Title style={{ fontSize: "11px", color: "green" }}>
-                        {file.book_Name.substring(0, 46)}
-                      </Card.Title>
-                      <Card.Subtitle
-                        className="mb-1 text-muted"
-                        style={{ fontSize: "10px" }}
-                      >
-                        {file.author}
-                      </Card.Subtitle>
-                      <Card.Text style={{ fontSize: "10px" }}>
-                        {file.book_Description.substring(0, 50)}...
-                      </Card.Text>
-                      <Card.Subtitle
-                        className="mb-1 text-muted"
-                        style={{ fontSize: "10px" }}
-                      >
-                        ISBN: {file.isbn}
-                      </Card.Subtitle>
-                      {/* <Card.Link
+                <Row>
+                  <Col style={{ marginRight: "12px", marginLeft: "12px" }}>
+                    <Card
+                      className="card_sp w-95"
+                      // border="shadow"
+
+                      style={{
+                        width: "20rem",
+                        height: "24rem",
+                        textAlign: "center",
+                        marginBottom: "2%",
+                        borderRadius: "16px",
+                      }}
+                      key={key}
+                    >
+                      <Card.Img
+                        variant="top"
+                        src={
+                          "https://books.google.com/books/content?vid=isbn" +
+                          file.isbn +
+                          "&printsec=frontcover&img=1&zoom=0&edge=curl&source=gbs_api"
+                        }
+                        className="card_sp_image"
+                        style={{ height: "16rem" }}
+                      />
+                      <Card.Body>
+                        <Card.Title
+                          style={{
+                            fontSize: "20px",
+                            color: "black",
+                            fontFamily: "'Be Vietnam Pro', sans-serif",
+                          }}
+                        >
+                          <b>{file.book_Name.substring(0, 46)}</b>
+                        </Card.Title>
+                        <Card.Subtitle
+                          className="mb-1 text-muted"
+                          style={{ fontSize: "16px" }}
+                        >
+                          {file.author}
+                        </Card.Subtitle>
+                        <Card.Text style={{ fontSize: "14px", height: "50px" }}>
+                          {file.book_Description.substring(0, 50)}...
+                        </Card.Text>
+                        <Card.Subtitle
+                          className="mb-1"
+                          style={{ fontSize: "12px" }}
+                        >
+                          ISBN: {file.isbn}
+                        </Card.Subtitle>
+                        {/* <Card.Link
                       style={{ fontSize: "12px", color: "darkcyan" }}
                       href={"https://etherscan.io/address/" + file.uploader}
                       rel="noopener noreferrer"
@@ -146,37 +176,61 @@ class Librarian extends Component {
                       By: {file.uploader.substring(0, 10)}...
                     </Card.Link>
                     <br></br> */}
-                      <Card.Link
-                        style={{ fontSize: "10px", color: "orangered" }}
-                        href={
-                          "http://books.google.com/books?vid=ISBN" + file.isbn
-                        }
-                        rel="noopener noreferrer"
-                        target="_blank"
-                      >
-                        Google Books
-                      </Card.Link>
-                      <Card.Link
-                        style={{ fontSize: "10px", color: "purple" }}
-                        href={"https://ipfs.infura.io/ipfs/" + file.book_Hash}
-                        target="_blank"
-                        download="download"
-                      >
-                        Download
-                      </Card.Link>
-                      {/* <br></br> */}
+                        <div style={{ textAlign: "center" }}>
+                          <Card.Link
+                            style={{
+                              fontSize: "1rem",
+                              borderRadius: "10px",
+                              margin: "2%",
+                            }}
+                            className="btn btn-success"
+                            href={
+                              "https://ipfs.infura.io/ipfs/" + file.book_Hash
+                            }
+                            target="_blank"
+                            download="download"
+                          >
+                            Download &nbsp;{" "}
+                            <FontAwesomeIcon icon={faDownload} />
+                          </Card.Link>
 
-                      <Button
-                        id="delete"
-                        disabled={this.props.account != this.props.librarian}
-                        variant="danger btn-sm"
-                        onClick={() => this.props.deletebook(key + 1)}
-                      >
-                        Delete
-                      </Button>
-                    </Card.Body>
-                  </Card>
-                </div>
+                          <Card.Link
+                            id="delete"
+                            className="btn btn-danger"
+                            style={{
+                              fontSize: "1rem",
+                              borderRadius: "10px",
+                              margin: "1%",
+                            }}
+                            disabled={
+                              this.props.account != this.props.librarian
+                            }
+                            variant="danger btn-sm"
+                            onClick={() => this.props.deletebook(key + 1)}
+                          >
+                            Delete &nbsp; <FontAwesomeIcon icon={faTrash} />
+                          </Card.Link>
+                          {/* <Card.Link
+                          style={{
+                            fontSize: "1rem",
+                            borderRadius: "10px",
+                            margin: "2%",
+                            marginTop:"4%"
+                          }}
+                          className="btn btn-outline-primary"
+                          href={
+                            "http://books.google.com/books?vid=ISBN" + file.isbn
+                          }
+                          rel="noopener noreferrer"
+                          target="_blank"
+                        >
+                          Google Books
+                        </Card.Link> */}
+                        </div>
+                      </Card.Body>
+                    </Card>
+                  </Col>
+                </Row>
               );
             })}
           </div>

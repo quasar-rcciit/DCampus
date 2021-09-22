@@ -227,7 +227,7 @@ class Applib extends Component {
 
       this.setState({ loading: true });
 
-      if (this.state.account == admin) {
+      if (this.state.account == librarian) {
         this.state.library.methods
           .uploadBook(
             result[0].hash,
@@ -317,14 +317,14 @@ class Applib extends Component {
         <Router>
           <Switch>
             {/* ========================================= Students (View Books) ========================================= */}
-            <Route path="/lib-student-ebook">
+            <Route path="/lib-ebook">
               <Navbar account={this.state.account} />
               <Student books={this.state.books} loadBook={this.loadBook} />
             </Route>
 
             {/* ========================================= Students (Upload, View & Delete Notes) ========================================= */}
 
-            <Route exact path="/lib-student-notes">
+            <Route exact path="/lib-notes">
               <Navbar account={this.state.account} />
               {this.state.loading ? (
                 <div id="loader" className="text-center mt-5">
@@ -345,15 +345,24 @@ class Applib extends Component {
 
             {/* ========================================= Admin (Change Librarian)========================================= */}
 
-            <Route path="/lib-admin">
+            {/* <Route path="/lib-admin">
               <Navbar account={this.state.account} />
               <Admin
                 changelibrarian={this.changelibrarian}
                 account={this.state.account}
                 admin={admin}
               />
-            </Route>
+            </Route> */}
 
+            <Route path="/admin">
+              <Navbar account={this.state.account} />
+              <Admin
+                changelibrarian={this.changelibrarian}
+                account={this.state.account}
+                admin={admin}
+                librarian={librarian}
+              />
+            </Route>
             {/* ========================================= Librarian (Upload & Delete Books)========================================= */}
 
             <Route exact path="/lib-librarian">

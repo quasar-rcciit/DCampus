@@ -78,7 +78,7 @@ function Display() {
         {/* <div className="container login_cards"> */}
         <div className="container login_cards">
           <a
-            href="/lib-student-ebook"
+            href="/lib-ebook"
             class="card each_card text-dark text-decoration-none"
           >
             <img
@@ -93,13 +93,13 @@ function Display() {
                 Some quick example text to build on the card title and make up
                 the bulk of the card's content.
               </p>
-              {/* <a href="/lib-student" class="btn btn-primary">
+              {/* <a href="/lib" class="btn btn-primary">
                 Enter
               </a> */}
             </div>
           </a>
           <a
-            href="/lib-student-notes"
+            href="/lib-notes"
             class="card each_card text-dark text-decoration-none"
           >
             <img
@@ -114,7 +114,7 @@ function Display() {
                 Some quick example text to build on the card title and make up
                 the bulk of the card's content.
               </p>
-              {/* <a href="/lib-student" class="btn btn-primary">
+              {/* <a href="/lib" class="btn btn-primary">
                 Enter
               </a> */}
             </div>

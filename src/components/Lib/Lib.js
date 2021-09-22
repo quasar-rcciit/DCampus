@@ -17,10 +17,10 @@ export default function Lib() {
           </Route>
 
           {/* ========================================= Students (View Books) ========================================= */}
-          <Route path="/lib-student">
+          {/* <Route path="/lib">
             <Navbar></Navbar>
             <DisplayStudent></DisplayStudent>
-          </Route>
+          </Route> */}
         </Switch>
       </Router>
       {/* <Navbar></Navbar>

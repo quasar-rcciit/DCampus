@@ -1,12 +1,12 @@
-.about_heading {
+.about_headinglib {
   text-align: center;
   font-family: "Josefin Sans", sans-serif;
   margin: 3.5%;
 }
-.sub_heading {
+.sub_headinglib {
   text-align: center;
 }
-.description {
+.descriptionlib {
   text-align: justify;
 }
 .login_cards {
