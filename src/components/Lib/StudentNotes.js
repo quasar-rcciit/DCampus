@@ -49,11 +49,11 @@ class StudentNotes extends Component {
         >
           <div class="sidenav1">
             <h5 className="form_components" style={{ textAlign: "center" }}>
-              Add Notes To Network
+              Upload Class Notes
             </h5>
             <div class="form-row">
               {/* ============================================== Stream */}
-              <h6>Enter stream</h6>
+              <h6>Enter Stream</h6>
               <div className="form-group form_components">
                 {/* <input
                   id="stream"
@@ -81,7 +81,7 @@ class StudentNotes extends Component {
               </div>
               {/* ============================================== Subjet Code  */}
               <div className="form-group form_components">
-                <h6>Enter subject-code</h6>
+                <h6>Enter Subject Code</h6>
                 {/* <input
                   id="subjectcode"
                   type="text"
@@ -136,7 +136,7 @@ class StudentNotes extends Component {
               </div>
               {/* ============================================== Class Date  */}
               <div className="form-group form_components">
-                <h6>Enter date</h6>
+                <h6>Enter Class Date</h6>
                 <input
                   id="date"
                   type="date"
@@ -151,7 +151,7 @@ class StudentNotes extends Component {
 
               {/* ============================================== Faculty Name  */}
               <div className="form-group form_components">
-                <h6>Enter subject-code</h6>
+                <h6>Enter Faculty Name</h6>
                 <input
                   id="teacher"
                   type="text"

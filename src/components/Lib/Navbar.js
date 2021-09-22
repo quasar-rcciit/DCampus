@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import "./navbar.css"
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUserCircle, faCaretDown } from "@fortawesome/free-solid-svg-icons";
@@ -7,9 +8,9 @@ import { faUserCircle, faCaretDown } from "@fortawesome/free-solid-svg-icons";
 class Navbar extends Component {
   render() {
     return (
-      <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <div class="container-fluid">
-          <a className="col-md-8" href="/">
+      <nav className="navbar navbar-expand-lg navbar-light bg-light navigation" >
+        <div className="container-fluid">
+          <a href="/" style={{ marginTop: "-10px" }}>
             <img
               src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/i/12406172-000b-4228-8773-7b97eb8fd888/da1coxr-815e3b9d-fa87-41aa-b084-e02975f4aa4e.gif"
               width="40"
@@ -26,7 +27,7 @@ class Navbar extends Component {
             />
           </a>
           <button
-            class="navbar-toggler"
+            className="navbar-toggler"
             type="button"
             data-bs-toggle="collapse"
             data-bs-target="#navbarSupportedContent"
@@ -34,135 +35,130 @@ class Navbar extends Component {
             aria-expanded="false"
             aria-label="Toggle navigation"
           >
-            <span class="navbar-toggler-icon"></span>
+            <span className="navbar-toggler-icon"></span>
           </button>
-          <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-              <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="/">
-                  Home
+          <div className="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul
+              className="navbar-nav ms-auto mb-2 mb-lg-0"
+              style={{ marginRight: "4rem", marginTop: "-8px" }}
+            >
+              <li
+                style={{ marginLeft: "5%", marginTop: "0.2%" }}
+                className="nav-item"
+              >
+                <a
+                  className="nav-link"
+                  aria-current="page"
+                  href="/lib-ebook"
+                  style={{ marginTop: "0.2%" }}
+                >
+                  <strong>Library</strong>
                 </a>
               </li>
-              <li class="nav-item dropdown">
+              <i className="fas fa-book" style={{ marginTop: "0.7%" }}></i>
+              <li className="nav-item dropdown" style={{ marginRight: "0.5%" }}>
                 <a
-                  class="nav-link dropdown-toggle"
+                  className="nav-link dropdown-toggle"
                   href="#"
                   id="navbarDropdown"
                   role="button"
                   data-bs-toggle="dropdown"
                   aria-expanded="false"
-                >
-                  Library
-                </a>
-                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                ></a>
+                <ul className="dropdown-menu" aria-labelledby="navbarDropdown">
                   <li>
-                    <a class="dropdown-item" href="/lib-student">
-                      Student
+                    <a className="dropdown-item" href="/lib-notes">
+                      Class Notes
                     </a>
-                  </li>
-                  <li>
-                    <a class="dropdown-item" href="/lib-librarian">
+                    <a className="dropdown-item" href="/lib-librarian">
                       Librarian
                     </a>
                   </li>
-                  <li>
-                    <a class="dropdown-item" href="/lib-admin">
-                      Admin
-                    </a>
-                  </li>
+                  <li></li>
                 </ul>
               </li>
-              <li class="nav-item dropdown">
+              <li className="nav-item">
+                <a className="nav-link" aria-current="page" href="/pgconnect">
+                  <strong>PGConnect</strong>
+                </a>
+              </li>
+              <i className="fas fa-home" style={{ marginTop: "0.5%" }}></i>
+              <li className="nav-item dropdown" style={{ marginRight: "0.5%" }}>
                 <a
-                  class="nav-link dropdown-toggle"
+                  className="nav-link dropdown-toggle"
                   href="#"
                   id="navbarDropdown"
                   role="button"
                   data-bs-toggle="dropdown"
                   aria-expanded="false"
-                >
-                  PG Finder
-                </a>
-                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                ></a>
+                <ul className="dropdown-menu" aria-labelledby="navbarDropdown">
                   <li>
-                    <a class="dropdown-item" href="/studentpg">
-                      Student
+                    <a className="dropdown-item" href="/transactions">
+                      Transactions
                     </a>
-                  </li>
-                  <li>
-                    <a class="dropdown-item" href="/adminpg">
-                      Renters
+                    <a className="dropdown-item" href="/landlords">
+                      LandLords
                     </a>
                   </li>
                 </ul>
               </li>
-              <li class="nav-item dropdown">
+              <li className="nav-item">
+                <a className="nav-link" aria-current="page" href="/foodiegenie">
+                  <strong>Foodiegenie</strong>
+                </a>
+              </li>
+              <i className="fas fa-hamburger" style={{ marginTop: "0.5%" }}></i>
+              <li className="nav-item dropdown">
                 <a
-                  class="nav-link dropdown-toggle"
+                  className="nav-link dropdown-toggle"
                   href="#"
                   id="navbarDropdown"
                   role="button"
                   data-bs-toggle="dropdown"
                   aria-expanded="false"
-                >
-                  Canteen
-                </a>
-                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                ></a>
+                <ul className="dropdown-menu" aria-labelledby="navbarDropdown">
                   <li>
-                    <a class="dropdown-item" href="/studentfood">
-                      Student
+                    <a className="dropdown-item" href="/foodiegenie-orders">
+                      Previous Orders
                     </a>
                   </li>
                   <li>
-                    <a class="dropdown-item" href="/adminfood">
-                      Canteen
+                    <a className="dropdown-item" href="/foodiegenie-owner">
+                      Canteen Owner
                     </a>
                   </li>
                 </ul>
               </li>
-              <li class="nav-item dropdown">
+              {/* ============= */}
+              <li className="nav-item">
+                <a className="nav-link" aria-current="page" href="/admin">
+                  <strong>Admin</strong>
+                </a>
+              </li>
+              <i className="fas fa-user-cog" style={{ marginTop: "0.5%" }}></i>
+              <li className="nav-item dropdown">
                 <a
-                  class="nav-link dropdown-toggle"
+                  className="nav-link dropdown-toggle"
                   href="#"
                   id="navbarDropdown"
                   role="button"
                   data-bs-toggle="dropdown"
                   aria-expanded="false"
-                >
-                  About
-                </a>
-                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                ></a>
+                <ul className="dropdown-menu" aria-labelledby="navbarDropdown">
                   <li>
-                    <a class="dropdown-item" href="/about-project">
-                      About This Project
-                    </a>
-                  </li>
-                  <li>
-                    <a class="dropdown-item" href="/about-us">
-                      Makers of this project
+                    <a className="dropdown-item" href="/admin-notifications">
+                      Notifications
                     </a>
                   </li>
                 </ul>
               </li>
+              {/* ============ */}
             </ul>
           </div>
         </div>
-        {/* <a className="navbar-nav px-3"> */}
-        {/* <small id="account">
-            <a
-              target="_blank"
-              alt=""
-              className="text-dark "
-              rel="noopener noreferrer"
-              href={"https://etherscan.io/address/" + this.props.account}
-            >
-              {this.props.account ? this.props.account.substring(0, 6) : "0x0"}
-              ...
-              {this.props.account
-                ? this.props.account.substring(38, 42)
-                : "0x0"}
-            </a>
-          </small> */}
         <a
           target="_blank"
           className="text-muted h6 small  text-decoration-none"
@@ -174,16 +170,9 @@ class Navbar extends Component {
           {this.props.account ? this.props.account.substring(38, 42) : "0x0"}
         </a>
         &nbsp;
-        <a>
+        <a style={{ marginRight: "2%" }}>
           <FontAwesomeIcon icon={faUserCircle} size="2x" color="black" />
         </a>
-        {/* <img
-            src="https://classroomclipart.com/images/gallery/Animations/Education_School/black-student-wearing-mask-to-protect-against-virus-animation.gif"
-            alt="alternatetext"
-            width="30"
-            height="30"
-          ></img> */}
-        {/* </a> */}
       </nav>
     );
   }

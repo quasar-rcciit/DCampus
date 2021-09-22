@@ -1,10 +1,96 @@
 import React from "react";
 import "./display.css";
+import "../home.css";
+
+import { Parallax, Background } from "react-parallax";
+import lib1 from "../../assets/lib1.svg";
+import lib2 from "../../assets/lib2.svg";
+import notes1 from "../../assets/notes1.svg";
+import notes2 from "../../assets/notes2.svg";
+import notes3 from "../../assets/notes3.svg";
+import admin from "../../assets/admin.svg";
+import librarian from "../../assets/librarian.svg";
 
 function Display() {
   return (
     <>
-      <div
+      {/* ================= */}
+      <div className="row p-5 home_about_container">
+        <div className="col-lg-6">
+          <a href="/lib-ebook">
+            <h3 className="home_about_header">E Books</h3>
+          </a>
+          <p className="home_about_description_main">
+            <strong> Browse </strong>books from the college's online library,{" "}
+            <strong> download</strong> them and get refernce to Google Books.
+            <br></br>
+            All books are stored in decentralised system and are regularly
+            updated by the college librarian.<br></br>
+            This feature is completely <strong> free</strong> for the students.
+            <br></br>
+            <em>
+              {" "}
+              Experience seamless library experience from the comfort of your
+              home.
+            </em>
+          </p>
+        </div>
+        <div className="col-lg-6 d-flex align-items-center justify-content-center">
+          <div className="logo">
+            <a href="/lib-ebook">
+              <img src={lib2} width="500px" />
+            </a>
+          </div>
+        </div>
+      </div>
+      <div className="row p-5 home_about_container">
+        <div className="col-lg-6">
+          <div className="logo">
+            <a href="/lib-notes">
+              <img src={notes3} width="480px" />
+            </a>
+          </div>
+        </div>
+        <div className="col-lg-6 d-flex align-items-right justify-content-center">
+          {/* <div className="col-lg-6"> */}
+          <a href="/lib-notes">
+            <h3 className="home_about_header">Class Notes</h3>
+          </a>
+          <p className="home_about_description_main">
+            <em> Sharing notes with friends is no more a hassle!</em> <br />
+            Introducing <strong> Class notes</strong> feature in DCampus.{" "}
+            <strong> Upload </strong> notes with least hassle and view them from
+            your teachers and friends. You can search the notes according to
+            your <strong> department </strong>and view it. <br /> Fully
+            decentralised!
+          </p>
+          {/* </div> */}
+        </div>
+      </div>
+      <div className="row p-5 home_about_container">
+        <div className="col-lg-6">
+          <a href="/lib-librarian">
+            <h3 className="home_about_header">Librarian</h3>
+          </a>
+          <p className="home_about_description_main">
+            <strong> Librarians</strong> can use this module to{" "}
+            <strong> add </strong> or <strong>remove </strong>books from the
+            network. Full management of a E-book system without the hassle of
+            Database. <br />{" "}
+            <em> Librarian's job to maintain an online library made easy!</em>
+          </p>
+        </div>
+        <div className="col-lg-6 d-flex align-items-center justify-content-center">
+          <div className="logo">
+            <a href="/lib-librarian">
+              <img src={admin} width="500px" />
+            </a>
+          </div>
+        </div>
+      </div>
+
+      {/* ================= */}
+      {/* <div
         id="carouselExampleInterval"
         className="carousel slide"
         data-bs-ride="carousel"
@@ -56,76 +142,79 @@ function Display() {
           ></span>
           <span className="visually-hidden">Next</span>
         </button>
-      </div>
-      <div className="container about">
-        <h1 className="about_heading">About Us</h1>
-        <h4 className="sub_heading">
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet, quam.
-        </h4>
-        <p className="description">
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Magnam
-          voluptatibus, beatae a reiciendis distinctio id nostrum voluptatum
-          saepe nisi. Sit modi numquam enim sint libero culpa at assumenda dolor
-          beatae voluptatibus optio, minus nemo natus ex iure ratione quod
-          veniam ullam! Provident, nobis sint nesciunt unde laboriosam officia
-          velit? Maiores consectetur sint unde, inventore aliquam accusamus
-          fugit, laboriosam recusandae eaque temporibus sit dolore culpa vel
-          iste explicabo dicta pariatur nihil quaerat! Nostrum iste quia,
-          voluptatum ratione eaque, labore culpa necessitatibus dolor aliquid ex
-          in harum debitis nulla assumenda magnam sed suscipit! Vitae dolorem
-          fugit in nesciunt aliquam, voluptas neque ipsum?
-        </p>
-        {/* <div className="container login_cards"> */}
-        <div className="card-group">
-          {/* <a
-            href="/lib-student"
-            class="card each_card text-dark text-decoration-none"
-          >
-            <img
-              src="https://st2.depositphotos.com/1037238/6210/v/600/depositphotos_62104503-stock-illustration-kids-checking-out-books-in.jpg"
-              width="100"
-              height="200"
-              class="card-img-top"
-            />
-            <div class="card-body">
-              <h4 class="card-title">Students</h4>
-              <p class="card-text">
-                Some quick example text to build on the card title and make up
-                the bulk of the card's content.
-              </p>
-              
-            </div>
-          </a> */}
-          {/* <a
-            href="/lib-student-notes"
-            class="card each_card text-dark text-decoration-none"
-          >
-            <img
-              src="https://st2.depositphotos.com/1037238/6210/v/600/depositphotos_62104503-stock-illustration-kids-checking-out-books-in.jpg"
-              width="100"
-              height="200"
-              class="card-img-top"
-            />
-            <div class="card-body">
-              <h4 class="card-title">Notes</h4>
-              <p class="card-text">
-                Some quick example text to build on the card title and make up
-                the bulk of the card's content.
-              </p>
-            </div>
-          </a> */}
+      </div> */}
+      {/* <Parallax
+        bgImage={
+          "https://static.vecteezy.com/system/resources/previews/001/271/530/non_2x/white-marble-surface-free-photo.jpg"
+        }
+        strength={400}
+        renderLayer={(percentage) => (
+          <div
+            style={{
+              position: "absolute",
+              // background: `rgba(255, 125, 0, ${percentage * 1})`,
+              left: "50%",
+              top: "50%",
+              width: percentage * 500,
+              height: percentage * 500,
+            }}
+          />
+        )}
+      >
+        <div className="container about">
+          <h1 className="about_headinglib">About Us</h1>
+          <h4 className="sub_headinglib">
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet,
+            quam.
+          </h4>
+          <p className="descriptionlib">
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Magnam
+            voluptatibus, beatae a reiciendis distinctio id nostrum voluptatum
+            saepe nisi. Sit modi numquam enim sint libero culpa at assumenda
+            dolor beatae voluptatibus optio, minus nemo natus ex iure ratione
+            quod veniam ullam! Provident, nobis sint nesciunt unde laboriosam
+            officia velit? Maiores consectetur sint unde, inventore aliquam
+            accusamus fugit, laboriosam recusandae eaque temporibus sit dolore
+            culpa vel iste explicabo dicta pariatur nihil quaerat! Nostrum iste
+            quia, voluptatum ratione eaque, labore culpa necessitatibus dolor
+            aliquid ex in harum debitis nulla assumenda magnam sed suscipit!
+            Vitae dolorem fugit in nesciunt aliquam, voluptas neque ipsum?
+          </p> */}
+      <div className="home_about_container">
+        <div className="container login_cards" style={{ marginBottom: "2%" }}>
+          {/* <div className="card-group"> */}
           <a
-            href="/lib-student"
+            href="/lib-ebook"
             class="card each_card text-dark text-decoration-none"
           >
             <img
-              src="https://st2.depositphotos.com/1037238/6210/v/600/depositphotos_62104503-stock-illustration-kids-checking-out-books-in.jpg"
-              width="100"
-              height="200"
+              // src="https://st2.depositphotos.com/1037238/6210/v/600/depositphotos_62104503-stock-illustration-kids-checking-out-books-in.jpg"
+              src={lib1}
+              // width="100"
+              height="220"
               class="card-img-top"
             />
             <div class="card-body">
-              <h4 class="card-title">Students</h4>
+              <h4 class="card-title">EBooks</h4>
+              <p class="card-text">
+                Some quick example text to build on the card title and make up
+                the bulk of the card's content.
+              </p>
+            </div>
+          </a>
+          <a
+            href="/lib-notes"
+            class="card each_card text-dark text-decoration-none"
+          >
+            <img
+              // src="https://st2.depositphotos.com/1037238/6210/v/600/depositphotos_62104503-stock-illustration-kids-checking-out-books-in.jpg"
+              src={notes1}
+              // width="100"
+              height="220"
+              class="card-img-top"
+            />
+            <div class="card-body">
+              <h4 class="card-title">Class Notes</h4>
               <p class="card-text">
                 Some quick example text to build on the card title and make up
                 the bulk of the card's content.
@@ -137,9 +226,10 @@ function Display() {
             class="card each_card text-dark text-decoration-none"
           >
             <img
-              src="https://media.istockphoto.com/vectors/modern-library-with-bookshelf-vector-illustration-vector-id994820870?b=1&k=6&m=994820870&s=170667a&w=0&h=-yVDQJB3vjLynRKoaCjo9tFOqvD4XcFHTdiCAz1JSiU="
-              width="100"
-              height="200"
+              // src="https://img.freepik.com/free-vector/female-smiling-librarian-standing-counter-book-shelf-paper-flat-vector-illustration-city-library-knowledge_74855-8364.jpg?size=626&ext=jpg"
+              // width="100"
+              src={librarian}
+              height="220"
               class="card-img-top"
             />
             <div class="card-body">
@@ -153,29 +243,29 @@ function Display() {
               </a> */}
             </div>
           </a>
-          <a
-            href="/lib-admin"
-            class="card each_card text-dark text-decoration-none"
-          >
-            <img
-              src="https://img.freepik.com/free-vector/organic-flat-customer-support-illustration_23-2148899173.jpg?size=626&ext=jpg"
-              width="100"
-              height="200"
-              class="card-img-top"
-            />
-            <div class="card-body">
-              <h4 class="card-title">Admin</h4>
-              <p class="card-text">
-                Some quick example text to build on the card title and make up
-                the bulk of the card's content.
-              </p>
-              {/* <a href="/adminl" class="btn btn-primary">
-                Login
-              </a> */}
-            </div>
-          </a>
+          {/* <a
+          href="/lib-admin"
+          class="card each_card text-dark text-decoration-none"
+        >
+          <img
+            src="https://img.freepik.com/free-vector/organic-flat-customer-support-illustration_23-2148899173.jpg?size=626&ext=jpg"
+            width="100"
+            height="220"
+            class="card-img-top"
+          />
+          <div class="card-body">
+            <h4 class="card-title">Admin</h4>
+            <p class="card-text">
+              Some quick example text to build on the card title and make up the
+              bulk of the card's content.
+            </p>
+            
+          </div>
+        </a> */}
         </div>
       </div>
+      {/* </div>
+      </Parallax> */}
     </>
   );
 }

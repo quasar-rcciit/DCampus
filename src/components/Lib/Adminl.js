@@ -17,10 +17,12 @@ class Admin extends Component {
             this.props.changelibrarian(_librarian);
           }}
         >
-          <div class="form-row">
-            <div className="form-group col-md-4">
+          <div class="form-row container">
+            <div className="form-group col-md-6">
+              <h3 style={{marginBottom: "2%",textAlign:"left"}}>Change Librarian: </h3>
               <input
                 id="librarian"
+                style={{marginBottom:"2%"}}
                 type="text"
                 ref={(input) => {
                   this.librarian = input;
@@ -29,15 +31,15 @@ class Admin extends Component {
                 placeholder="Change Librarian (By: Address)"
                 required
               />
+              <button
+                style={{ height: 38 ,textAlign:"left"}}
+                disabled={this.props.account != this.props.admin}
+                type="submit"
+                className="btn btn-warning"
+              >
+                <b>Change</b>
+              </button>
             </div>
-            <button
-              style={{ height: 38 }}
-              disabled={this.props.account != this.props.admin}
-              type="submit"
-              className="btn btn-warning"
-            >
-              <b>Change</b>
-            </button>
           </div>
         </form>
       </div>
