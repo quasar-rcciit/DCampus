@@ -2,3 +2,6 @@
     display: inline-block;
     text-align: center;
 }
+.container-fluid .studentfoodorder{
+    height: 105px;
+}

@@ -1,0 +1,159 @@
+@import url('https://fonts.googleapis.com/css2?family=Play&display=swap');
+*{
+    margin:0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.teamhead{
+    text-align: center;
+}
+.teammem{
+    margin-top: 5rem;
+    /* background-image: linear-gradient(white,green); */
+    z-index: 1;
+}
+.teammemcont{
+    max-width: 1300px;
+    margin: auto;
+}
+.teamflex{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.teamflex p{
+    font-family: 'Play', sans-serif;
+}
+.teamflex .passiontext p{
+    font-family: 'Play', sans-serif;
+}
+.passiontext{
+    text-align: center;    
+}
+.teammemcard {
+    height:400px;
+    width:350px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border:1px solid blue;
+    box-shadow: 1px 1px 12px 1px rgba(0,0,0,0.75);
+-webkit-box-shadow: 1px 1px 12px 1px rgba(0,0,0,0.75);
+-moz-box-shadow: 1px 1px 12px 1px rgba(0,0,0,0.75);
+    flex-direction: column;
+    background-color: white;
+    border-radius: 7px;
+    min-width: 1.5rem;
+    padding: 10px;
+}
+/* .teammemcard .image */
+/* .teammemcard .image {
+    width:100%;
+} */
+.teammemcard .image{
+    
+    background: url('https://github.com/infuman69/Images/blob/main/Dev1.jpeg?raw=true')no-repeat center/cover;
+    width:100%;
+    height: 75%;
+    border:50%;
+}
+.teammemcard .image2{
+    
+    background: url('https://github.com/infuman69/Images/blob/main/Dev2.jpeg?raw=true')no-repeat center/cover;
+    width:100%;
+    height: 75%;
+    border:50%;
+}
+.teamflex .passiontext p{
+    font-size: 1.5rem;
+
+}
+/* .teammemcard :hover{
+    transform: scale(1.03);
+} */
+/* .teammemcard :hover{
+    transform: translateY(-30px);
+} */
+@media  only screen and (max-width:764px)
+{
+    .teamflex{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .teamflex .passiontext{
+        text-align: center;
+    }
+    .columnrev{
+        flex-direction: column-reverse;
+    }
+}
+@media  only screen and (max-width:346px)
+{
+    .teamflex{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .teamflex .passiontext{
+        text-align: center;
+    }
+    .teammemcard {
+        height:400px;
+        width:300px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border:1px solid blue;
+        box-shadow: 1px 1px 12px 1px rgba(0,0,0,0.75);
+    -webkit-box-shadow: 1px 1px 12px 1px rgba(0,0,0,0.75);
+    -moz-box-shadow: 1px 1px 12px 1px rgba(0,0,0,0.75);
+        flex-direction: column;
+        background-color: white;
+        border-radius: 5px;
+        min-width: 1.5rem;
+    }
+    .columnrev{
+        flex-direction: column-reverse;
+    }
+
+}
+@media  only screen and (max-width:280px)
+{   .teamhead{
+    font-size: 1.2rem;
+}
+    .teamflex{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .teamflex .passiontext{
+        text-align: center;
+    }
+    .teammemcard {
+        height:400px;
+        width:270px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border:1px solid blue;
+        box-shadow: 1px 1px 12px 1px rgba(0,0,0,0.75);
+    -webkit-box-shadow: 1px 1px 12px 1px rgba(0,0,0,0.75);
+    -moz-box-shadow: 1px 1px 12px 1px rgba(0,0,0,0.75);
+        flex-direction: column;
+        background-color: white;
+        border-radius: 5px;
+        min-width: 1.5rem;
+    }
+    .columnrev{
+        flex-direction: column-reverse;
+    }
+
+}
+.margright{
+    margin-right: 7px;
+}
+a{
+    text-decoration: none;
+    color:black;
+}

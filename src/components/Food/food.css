@@ -1,0 +1,441 @@
+.center {
+  padding: 5px;
+}
+.sidenav {
+  height: 100%; /* Full-height: remove this if you want "auto" height */
+  width: 25%; /* Set the width of the sidebar */
+  position: fixed; /* Fixed Sidebar (stay in place on scroll) */
+  z-index: 1; /* Stay on top */
+  top: 2; /* Stay at the top */
+  right: 0;
+  background-color: rgb(255, 255, 255); /* Black */
+  overflow-x: hidden; /* Disable horizontal scroll */
+  padding-top: 20px;
+}
+
+/* The navigation menu links */
+.sidenav a {
+  padding: 6px 8px 6px 16px;
+  text-decoration: none;
+  font-size: 25px;
+  color: #818181;
+  display: block;
+}
+
+/* When you mouse over the navigation links, change their color */
+.sidenav a:hover {
+  color: #f1f1f1;
+}
+
+.cardnav {
+  height: 82%; /* Full-height: remove this if you want "auto" height */
+  width: 73%; /* Set the width of the sidebar */
+  position: fixed; /* Fixed Sidebar (stay in place on scroll) */
+  z-index: 1; /* Stay on top */
+  top: 2; /* Stay at the top */
+  left: 0;
+  /* background-color: rgb(190, 126, 126); */
+  /* opacity: 0; */
+  overflow-x: hidden; /* Disable horizontal scroll */
+  padding-top: 20px;
+  padding: 2px;
+}
+
+.cardnav1 {
+  height: 80%; /* Full-height: remove this if you want "auto" height */
+  width: 73%; /* Set the width of the sidebar */
+  position: fixed; /* Fixed Sidebar (stay in place on scroll) */
+  left: 0.5%;
+  /* background-color: rgb(190, 126, 126); */
+  /* opacity: 0; */
+  overflow-x: hidden; /* Disable horizontal scroll */
+  padding-top: 1%;
+  padding: 0.25%;
+}
+.sidenav {
+  height: 80%;
+  width: 25%;
+  position: fixed;
+  right: 1%;
+  top:2;
+  background-color: #f0f0f0;
+  opacity: 0.9;
+  /* margin: 1%; */
+  padding: 1.5%;
+  text-align: left;
+}
+
+.form_components {
+  margin-top: 1%;
+  margin-bottom: 4%;
+}
+.left {
+  text-align: left;
+}
+#myInput {
+  background-image: url("https://upload.wikimedia.org/wikipedia/commons/thumb/0/0b/Search_Icon.svg/1024px-Search_Icon.svg.png");
+  background-position: 10px 10px;
+  background-repeat: no-repeat;
+  width: 70%;
+  font-size: 16px;
+  padding: 0.5%;
+  border: 1px solid #ddd;
+  margin: 1%;
+  text-align: left;
+  align-items: left;
+}
+#RentInput {
+  background-image: url("https://upload.wikimedia.org/wikipedia/commons/thumb/0/0b/Search_Icon.svg/1024px-Search_Icon.svg.png");
+  background-position: 10px 10px;
+  background-repeat: no-repeat;
+  width: 70%;
+  font-size: 16px;
+  padding: 0.5%;
+  border: 1px solid #ddd;
+  margin: 1%;
+  text-align: left;
+  align-items: left;
+}
+
+.sidenav1 {
+  height: 100%;
+  width: 25%;
+  position: fixed;
+  right: 0.5%;
+  background-color: azure;
+  opacity: 0.9;
+  margin: 1%;
+  margin-top: 4.5%;
+  padding: 1.5%;
+  text-align: left;
+}
+.container .libraryhead4{
+  margin-top: 19px;
+}
+
+.cardslib {
+  display: flex;
+  margin-top: 1%;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Carattere&display=swap');
+h1,
+h2,
+h3,
+h5 {
+  margin: 0;
+}
+
+.header {
+  text-align: center;
+  /* margin-bottom: 60px; */
+  color: aliceblue;
+  padding: 10px;
+}
+
+.header h1 {
+  font-family: "Montserrat", sans-serif;
+  font-size: 3em;
+  margin-bottom: 0.2em;
+  line-height: 1.2;
+  color: rgb(77, 77, 77);
+}
+
+.header h3 {
+  font-weight: 400;
+  color: #555;
+  width: 30em;
+}
+
+.cards {
+  display: flex;
+  /* flex-direction: column; */
+  align-items: center;
+  justify-content: center;
+  margin-top: 5%;
+}
+
+.card {
+  background: rgb(225, 224, 226);
+  width: 24em;
+  border-radius: 0.6em;
+  margin: 1em;
+  overflow: hidden;
+  cursor: pointer;
+  box-shadow: 0 13px 27px -5px hsla(240, 30.1%, 28%, 0.25),
+    0 8px 16px -8px hsla(0, 0%, 0%, 0.3), 0 -6px 16px -6px hsla(0, 0%, 0%, 0.03);
+  transition: all ease 200ms;
+  height: 80%;
+}
+
+.card:hover {
+  transform: scale(1.03);
+  box-shadow: 0 13px 40px -5px hsla(240, 30.1%, 28%, 0.12),
+    0 8px 32px -8px hsla(0, 0%, 0%, 0.14),
+    0 -6px 32px -6px hsla(0, 0%, 0%, 0.02);
+}
+
+.card img {
+  width: 100%;
+  object-fit: cover;
+  
+}
+
+.card h2 {
+  color: #222;
+  margin-top: -0.2em;
+  line-height: 1.4;
+  font-size: 1.3em;
+  font-weight: 500;
+  font-family: "Montserrat", sans-serif;
+  transition: all ease-in 100ms;
+}
+
+.card p {
+  color: #777;
+}
+
+.card h5 {
+  color: rgb(41, 39, 39);
+  font-weight: 700;
+  font-size: 0.7em;
+  letter-spacing: 0.04em;
+  margin: 1.4em 0 0 0;
+  text-transform: uppercase;
+}
+
+.card-body {
+  padding: 1.2em;
+}
+.card-cnt {
+  color: crimson;
+}
+.comments {
+  margin: auto;
+  width: 50%;
+  padding: 20px;
+}
+
+.home_about {
+  font-family: "Josefin Sans", sans-serif;
+  text-align: center;
+  margin-top: 5%;
+  margin-bottom: 5%;
+}
+
+.home_about_header
+{
+  font-family: 'Carattere', cursive !important;
+  font-weight: bold;
+  font-size: 70px;
+}
+
+.home_about_description
+{
+  padding-left: 30px;
+  opacity: 0.8;
+  font-size: 14px;
+  line-height: 26px;
+  
+}
+
+.carousel .carousel-item {
+  height: 400px;
+}
+
+.carousel-item img {
+    position: absolute;
+    object-fit:cover;
+    top: 0;
+    left: 0;
+    min-height: 400px;
+}
+
+.home_about_container 
+{
+  background-color: #F2F1F1
+}
+
+.bg_gradient
+{
+  background: linear-gradient(180deg, #F2F1F1 46.67%, rgba(196, 196, 196, 0) 46.68%);
+}
+.card
+{
+  background: #F8F9FA !important;
+}
+.card img
+{
+  border-bottom-left-radius: 30px;
+  border-bottom-right-radius: 30px;
+}
+
+/* .card_sp_image
+{
+  width: 25rem !important; 
+  border-radius: 0px !important;
+  /* margin: 0px auto; */
+  /* margin-top: -100px; */
+  /* box-shadow: 0 13px 27px -5px hsl(240deg 30% 28% / 25%), 0 8px 16px -8px hsl(0deg 0% 0% / 30%), 0 -6px 16px -6px hsl(0deg 0% 0% / 3%); */
+/*} */
+
+.card_sp
+{
+  margin: 0px;
+  margin-top: 150px;
+  margin-bottom: 40px;
+
+}
+.card
+{
+  overflow: initial !important;
+}
+
+@media only screen and (max-width: 768px) {
+  h1,
+  h2,
+  h3,
+  h5 {
+    margin: 0;
+    margin: auto;
+    width: 50%;
+    text-align: center;
+    padding: 20px;
+    padding: auto;
+  }
+
+  .header {
+    text-align: center;
+    margin-bottom: 60px;
+  }
+
+  .header h1 {
+    font-family: "Montserrat", sans-serif;
+    font-size: 3em;
+    margin-bottom: 0.2em;
+    line-height: 1.2;
+    color: #222;
+  }
+
+  .header h3 {
+    font-weight: 400;
+    color: #555;
+    width: 30em;
+  }
+
+  .cards {
+    display: block;
+    align-items: flex-start;
+    justify-content: center;
+    margin: auto;
+    width: 90%;
+    padding: 20px;
+  }
+
+  .card {
+    background: #fff;
+    width: 24em;
+    border-radius: 0.6em;
+   
+    overflow: hidden;
+    cursor: pointer;
+    box-shadow: 0 13px 27px -5px hsla(240, 30.1%, 28%, 0.25),
+      0 8px 16px -8px hsla(0, 0%, 0%, 0.3),
+      0 -6px 16px -6px hsla(0, 0%, 0%, 0.03);
+    transition: all ease 200ms;
+  }
+
+  .card:hover {
+    transform: scale(1.03);
+    box-shadow: 0 13px 40px -5px hsla(240, 30.1%, 28%, 0.12),
+      0 8px 32px -8px hsla(0, 0%, 0%, 0.14),
+      0 -6px 32px -6px hsla(0, 0%, 0%, 0.02);
+  }
+
+  .card img {
+    width: 100%;
+    object-fit: cover;
+  }
+
+  .card h2 {
+    color: #222;
+    margin-top: -0.2em;
+    line-height: 1.4;
+    font-size: 1.3em;
+    font-weight: 500;
+    font-family: "Montserrat", sans-serif;
+    transition: all ease-in 100ms;
+  }
+
+  .card p {
+    color: #777;
+  }
+
+  .card h5 {
+    color: #bbb;
+    font-weight: 700;
+    font-size: 0.7em;
+    letter-spacing: 0.04em;
+    margin: 1.4em 0 0 0;
+    text-transform: uppercase;
+  }
+
+  .card-body {
+    padding: 1.2em;
+  }
+  .comments {
+    margin: auto;
+    width: 50%;
+    padding: 20px;
+  }
+}
+.cards {
+  display: flex;
+}
+.card {
+  width: 30%;
+}
+.card_link {
+  text-align: center;
+  text-decoration: none;
+  color: black;
+  margin-bottom: 2%;
+}
+.card_link:hover {
+  color: aqua;
+}
+.h1 {
+  text-align: left;
+}
+@media only screen and (max-width: 768px) {
+  .cards {
+    display: block;
+  }
+  .card {
+    width: 90%;
+  }
+}
+
+.hp_carousel_pic {
+  width: 1350px;
+  height: 650px;
+}
+
+@media only screen and (max-width: 767px) {
+  .hp_carousel_pic {
+    width: 675px;
+    height: 225px;
+  }
+  .header {
+    margin-bottom: 10px;
+  }
+}
+@media only screen and (max-width: 1023px) and (min-width: 768px) {
+  .hp_carousel_pic {
+    width: 945px;
+    height: 455px;
+  }
+  .header {
+    margin-bottom: 20px;
+  }
+}

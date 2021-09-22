@@ -6,72 +6,90 @@ class Adminf extends Component
   render() {
     console.log("undefined");
     return(
-      <div className="admincont">
-        <h1>Hello Admin</h1>
-        <div className="adminformcont ">
-             
-            <form className="form-horizontal adminstyleinput"
-              onSubmit={(event) => {
-              event.preventDefault();
-              const address = this.owner_address.value;
-              if(window.confirm("Owner's Address will be changed to "+address+". Sure?")){
-                this.props.changeOwner(address);
-              }}}>
-              <label>
-                {"Current owner: "+this.props.ownerAddress}
-              </label>
-              <input 
-                type="text"
-                id="address"
-                maxLength="42"
+      <div>
+        <div className="container-fluid mt-5 text-center">
+          {/* <h3>Change Commision Percentage</h3> */}
+          {/* <div>{rvalue} %</div> */}
+          {/* <h6>Current Commision : {this.commision} %</h6> */}
+          <form
+            id="adminowner"
+            onSubmit={(event) => {
+            event.preventDefault();
+            const address = this.owner_address.value;
+            if(window.confirm("Owner's Address will be changed to "+address+". Sure?")){
+              this.props.changeOwner(address);
+            }}}
+          >
+            <div class="form-row container">
+              <div className="form-group col-md-6">
+              <h3 style={{marginBottom: "2%"}}>Change Canteen Owner: </h3>
+                <input
+                  id="commision"
+                  style={{marginBottom:"2%"}}
+                  required
+                  maxLength="42"
+                  disabled={this.props.admin != this.props.account}
+                  required
+                  placeholder="Enter owner's address"
+                  ref={(input) => {
+                    this.owner_address = input;
+                  }}
+                />
+                <button
+                style={{ height: 38 }}
                 disabled={this.props.admin != this.props.account}
-                required
-                placeholder="Enter owner's address"
-                ref={(input) => {
-                  this.owner_address = input;
-                }} />
-              <br></br>
-              <button
                 type="submit"
-                disabled={this.props.admin != this.props.account}
-                className="changebtn"
+                className="btn btn-warning"
               >
-              Change!
+                <b>Change Owner</b>
               </button>
-            </form>
-            <br></br>
-            <form className="form-horizontal adminstyleinput"
-              onSubmit={(event) => {
+              </div>
+              
+            </div>
+          </form>
+        </div>
+        <div className="container-fluid mt-5 text-center">
+          {/* <h3>Change Commision Percentage</h3> */}
+          {/* <div>{rvalue} %</div> */}
+          {/* <h6>Current Commision : {this.commision} %</h6> */}
+          <form
+            id="adminowner"
+            onSubmit={(event) => {
               event.preventDefault();
               const fees = this.college_fees.value;
               if(window.confirm('College fees will be changed. Sure?')){
                 this.props.changeFees(fees);
-              }}}>
-              <label>
-                {"Current fees: "+this.props.collegeFees}
-              </label>
-              <input 
-                type="number"
-                name="fees"
-                required
+              }}}
+          >
+            <div class="form-row container">
+              <div className="form-group col-md-6">
+              <h3 style={{marginBottom: "2%"}}>Change Commission: </h3>
+                <input
+                  id="commision"
+                  style={{marginBottom:"2%"}}
+                  required
+                  disabled={this.props.admin != this.props.account}
+                  max="99"
+                  min="0"
+                  placeholder={"Current commision: "+this.props.collegeFees}
+                  ref={(input) => {
+                    this.college_fees = input;
+                  }}
+                />
+                <button
+                style={{ height: 38 }}
                 disabled={this.props.admin != this.props.account}
-                max="99"
-                min="0"
-                placeholder="Enter college fees"
-                ref={(input) => {
-                  this.college_fees = input;
-                }} />
-              <br></br>
-              <button
                 type="submit"
-                disabled={this.props.admin != this.props.account}
-                className="changebtn"
+                className="btn btn-warning"
               >
-              Change!
+                <b>Change</b>
               </button>
-            </form>
+              </div>
+              
+            </div>
+          </form>
         </div>
-     </div>
+      </div>
     );
   }
 }

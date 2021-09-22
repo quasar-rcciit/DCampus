@@ -7,6 +7,7 @@
 .admincont h1{
     text-align: center;
     margin-bottom: 1rem;
+    margin-top: 1rem;
 }
 .admincont{
     display: flex;
@@ -25,7 +26,7 @@
     
     padding: 10px;
     border-radius: 17px;
-    color:white;
+    color:black;
     margin: auto;
 
 }
@@ -49,7 +50,7 @@ margin-bottom: 1rem;
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    background-color: black;
+    background-color:#F0FFFF;
     width:40%;
     height:300px;
     border-radius: 17px;
@@ -57,22 +58,32 @@ margin-bottom: 1rem;
 .changebtn{
     outline:none;
     border:1px solid white;
-    border-radius: 8px;
-    background-color: black;
+    border-radius: 100px 100px 100px 100px;
+    background-color: rgb(72, 211, 72);
     color:white;
     padding: 7px;
     margin-top: 2rem;
+    width:100px;
+    font-weight: 600;
 }
 .changebtn:hover{
     background-color: white;
-    color:black;
+    color:rgb(72, 211, 72);
     transition: 0.2s all ease-in;
+    border:2px solid rgb(72, 211, 72);
+}
+#adminowner label{
+    /* font-size: 12px; */
+    text-align: center;
+    word-break: break-all;
 }
 @media only screen and (max-width: 769px)
 {
     .admincont h1{
         text-align: center;
-        margin:4px
+        /* margin:4px; */
+        margin-bottom: 1rem;
+    margin-top: 1rem;
     }
     .admincont .adminformcont{
         width:95%;
@@ -84,7 +95,7 @@ margin-bottom: 1rem;
         
         padding: 10px;
         border-radius: 17px;
-        color:white;
+        color:black;
         margin: auto;
     
     }
@@ -108,18 +119,27 @@ margin-bottom: 1rem;
         justify-content: center;
         align-items: center;
         flex-direction: column;
-        background-color: black;
+        background-color: #F0FFFF;
         width:60%;
         height:300px;
         border-radius: 17px;
         margin-bottom: 1.3rem;
     }
+    #adminowner label{
+        /* font-size: 12px; */
+        text-align: center;
+    }
+    /* footer{
+        margin-top: 4rem;
+    } */
 } 
 @media only screen and (max-width: 526px)
 {
     .admincont h1{
         text-align: center;
-        margin:4px
+        margin:4px;
+        margin-bottom: 1rem;
+        margin-top: 5.5rem;
     }
     .admincont .adminformcont{
         width:95%;
@@ -131,7 +151,7 @@ margin-bottom: 1rem;
         
         padding: 10px;
         border-radius: 17px;
-        color:white;
+        color:black;
         margin: auto;
     
     }
@@ -155,11 +175,21 @@ margin-bottom: 1rem;
         justify-content: center;
         align-items: center;
         flex-direction: column;
-        background-color: black;
+        background-color:#F0FFFF;
         width:60%;
         height:300px;
         border-radius: 17px;
         margin-bottom: 1.3rem;
+    }
+    #adminowner label{
+        /* font-size: 10px; */
+        text-align: center;
+        /* width:50%;
+        height:23%; */
+        word-break: break-all;
+    }
+    footer{
+        margin-top: 4rem;
     }
 } 
 
@@ -168,6 +198,8 @@ margin-bottom: 1rem;
     .admincont h1{
         text-align: center;
         margin:1px;
+        margin-bottom: 1rem;
+        margin-top: 5.5rem;
     }
     .admincont .adminformcont{
         width:95%;
@@ -179,7 +211,7 @@ margin-bottom: 1rem;
         
         padding: 10px;
         border-radius: 17px;
-        color:white;
+        color:black;
         margin: auto;
     
     }
@@ -203,14 +235,18 @@ margin-bottom: 1rem;
         justify-content: center;
         align-items: center;
         flex-direction: column;
-        background-color: black;
+        background-color: #F0FFFF;
         width:60%;
         height:300px;
         border-radius: 17px;
         margin-bottom: 1.3rem;
     }
-    .adminstyleinput label{
+    #adminowner label{
         text-align: center;
+        word-break: break-all;
+    }
+    footer{
+        margin-top: 4rem;
     }
 } 
 @media only screen and (max-width: 340px)
@@ -218,6 +254,8 @@ margin-bottom: 1rem;
     .admincont h1{
         text-align: center;
         margin:1px;
+        margin-bottom: 1rem;
+        margin-top: 5.5rem;
     }
     .admincont .adminformcont{
         width:95%;
@@ -229,7 +267,7 @@ margin-bottom: 1rem;
         
         padding: 10px;
         border-radius: 17px;
-        color:white;
+        color:black;
         margin: auto;
     
     }
@@ -240,7 +278,7 @@ margin-bottom: 1rem;
         border-radius: 6px;
         margin-top: 1rem;
         text-align: center;
-        background-color: white;
+        background-color:white;
         font-weight: 700;
         font-family: 'Ubuntu', sans-serif;
         /* box-shadow: 2px 1px 14px 0px rgba(0,0,0,0.75);
@@ -253,13 +291,18 @@ margin-bottom: 1rem;
         justify-content: center;
         align-items: center;
         flex-direction: column;
-        background-color: black;
+        background-color: #F0FFFF;
         width:60%;
         height:300px;
         border-radius: 17px;
-        margin-bottom: 1.3rem;
+        margin-bottom: 1.7rem;
     }
-    .adminstyleinput label{
+    #adminowner label{
         text-align: center;
+        word-break: break-all;
+        font-size: 11px;
     }
-} 
+    footer{
+        margin-top: 4rem;
+    }
+}

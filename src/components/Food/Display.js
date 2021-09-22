@@ -1,10 +1,116 @@
 import React from "react";
 import "./display.css";
+import "../home.css";
+import { render } from "react-dom";
+import { Parallax, Background } from "react-parallax";
+import transaction1 from "../../assets/transaction1.svg";
+import transaction2 from "../../assets/transaction2.svg";
+import transaction3 from "../../assets/transaction3.svg";
+import transaction4 from "../../assets/transaction4.svg";
+import foodorder from "../../assets/foodorder.svg";
+import orderhistory from "../../assets/orderhistory.svg";
+import foodowner from "../../assets/foodowner.svg";
+import house4 from "../../assets/house4.svg";
+import business from "../../assets/business.svg";
+import additems from "../../assets/additems.svg";
+import homesale from "../../assets/homesale.svg";
+import historycard from "../../assets/historycard.svg";
+import ordercard from "../../assets/ordercard.svg";
+import ownercard from "../../assets/ownercard.svg";
 
 function Display() {
   return (
     <>
-      <div
+      <div className="row p-5 home_about_container">
+        <div className="col-lg-6">
+          <a href="/foodiegenie">
+            <h3 className="home_about_header">Order Food</h3>
+          </a>
+          <p className="home_about_description">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod ea
+            accusantium iusto sapiente, numquam necessitatibus aliquid ad
+            nostrum architecto officia placeat molestiae minus libero, tenetur
+            corporis suscipit! Debitis tenetur, necessitatibus quibusdam nisi
+            corporis laudantium laboriosam, sint quaerat ratione deleniti
+            impedit temporibus illum culpa vero veritatis delectus explicabo non
+            molestias? Suscipit, quo reprehenderit asperiores impedit error odio
+            cupiditate? Vitae, quae illum est, laboriosam obcaecati facilis
+            suscipit quis at, consequuntur veniam voluptates sed iste quidem
+            eligendi pariatur voluptate neque non nam. Alias incidunt architecto
+            pariatur dolorem tempore vero exercitationem, aperiam tenetur, error
+            totam magni itaque unde explicabo facere reiciendis dicta
+            consequatur dolorum?
+          </p>
+        </div>
+        <div className="col-lg-6 d-flex align-items-center justify-content-center">
+          <div className="logo">
+            <a href="/foodiegenie">
+              <img src={foodorder} width="500px" />
+            </a>
+          </div>
+        </div>
+      </div>
+      <div className="row p-5 home_about_container">
+        <div className="col-lg-6">
+          <div className="logo">
+            <a href="/foodiegenie-owner">
+              <img src={foodowner} width="580px" />
+            </a>
+          </div>
+        </div>
+        <div className="col-lg-6 d-flex align-items-right justify-content-center">
+          {/* <div className="col-lg-6"> */}
+          <a href="/foodiegenie-owner">
+            <h3 className="home_about_header">Canteen Owners</h3>
+          </a>
+          <p className="home_about_description">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod ea
+            accusantium iusto sapiente, numquam necessitatibus aliquid ad
+            nostrum architecto officia placeat molestiae minus libero, tenetur
+            corporis suscipit! Debitis tenetur, necessitatibus quibusdam nisi
+            corporis laudantium laboriosam, sint quaerat ratione deleniti
+            impedit temporibus illum culpa vero veritatis delectus explicabo non
+            molestias? Suscipit, quo reprehenderit asperiores impedit error odio
+            cupiditate? Vitae, quae illum est, laboriosam obcaecati facilis
+            suscipit quis at, consequuntur veniam voluptates sed iste quidem
+            eligendi pariatur voluptate neque non nam. Alias incidunt architecto
+            pariatur dolorem tempore vero exercitationem, aperiam tenetur, error
+            totam magni itaque unde explicabo facere reiciendis dicta
+            consequatur dolorum?
+          </p>
+          {/* </div> */}
+        </div>
+      </div>
+      <div className="row p-5 home_about_container">
+        <div className="col-lg-6">
+          <a href="/foodiegenie-orders">
+            <h3 className="home_about_header">Order History</h3>
+          </a>
+          <p className="home_about_description">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod ea
+            accusantium iusto sapiente, numquam necessitatibus aliquid ad
+            nostrum architecto officia placeat molestiae minus libero, tenetur
+            corporis suscipit! Debitis tenetur, necessitatibus quibusdam nisi
+            corporis laudantium laboriosam, sint quaerat ratione deleniti
+            impedit temporibus illum culpa vero veritatis delectus explicabo non
+            molestias? Suscipit, quo reprehenderit asperiores impedit error odio
+            cupiditate? Vitae, quae illum est, laboriosam obcaecati facilis
+            suscipit quis at, consequuntur veniam voluptates sed iste quidem
+            eligendi pariatur voluptate neque non nam. Alias incidunt architecto
+            pariatur dolorem tempore vero exercitationem, aperiam tenetur, error
+            totam magni itaque unde explicabo facere reiciendis dicta
+            consequatur dolorum?
+          </p>
+        </div>
+        <div className="col-lg-6 d-flex align-items-center justify-content-center">
+          <div className="logo">
+            <a href="/foodiegenie-orders">
+              <img src={orderhistory} width="500px" />
+            </a>
+          </div>
+        </div>
+      </div>
+      {/* <div
         id="carouselExampleInterval"
         className="carousel slide"
         data-bs-ride="carousel"
@@ -12,21 +118,21 @@ function Display() {
         <div className="carousel-inner">
           <div className="carousel-item active" data-bs-interval="3000">
             <img
-              src="https://images.unsplash.com/photo-1589010588553-46e8e7c21788?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&h=450&q=80"
+              src="https://images.unsplash.com/photo-1494203484021-3c454daf695d?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&h=450&q=80"
               className="d-block w-100"
               alt="First image here"
             />
           </div>
           <div className="carousel-item" data-bs-interval="3000">
             <img
-              src="https://images.unsplash.com/photo-1504754524776-8f4f37790ca0?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&h=450&q=80"
+              src="https://images.unsplash.com/photo-1617545293648-b4847530f8a8?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&h=450&q=80"
               className="d-block w-100"
               alt="Second image here"
             />
           </div>
           <div className="carousel-item">
             <img
-              src="https://images.unsplash.com/photo-1617347454431-f49d7ff5c3b1?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&h=450&q=80"
+              src="https://images.unsplash.com/photo-1617544926793-e5dd78afc0b7?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1350&h=450&q=80"
               className="d-block w-100"
               alt="Third image here"
             />
@@ -56,79 +162,107 @@ function Display() {
           ></span>
           <span className="visually-hidden">Next</span>
         </button>
+      </div>
+      <Parallax
+        bgImage={
+          "https://i.pinimg.com/originals/8f/b8/41/8fb841d386e1acf32e2b36bd40c67f50.jpg"
+        }
+        strength={400}
+        renderLayer={(percentage) => (
+          <div
+            style={{
+              position: "absolute",
+              // background: `rgba(255, 125, 0, ${percentage * 1})`,
+              left: "50%",
+              top: "50%",
+              width: percentage * 500,
+              height: percentage * 500,
+            }}
+          />
+        )}
+      >
         <div className="container about">
           <h1 className="about_heading">About Us</h1>
           <h4 className="sub_heading">
-            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Facilis,
-            dolorum!
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet,
+            velit.
           </h4>
           <p className="description">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit.
-            Perspiciatis qui repellat voluptatem cum nihil, a explicabo unde
-            odio amet quos sit necessitatibus veritatis magni quidem placeat
-            dolorum at sapiente quibusdam itaque numquam excepturi voluptate.
-            Perspiciatis odit cumque assumenda facilis quasi iusto ducimus, eum
-            veritatis nostrum earum, enim dicta, accusamus eligendi numquam
-            possimus aperiam consectetur. Eveniet corrupti quibusdam accusantium
-            doloremque, exercitationem quia pariatur quis incidunt assumenda
-            odit iusto distinctio? Doloremque culpa ipsa voluptatibus, totam
-            odit laboriosam eos exercitationem eum, quam, molestiae placeat
-            blanditiis repudiandae nihil eligendi beatae. Sed harum atque
-            dolorum, magnam cum suscipit dicta ducimus dolore illo consectetur
-            odit placeat.
-          </p>
-          <div className="container login_cards">
-            <div class="card each_card">
-              <img
-                src="https://images.unsplash.com/photo-1519671482749-fd09be7ccebf?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&h=650&q=80"
-                class="card-img-top"
-              />
-              <div class="card-body">
-                <h4 class="card-title">Student's Corner</h4>
-                <p class="card-text">
-                  Some quick example text to build on the card title and make up
-                  the bulk of the card's content.
-                </p>
-                <a href="/foodiegenie" class="btn btn-primary">
-                  Enter
-                </a>
-              </div>
+            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Corrupti
+            quidem maxime autem rerum soluta quos deleniti, impedit excepturi
+            odio odit nesciunt ex earum, reprehenderit hic architecto dolores.
+            Aliquid ab amet voluptates dolore delectus hic expedita eos dolorem
+            adipisci iure, veniam ad eaque, cumque explicabo. Fugiat, dicta,
+            laborum soluta excepturi dolor ad quis distinctio, consequuntur
+            laudantium enim rem blanditiis similique ab esse? Voluptate repellat
+            molestias ducimus voluptatibus unde fugiat placeat eligendi odit
+            tempora dolores similique deleniti nam corrupti ea optio, tenetur
+            assumenda nulla! Velit nostrum recusandae labore obcaecati modi sint
+            cupiditate illum sapiente commodi ea accusantium quam nihil, quidem,
+            laboriosam voluptas!
+          </p> */}
+      <div className=" home_about_container">
+        <div className="container login_cards">
+          <a
+            href="/foodiegenie"
+            class="card each_card text-dark text-decoration-none"
+          >
+            <img
+              // src="https://images.unsplash.com/photo-1559308448-de7de9315f9b?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&h=650&q=80"
+              src={ordercard}
+              height="220"
+              class="card-img-top"
+            />
+            <div class="card-body">
+              <h4 class="card-title">Order Food</h4>
+              <p class="card-text">
+                Some quick example text to build on the card title and make up
+                the bulk of the card's content.
+              </p>
             </div>
-            <div class="card each_card">
-              <img
-                src="https://images.unsplash.com/photo-1560341208-305f47d5e901?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&h=650&q=80"
-                class="card-img-top"
-              />
-              <div class="card-body">
-                <h4 class="card-title">Canteen Owner</h4>
-                <p class="card-text">
-                  Some quick example text to build on the card title and make up
-                  the bulk of the card's content.
-                </p>
-                <a href="/foodiegenie-owner" class="btn btn-primary">
-                  Login
-                </a>
-              </div>
+          </a>
+          <a
+            href="/landlords"
+            class="card each_card text-dark text-decoration-none"
+          >
+            <img
+              // src="https://images.unsplash.com/photo-1559308448-de7de9315f9b?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&h=650&q=80"
+              src={ownercard}
+              height="220"
+              class="card-img-top"
+            />
+            <div class="card-body">
+              <h4 class="card-title">Canteen Owners</h4>
+              <p class="card-text">
+                Some quick example text to build on the card title and make up
+                the bulk of the card's content.
+              </p>
             </div>
-            <div class="card each_card">
-              <img
-                src="https://images.unsplash.com/photo-1560341208-305f47d5e901?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&h=650&q=80"
-                class="card-img-top"
-              />
-              <div class="card-body">
-                <h4 class="card-title">Canteen Admin</h4>
-                <p class="card-text">
-                  Some quick example text to build on the card title and make up
-                  the bulk of the card's content.
-                </p>
-                <a href="/foodiegenie-admin" class="btn btn-primary">
-                  Login
-                </a>
-              </div>
+          </a>
+
+          <a
+            href="/foodiegenie-orders"
+            class="card each_card text-dark text-decoration-none"
+          >
+            <img
+              // src="https://images.unsplash.com/photo-1563461661026-49631dd5d68e?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&h=650&q=80"
+              src={historycard}
+              height="220"
+              class="card-img-top"
+            />
+            <div class="card-body">
+              <h4 class="card-title">Order History</h4>
+              <p class="card-text">
+                Some quick example text to build on the card title and make up
+                the bulk of the card's content.
+              </p>
             </div>
-          </div>
+          </a>
         </div>
       </div>
+      {/* </div>
+      </Parallax> */}
+      {/* </div> */}
     </>
   );
 }

@@ -5,6 +5,7 @@ import "./studentf.css";
 import Student from "./Studentf";
 import Admin from "./Adminf";
 import Owner from "./Ownerf";
+import AllOrders from "./AllOrders";
 const Web3 = require('web3');
 
 class AppFood extends Component{
@@ -26,6 +27,8 @@ class AppFood extends Component{
         "Non-Ethereum browser detected. You should consider trying MetaMask!"
       );
     }
+    var web3 = window.web3;
+    this.setState({ web3 });
   }
 
   // =============================== Load Blockchain with WEB3 (check via inspect console)
@@ -63,31 +66,39 @@ class AppFood extends Component{
           foods: [...this.state.foods, foodItem],
         });
       }
+
+      const orderNumber = await foodOrder.methods.orderNumber().call();
+      this.setState({ orderNumber });
+
+      for (var i = orderNumber-1; i >= 0 ; i--) {
+        const orderItem = await foodOrder.methods.orders(i).call();
+        this.setState({
+          orders: [...this.state.orders, orderItem],
+        });
+      }
+
     } else {
       window.alert("FoodOrder contract not deployed to detected network.");
     }
   }
 
   addFood = (image, name, price, category, available) => {
-    //Set state to loading
     this.setState({ loading: true });
 
+    var priceInWei = this.state.web3.utils.toWei(price, 'ether');
+
     this.state.foodOrder.methods
-      .addFood(image, name, price, category, available)
+      .addFood(image, name, priceInWei, category, available)
       .send({ from: this.state.account })
       .on("transactionHash", (hash) => {
         this.setState({
-          //after completion of upload ..initial state
           loading: false,
-          //type: null,
-          //name: null,
         });
-        window.location.reload(); //will reload the screen immedeately
+        window.location.reload();
       });
   };
 
   changeOwner = (address) => {
-    //Set state to loading
     this.setState({ loading: true });
 
     this.state.foodOrder.methods
@@ -95,17 +106,13 @@ class AppFood extends Component{
       .send({ from: this.state.account })
       .on("transactionHash", (hash) => {
         this.setState({
-          //after completion of upload ..initial state
           loading: false,
-          //type: null,
-          //name: null,
         });
-        window.location.reload(); //will reload the screen immedeately
+        window.location.reload();
       });
   };
 
   changeFees = (fees) => {
-    //Set state to loading
     this.setState({ loading: true });
 
     this.state.foodOrder.methods
@@ -113,73 +120,92 @@ class AppFood extends Component{
       .send({ from: this.state.account })
       .on("transactionHash", (hash) => {
         this.setState({
-          //after completion of upload ..initial state
           loading: false,
-          //type: null,
-          //name: null,
         });
-        window.location.reload(); //will reload the screen immedeately
+        window.location.reload();
       });
   };
 
-  order = (index, hostelOrCanteen, number) => {
+  order = (index, quantity, hostelOrCanteen, number) => {
+    this.setState({ loading: true });
+
     this.state.foodOrder.methods
-      .order(index, hostelOrCanteen, number)
-      .send({ from: this.state.account, value: this.state.foods[index].price })
+      .order(index, quantity, hostelOrCanteen, number)
+      .send({ from: this.state.account, value: this.state.foods[index].price * quantity })
       .on("transactionHash", (hash) => {
         this.setState({
-          //after completion of upload ..initial state
           loading: false,
-          //type: null,
-          //name: null,
         });
-        window.location.reload(); //will reload the screen immedeately
+        window.location.reload();
       });
   };
 
   deleteItem = (index) => {
+    this.setState({ loading: true });
     this.state.foodOrder.methods
       .deleteItem(index)
       .send({ from: this.state.account })
       .on("transactionHash", (hash) => {
         this.setState({
-          //after completion of upload ..initial state
           loading: false,
-          //type: null,
-          //name: null,
         });
-        window.location.reload(); //will reload the screen immedeately
+        window.location.reload();
       });
   };
 
   availabilityChange = (index) => {
+    this.setState({ loading: true });
     this.state.foodOrder.methods
       .availabilityChange(index)
       .send({ from: this.state.account })
       .on("transactionHash", (hash) => {
         this.setState({
-          //after completion of upload ..initial state
           loading: false,
-          //type: null,
-          //name: null,
         });
-        window.location.reload(); //will reload the screen immedeately
+        window.location.reload();
       });
   };
 
   priceChange = (index, price) => {
+    this.setState({ loading: true });
+    console.log(price);
+
+    var priceInWei = this.state.web3.utils.toWei(price, 'ether');
     this.state.foodOrder.methods
-      .priceChange(index, price)
+      .priceChange(index, priceInWei)
       .send({ from: this.state.account })
       .on("transactionHash", (hash) => {
         this.setState({
-          //after completion of upload ..initial state
           loading: false,
-          //type: null,
-          //name: null,
         });
-        window.location.reload(); //will reload the screen immedeately
+        window.location.reload();
       });
+  };
+
+  orderDeliver = (index) => {
+    this.setState({ loading: true });
+    this.state.foodOrder.methods
+    .orderDeliver(index)
+    .send({ from: this.state.account })
+    .on("transactionHash", (hash) => {
+      this.setState({
+        loading: false,
+      });
+      window.location.reload();
+    });
+  };
+
+  onOrderDelivered = (index, rating) => {
+    this.setState({ loading: true });
+    this.state.foodOrder.methods
+    .onOrderDelivered(index, rating)
+    .send({ from: this.state.account })
+    .on("transactionHash", (hash) => {
+      this.setState({
+        loading: false,
+      });
+      window.location.reload();
+    });
   };
 
   constructor(props) {
@@ -188,12 +214,15 @@ class AppFood extends Component{
       account: "",
       foodOrder: null,
       foods: [],
+      orders: [],
       no_of_cards: 0,
+      orderNumber: 0,
       loading: false,
       ownerAddress: 0,
       collegeFees: 0,
       canteenOwner: "",
       admin: "",
+      web3: null,
     };
     this.order=this.order.bind(this);
   }
@@ -210,9 +239,10 @@ class AppFood extends Component{
               foods={this.state.foods}
               account={this.state.account}
               canteenOwner={this.state.canteenOwner}
+              web3={this.state.web3}
             />
             </Route>
-            <Route path="/foodiegenie-admin">
+            <Route path="/admin">
               <Admin
               changeFees={this.changeFees}
               changeOwner={this.changeOwner}
@@ -231,7 +261,18 @@ class AppFood extends Component{
               priceChange={this.priceChange}
               canteenOwner={this.state.canteenOwner}
               account={this.state.account}
+              web3={this.state.web3}
             />
+            </Route>
+            <Route path="/foodiegenie-orders">
+              <AllOrders
+                orders={this.state.orders}
+                canteenOwner={this.state.canteenOwner}
+                account={this.state.account}
+                orderDeliver={this.orderDeliver}
+                onOrderDelivered={this.onOrderDelivered}
+                web3={this.state.web3}
+              />
             </Route>
           </Switch>
         </Router>
