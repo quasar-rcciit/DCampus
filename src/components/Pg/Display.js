@@ -1,5 +1,5 @@
 import React from "react";
-import "./display.css";
+import "./Display.css";
 import "../home.css";
 import { render } from "react-dom";
 import { Parallax, Background } from "react-parallax";
