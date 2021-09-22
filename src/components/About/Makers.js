@@ -9,25 +9,31 @@ function Makers() {
   const [data3, setdata3] = useState(null);
   const [data4, setdata4] = useState(null);
 
+  const [loading0, setloading0] = useState(true);
+  const [loading1, setloading1] = useState(true);
+  const [loading2, setloading2] = useState(true);
+  const [loading3, setloading3] = useState(true);
+  const [loading4, setloading4] = useState(true);
+
   useEffect(() => {
     getDevelopers();
 
     async function getDevelopers() {
       const sohamBanerjee = await fetch(
         "https://api.github.com/users/soham4abc"
-      );
+      ).finally( () => {setloading0(false)});
       const shouryaShikhar = await fetch(
         "https://api.github.com/users/danger-ahead"
-      );
+      ).finally( () => {setloading1(false)});
       const aritraBelel = await fetch(
         "https://api.github.com/users/belelaritra"
-      );
+      ).finally( () => {setloading2(false)});
       const sohamSarkar = await fetch(
         "https://api.github.com/users/smart-worker"
-      );
+      ).finally( () => {setloading3(false)});
       const sohamSahaRoy = await fetch(
         "https://api.github.com/users/infuman69"
-      );
+      ).finally( () => {setloading4(false)});
 
       var data0 = await sohamBanerjee.json();
       var data1 = await shouryaShikhar.json();
@@ -42,6 +48,12 @@ function Makers() {
       setdata4(data4);
     }
   }, []);
+
+  if(loading0) return "loading...";
+  if(loading1) return "loading...";
+  if(loading2) return "loading...";
+  if(loading3) return "loading...";
+  if(loading4) return "loading...";
 
   return (
     <div className="container">

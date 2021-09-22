@@ -59,10 +59,11 @@ class Adminpg extends Component {
       // Room_Count = await this.state.rentalagreement.methods.no_of_rooms().call();
       // console.log("room total ", Room_Count);
       admin = await this.state.rentalagreement.methods.Admin().call();
-      // commision = await this.state.rentalagreement.methods.currentCommission()
-      //   .call;
       // console.log("Admin", admin);
       // console.log("Commision", commision);
+
+      const commission = await this.state.rentalagreement.methods.commisionpercentage().call();
+      this.setState({ commission });
       // ============================================== Total Books
       const no_of_rooms = await rentalagreement.methods.no_of_rooms().call();
       this.setState({ no_of_rooms });
@@ -397,6 +398,7 @@ class Adminpg extends Component {
     super(props);
     this.state = {
       account: "",
+      commission: 0,
       rentalagreement: null,
       Room_by_No: [],
       RoomAgreement_by_No: [],
@@ -489,7 +491,7 @@ class Adminpg extends Component {
                 // signAgreement={this.signAgreement}
                 // payRent={this.payRent}
                 adminp={admin}
-                // commision={commision}
+                commission={this.state.commission}
               />
             </Route>
             <Route path="/admin-notifications">
