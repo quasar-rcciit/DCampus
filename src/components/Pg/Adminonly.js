@@ -32,7 +32,7 @@ class Transactions extends Component {
         >
           <div class="form-row container">
             <div className="form-group col-md-6">
-            <h3 style={{marginBottom: "2%", textAlign:"left"}}>Change Commission %: {this.props.commission}</h3>
+            <h3 style={{marginBottom: "2%", textAlign:"left"}}>Change Commission %: </h3>
               <input
                 id="commision"
                 type="number"
@@ -43,7 +43,7 @@ class Transactions extends Component {
                   this.commision = input;
                 }}
                 className="form-control"
-                placeholder="Change Commission (%). "
+                placeholder="Change Commision (%)"
                 required
               />
               <button

@@ -6,7 +6,6 @@ import Student from "./Studentf";
 import Admin from "./Adminf";
 import Owner from "./Ownerf";
 import AllOrders from "./AllOrders";
-import Navbar from "./Navbar";
 const Web3 = require('web3');
 
 class AppFood extends Component{
@@ -234,7 +233,6 @@ class AppFood extends Component{
         <Router>
           <Switch>
             <Route path="/foodiegenie">
-              <Navbar account={this.state.account} />
               <Student
               no_of_cards={this.state.no_of_cards}
               order={this.order}
@@ -255,7 +253,6 @@ class AppFood extends Component{
             />
             </Route>
             <Route path="/foodiegenie-owner">
-              <Navbar account={this.state.account} />
               <Owner
               addFood={this.addFood}
               foods={this.state.foods}
@@ -268,7 +265,6 @@ class AppFood extends Component{
             />
             </Route>
             <Route path="/foodiegenie-orders">
-              <Navbar account={this.state.account} />
               <AllOrders
                 orders={this.state.orders}
                 canteenOwner={this.state.canteenOwner}

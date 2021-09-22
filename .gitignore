@@ -21,3 +21,9 @@
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+package-lock.json
+package-lock.json
+yarn.lock
+src/components/build/contracts/Library.json
+src/components/build/contracts/Migrations.json
+src/components/build/contracts/RentalAgreement.json
