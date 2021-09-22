@@ -22,7 +22,7 @@ class Adminf extends Component
           >
             <div class="form-row container">
               <div className="form-group col-md-6">
-              <h3 style={{marginBottom: "2%"}}>Change Canteen Owner: </h3>
+              <h3 style={{marginBottom: "2%", textAlign:"left"}}>Change Canteen Owner: </h3>
                 <input
                   id="commision"
                   style={{marginBottom:"2%"}}
@@ -31,6 +31,7 @@ class Adminf extends Component
                   disabled={this.props.admin != this.props.account}
                   required
                   placeholder="Enter owner's address"
+                  className="form-control"
                   ref={(input) => {
                     this.owner_address = input;
                   }}
@@ -63,7 +64,7 @@ class Adminf extends Component
           >
             <div class="form-row container">
               <div className="form-group col-md-6">
-              <h3 style={{marginBottom: "2%"}}>Change Commission: </h3>
+              <h3 style={{marginBottom: "2%", textAlign:"left"}}>Change Commission: </h3>
                 <input
                   id="commision"
                   style={{marginBottom:"2%"}}
@@ -72,6 +73,7 @@ class Adminf extends Component
                   max="99"
                   min="0"
                   placeholder={"Current commision: "+this.props.collegeFees}
+                  className="form-control"
                   ref={(input) => {
                     this.college_fees = input;
                   }}
