@@ -56,12 +56,8 @@ function Makers() {
               <div className="teammemcard">
                 <img
                   src={data1.avatar_url}
-                  style={{
-                    marginBottom: "2%",
-                    width: "auto",
-                    height: "75%",
-                    borderRadius: "50%",
-                  }}
+
+                  
                 />
 
                 <h3 style={{ marginBottom: "2%" }}>
@@ -86,16 +82,11 @@ function Makers() {
       <section className="teammem">
         <div className="teammemcont">
           {data0 && (
-            <div className="teamflex columnrev">
+            <div className="teamflex ">
               <div className="teammemcard">
                 <img
                   src={data0.avatar_url}
-                  style={{
-                    marginBottom: "2%",
-                    width: "auto",
-                    height: "75%",
-                    borderRadius: "50%",
-                  }}
+                  
                 />
 
                 <h3 style={{ marginBottom: "2%" }}>
@@ -130,12 +121,7 @@ function Makers() {
               <div className="teammemcard">
                 <img
                   src={data2.avatar_url}
-                  style={{
-                    marginBottom: "2%",
-                    width: "auto",
-                    height: "75%",
-                    borderRadius: "50%",
-                  }}
+                  
                 />
 
                 <h3 style={{ marginBottom: "2%" }}>
@@ -146,7 +132,7 @@ function Makers() {
                     <i class="fab fa-2x fa-github"></i>
                   </a>
                   <a
-                    href="https://linkedin.com/in/shourya-shikhar"
+                    href="https://www.linkedin.com/in/belelaritra/"
                     target="_blank"
                   >
                     <i class="fab fa-2x fa-linkedin"></i>
@@ -160,16 +146,11 @@ function Makers() {
       <section className="teammem">
         <div className="teammemcont">
           {data3 && (
-            <div className="teamflex columnrev">
+            <div className="teamflex ">
               <div className="teammemcard">
                 <img
                   src={data3.avatar_url}
-                  style={{
-                    marginBottom: "2%",
-                    width: "auto",
-                    height: "75%",
-                    borderRadius: "50%",
-                  }}
+                  
                 />
                 <h3 style={{ marginBottom: "2%" }}>
                   <strong>{data3.name}</strong>
@@ -203,12 +184,7 @@ function Makers() {
               <div className="teammemcard">
                 <img
                   src={data4.avatar_url}
-                  style={{
-                    marginBottom: "2%",
-                    width: "auto",
-                    height: "75%",
-                    borderRadius: "50%",
-                  }}
+                 
                 />
 
                 <h3 style={{ marginBottom: "2%" }}>
