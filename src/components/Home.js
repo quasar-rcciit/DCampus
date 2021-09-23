@@ -151,7 +151,7 @@ export default function Home() {
               height="300"
             />
             <div className="card-body " style={{ backgroundColor: "#f2f1f1" }}>
-              <h4 className="card-title ">PG Connect</h4>
+              <h4 className="card-title ">PGConnect</h4>
               <p className="card-text">
                 Find a perfect PG for you nearest to our college. <br /> Feel
                 home away from home.

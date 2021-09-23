@@ -195,8 +195,7 @@ function Display() {
             <div class="card-body">
               <h4 class="card-title">Students</h4>
               <p class="card-text">
-                Some quick example text to build on the card title and make up
-                the bulk of the card's content.
+                Don't waste time finding a perfect home for you. Click here now!
               </p>
             </div>
           </a>
@@ -213,8 +212,8 @@ function Display() {
             <div class="card-body">
               <h4 class="card-title">Landlord</h4>
               <p class="card-text">
-                Some quick example text to build on the card title and make up
-                the bulk of the card's content.
+                Show what you can offer for the college students. Provide all
+                details.
               </p>
             </div>
           </a>
@@ -232,8 +231,8 @@ function Display() {
             <div class="card-body">
               <h4 class="card-title">Transactions</h4>
               <p class="card-text">
-                Some quick example text to build on the card title and make up
-                the bulk of the card's content.
+                Don't panic if you forgot to track down previous agreements. See
+                all here.
               </p>
             </div>
           </a>
