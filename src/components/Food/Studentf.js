@@ -120,12 +120,7 @@ class studentf extends Component {
                           <form
                             onSubmit={(event) => {
                               event.preventDefault();
-                              console.log(
-                                Number(key),
-                                this.state.quantity,
-                                this.state.hostelOrCanteen,
-                                this.state.number
-                              );
+                              
                               this.props.order(
                                 key,
                                 Number(this.state.quantity),
@@ -146,14 +141,10 @@ class studentf extends Component {
                             >
                               <Button
                                 id="hostel"
-                                variant={
-                                  this.state.hostelChecked
-                                    ? "primary"
-                                    : "primary"
-                                }
+                                variant="primary"
                                 onClick={() => {
-                                  this.setState({ hostelOrCanteen: 0 });
-                                  console.log(this.hostelOrCanteen);
+                                  this.setState({ hostelOrCanteen: 0 });                                  
+                                  window.alert("Food will be delivered to hostel");
                                 }}
                                 disabled={
                                   foodItem.available == 1 ||
@@ -164,14 +155,10 @@ class studentf extends Component {
                               </Button>
                               <Button
                                 id="canteen"
-                                variant={
-                                  this.state.canteenChecked
-                                    ? "success"
-                                    : "primary"
-                                }
+                                variant="primary"
                                 onClick={() => {
-                                  this.setState({ hostelOrCanteen: 1 });
-                                  console.log(this.hostelOrCanteen);
+                                  this.setState({ hostelOrCanteen: 1 });                                  
+                                  window.alert("Food will be delivered at canteen");
                                 }}
                                 disabled={
                                   foodItem.available == 1 ||
