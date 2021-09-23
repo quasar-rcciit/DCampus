@@ -57,7 +57,8 @@ class Studentpg extends Component {
                     height: "auto",
                     width: "20rem",
                     backgroundColor: "#e6f9d4",
-                    boxShadow:"0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 10px 0 rgba(0, 0, 0, 0.19)"
+                    boxShadow:
+                      "0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 10px 0 rgba(0, 0, 0, 0.19)",
                   }}
                   key={key}
                 >
@@ -71,34 +72,37 @@ class Studentpg extends Component {
                         fontFamily: "monospace",
                       }}
                     >
-                      <b>Name: {file.housename}</b>
+                      <b>{file.housename}</b>
                     </Card.Title>
                     {/* ======================== Author  */}
                     <Card.Title
+                      className="mb-1 text-dark"
                       style={{
-                        fontSize: "16px",
-                        color: "grey",
+                        fontSize: "14px",
+
                         fontFamily: "monospace",
                       }}
                     >
-                      Room No: {file.roomid}
+                      <b>Room No:</b> {file.roomid}
                     </Card.Title>
                     {/* <Card.Title style={{ fontSize: "16px", color: "grey", fontFamily:"monospace" }}>
                       Agreement No: {file.agreementid}
                     </Card.Title> */}
                     <Card.Title
                       className="mb-1 text-dark"
-                      style={{ fontSize: "15px", fontFamily: "monospace" }}
+                      style={{ fontSize: "14px", fontFamily: "monospace" }}
                     >
-                      Address: {file.houseaddress}
+                      <b>Address: </b>
+                      {file.houseaddress}
                     </Card.Title>
                     {/* ======================== Description  */}
                     {/* ======================== ISBN No.  */}
                     <Card.Title
-                      className="mb-1 text-muted"
-                      style={{ fontSize: "12px" }}
+                      className="mb-1 text-dark"
+                      style={{ fontSize: "13px", fontFamily: "monospace" }}
                     >
-                      Rent / Month :{"  "}
+                      <b>Rent / Month :</b>
+                      {"  "}
                       {Web3.utils.fromWei(
                         file.rent_per_month.toString(),
                         "ether"
@@ -106,10 +110,11 @@ class Studentpg extends Component {
                       ETH
                     </Card.Title>
                     <Card.Title
-                      className="mb-1 text-muted"
-                      style={{ fontSize: "12px" }}
+                      className="mb-1 text-dark"
+                      style={{ fontSize: "13px", fontFamily: "monospace" }}
                     >
-                      Security Deposit :{"  "}
+                      <b>Security Deposit :</b>
+                      {"  "}
                       {Web3.utils.fromWei(
                         file.securityDeposit.toString(),
                         "ether"
@@ -117,43 +122,59 @@ class Studentpg extends Component {
                       ETH
                     </Card.Title>
                     <Card.Title
-                      className="mb-1 text-muted"
-                      style={{ fontSize: "12px" }}
+                      className="mb-1 text-dark"
+                      style={{ fontSize: "13px", fontFamily: "monospace" }}
                     >
-                      New Contract on:{"  "}
+                      <b>New Contract on:</b>
+                      {"  "}
                       {file.timestamp != 0
                         ? moment.unix(file.timestamp).format("D-MM-YYYY ")
                         : " "}
                     </Card.Title>
                     {/* ======================== Google Books Link  */}
                     <Card.Title
-                      className="mb-1 text-muted"
-                      style={{ fontSize: "12px" }}
+                      className="mb-1 text-dark"
+                      style={{ fontSize: "13px", fontFamily: "monospace" }}
                     >
-                      Landlord: {file.landlord.substring(0, 6)}...
-                      {file.landlord.substring(38, 42)}
+                      <b>Landlord:</b>{" "}
+                      <Card.Link
+                        href={"https://etherscan.io/address/" + file.landlord}
+                        rel="noopener noreferrer"
+                        target="_blank"
+                      >
+                        {file.landlord.substring(0, 6)}...
+                        {file.landlord.substring(38, 42)}
+                      </Card.Link>
                     </Card.Title>
                     {/* ======================== Button : Delete  */}
                     <Card.Title
-                      className="mb-1 text-muted"
-                      style={{ fontSize: "12px" }}
+                      className="mb-1 text-dark"
+                      style={{ fontSize: "13px", fontFamily: "monospace" }}
                     >
-                      {file.vacant ? "Previous " : "Current "} Tenant:{" "}
-                      {file.currentTenant !=
-                      "0x0000000000000000000000000000000000000000"
-                        ? file.currentTenant.substring(0, 6)
-                        : "0x0"}
-                      ...
-                      {file.currentTenant !=
-                      "0x0000000000000000000000000000000000000000"
-                        ? file.currentTenant.substring(38, 42)
-                        : "0x0"}
+                      <b>{file.vacant ? "Previous " : "Current "} Tenant: </b>
+                      <Card.Link
+                        href={
+                          "https://etherscan.io/address/" + file.currentTenant
+                        }
+                        rel="noopener noreferrer"
+                        target="_blank"
+                      >
+                        {file.currentTenant !=
+                        "0x0000000000000000000000000000000000000000"
+                          ? file.currentTenant.substring(0, 6)
+                          : "0x0"}
+                        ...
+                        {file.currentTenant !=
+                        "0x0000000000000000000000000000000000000000"
+                          ? file.currentTenant.substring(38, 42)
+                          : "0x0"}
+                      </Card.Link>
                     </Card.Title>
                     <Card.Title
-                      className="mb-1 text-muted"
-                      style={{ fontSize: "12px" }}
+                      className="mb-1 text-dark"
+                      style={{ fontSize: "13px", fontFamily: "monospace" }}
                     >
-                      Vacancy: {file.vacant ? "YES" : "NO"}
+                      <b>Vacancy:</b> {file.vacant ? "YES" : "NO"}
                     </Card.Title>
                     <Button
                       id="Signagreement"
