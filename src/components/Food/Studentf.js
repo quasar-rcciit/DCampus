@@ -101,8 +101,7 @@ class studentf extends Component {
                             style={{
                               fontSize: "17px",
                               color: "black",
-                              fontFamily: "'Be Vietnam Pro', sans-serif",
-                              marginTop:"4%"
+                              fontFamily: "'Be Vietnam Pro', sans-serif",                             
                             }}
                           >
                            <div className="invert"> <b>{foodItem.name.substring(0, 46)}</b></div>
@@ -129,12 +128,7 @@ class studentf extends Component {
                               );
                             }}
                           >
-                            <h5
-                              class="card-subtitle text-muted"
-                              style={{ textAlign: "center", fontSize: "12px" }}
-                            >
-                              Where do you want to get your food?
-                            </h5>
+                            
                             <ButtonGroup
                               className="me-2"
                               aria-label="First group"
