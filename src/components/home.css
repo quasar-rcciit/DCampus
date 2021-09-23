@@ -154,9 +154,27 @@ h5 {
 {
   height:auto;
   width: 150px !important;
-  border-radius: 0px !important;
+  border-radius: 100% !important;
   margin: 0px auto;
   margin-top: -100px;
+  box-shadow: 0 13px 27px -5px hsl(240deg 30% 28% / 25%), 0 8px 16px -8px hsl(0deg 0% 0% / 30%), 0 -6px 16px -6px hsl(0deg 0% 0% / 3%);
+}
+.card_sp_round_image
+{
+  border-radius: 50% !important; 
+  height:150px;
+  width: 150px !important;
+  margin: 0px auto;
+  margin-top: -100px;
+  box-shadow: 0 13px 27px -5px hsl(240deg 30% 28% / 25%), 0 8px 16px -8px hsl(0deg 0% 0% / 30%), 0 -6px 16px -6px hsl(0deg 0% 0% / 3%);
+}
+.card_sp_round_image_food
+{
+  border-radius: 50% !important; 
+  height:250px;
+  width: 150px !important;
+  margin: 0px auto;
+  margin-top: -90px;
   box-shadow: 0 13px 27px -5px hsl(240deg 30% 28% / 25%), 0 8px 16px -8px hsl(0deg 0% 0% / 30%), 0 -6px 16px -6px hsl(0deg 0% 0% / 3%);
 }
 .card_sp

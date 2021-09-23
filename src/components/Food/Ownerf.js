@@ -157,7 +157,8 @@ class Ownerf extends Component {
                     >
                       <Card.Body>
                         <Card.Img
-                          variant=""
+                          variant="top"
+                          className="card_sp_round_image"
                           style={{ height: "8rem", width: "46rem" }}
                           src={
                             foodItem.image.match(/\.(jpeg|jpg|gif|png)$/) !=
@@ -165,7 +166,7 @@ class Ownerf extends Component {
                               ? foodItem.image
                               : "https://imgur.com/QuzUb7b.jpg"
                           }
-                          className="card_sp_image"
+                         
                         />
 
                         <Card.Title
