@@ -84,13 +84,14 @@ class studentf extends Component {
                       key={key}
                     >
                       <Card.Img
+                      className="card_sp_round_image_food"
+                      variant="top"
                         src={
                           foodItem.image.match(/\.(jpeg|jpg|gif|png)$/) != null
                             ? foodItem.image
                             : "https://imgur.com/QuzUb7b.jpg"
-                        }
-                        className="card_sp_image"
-                        style={{ height: "auto" }}
+                        }                        
+                        style={{ height: "auto"}}
                       />
 
                       <Card.Body>
@@ -109,6 +110,7 @@ class studentf extends Component {
                               fontSize: "17px",
                               color: "black",
                               fontFamily: "'Be Vietnam Pro', sans-serif",
+                              marginTop:"4%"
                             }}
                           >
                             <b>{foodItem.name.substring(0, 46)}</b>
@@ -154,8 +156,8 @@ class studentf extends Component {
                                 id="hostel"
                                 variant={
                                   this.state.hostelChecked
-                                    ? "success"
-                                    : "secondary"
+                                    ? "primary"
+                                    : "primary"
                                 }
                                 onClick={() => {
                                   this.setState({ hostelOrCanteen: 0 });
@@ -189,7 +191,7 @@ class studentf extends Component {
                             </ButtonGroup>
                             <h5
                               class="card-subtitle text-muted"
-                              style={{ textAlign: "center" }}
+                              style={{ textAlign: "center", marginBottom:"2%" }}
                             >
                               Enter Table (or Room) no.
                             </h5>
@@ -205,7 +207,7 @@ class studentf extends Component {
                               min="0"
                               onChange={this.handleChangeNumber}
                             />
-                            <h5 class="card-subtitle text-muted">
+                            <h5 class="card-subtitle text-muted" style={{ textAlign: "center", marginBottom:"2%" }}>
                               Order Quantity (*optional):
                             </h5>
                             <Form.Control
