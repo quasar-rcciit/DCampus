@@ -78,9 +78,15 @@ contract Library {
     
     
   function deletebook(uint index) public onlylibrarian(){
-        books[index] = books[BookCount-1];
-        delete books[BookCount-1];
-        BookCount --;
+      if(index != BookCount){
+        books[index]= Book(index,books[BookCount].book_Hash,books[BookCount].book_Size,books[BookCount].book_Name,books[BookCount].book_Description,books[BookCount].author,books[BookCount].isbn,books[BookCount].uploadTime,books[BookCount].uploader);
+        books[BookCount]= Book(0,"",0,"","","",0,0,address(0));
+        BookCount --;}
+      else
+      {
+          books[index]= Book(0,"",0,"","","",0,0,address(0));
+          BookCount--;
+      }
     }
     
   function uploadBook(string memory _book_Hash,uint256 _book_Size,string memory _book_Name,string memory _book_Description,string memory _author,uint256 _isbn) public onlylibrarian() {
@@ -119,7 +125,7 @@ contract Library {
   function deletenote(uint index) public onlyUploaderorLibrarian(index){
         if(index != NoteCount){
         notes[index]= Note(index,notes[NoteCount].note_Hash,notes[NoteCount].note_Size,notes[NoteCount].stream,notes[NoteCount].subjectcode,notes[NoteCount].teacher,notes[NoteCount].date,notes[NoteCount].uploadTime,notes[NoteCount].uploader,0);
-        notes[BookCount]= Note(0,"",0,"","","","",0,address(0),0);
+        notes[NoteCount]= Note(0,"",0,"","","","",0,address(0),0);
         NoteCount --;}
         else
         {
