@@ -89,22 +89,14 @@ class studentf extends Component {
                         src={
                           foodItem.image.match(/\.(jpeg|jpg|gif|png)$/) != null
                             ? foodItem.image
-                            : "https://imgur.com/QuzUb7b.jpg"
+                            : "https://images.squarespace-cdn.com/content/v1/5c484f81e2ccd1a693aede65/1548432147844-YRT7JI9EMGHOKH731DSX/junk-food-square.jpg"
                         }                        
                         style={{ height: "auto"}}
                       />
 
                       <Card.Body>
-                        <Card.Img
-                          style={{ marginTop: "110%" }}
-                          src={
-                            foodItem.available == 1
-                              ? "https://lh3.googleusercontent.com/proxy/l59KADIO8IYNerv3XgrMXyIudSZ5u3qupes05xXRHfbYRFVbb6bua4UC407wo1rtEsT0Qj4uncvD7XJgnz-vnSlHCKqk52-_Gt7-DUOJnQ"
-                              : "https://upload.wikimedia.org/wikipedia/commons/thumb/0/02/Transparent_square.svg/1024px-Transparent_square.svg.png"
-                          }
-                          alt="Card image"
-                        />
-                        <Card.ImgOverlay>
+                        
+                       
                           <Card.Title
                             style={{
                               fontSize: "17px",
@@ -113,7 +105,7 @@ class studentf extends Component {
                               marginTop:"4%"
                             }}
                           >
-                            <b>{foodItem.name.substring(0, 46)}</b>
+                           <div className="invert"> <b>{foodItem.name.substring(0, 46)}</b></div>
                           </Card.Title>
 
                           {/* ======================== Author  */}
@@ -175,7 +167,7 @@ class studentf extends Component {
                                 variant={
                                   this.state.canteenChecked
                                     ? "success"
-                                    : "secondary"
+                                    : "primary"
                                 }
                                 onClick={() => {
                                   this.setState({ hostelOrCanteen: 1 });
@@ -234,8 +226,7 @@ class studentf extends Component {
                             >
                               Order
                             </Button>
-                          </form>
-                        </Card.ImgOverlay>
+                          </form>                        
                       </Card.Body>
                     </Card>
                   </Col>
