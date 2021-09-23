@@ -24,7 +24,19 @@ class Transactions extends Component {
         {/* <div>{rvalue} %</div> */}
 
         <h3>Agreement Termination Request</h3>
-        <h9>{this.props.admin}</h9>
+
+        <h6>
+          Admin :{" "}
+          <a
+            href={"https://etherscan.io/address/" + this.props.admin}
+            rel="noopener noreferrer"
+            target="_blank"
+          >
+            {this.props.admin.substring(0, 6)}...
+            {this.props.admin.substring(38, 42)}
+          </a>
+        </h6>
+        <br></br>
         <table
           class="table table-bordered"
           // style={{ width: "1000px", maxHeight: "450px" }}
