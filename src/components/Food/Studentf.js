@@ -89,31 +89,22 @@ class studentf extends Component {
                         src={
                           foodItem.image.match(/\.(jpeg|jpg|gif|png)$/) != null
                             ? foodItem.image
-                            : "https://imgur.com/QuzUb7b.jpg"
+                            : "https://images.squarespace-cdn.com/content/v1/5c484f81e2ccd1a693aede65/1548432147844-YRT7JI9EMGHOKH731DSX/junk-food-square.jpg"
                         }                        
                         style={{ height: "auto"}}
                       />
 
                       <Card.Body>
-                        <Card.Img
-                          style={{ marginTop: "110%" }}
-                          src={
-                            foodItem.available == 1
-                              ? "https://lh3.googleusercontent.com/proxy/l59KADIO8IYNerv3XgrMXyIudSZ5u3qupes05xXRHfbYRFVbb6bua4UC407wo1rtEsT0Qj4uncvD7XJgnz-vnSlHCKqk52-_Gt7-DUOJnQ"
-                              : "https://upload.wikimedia.org/wikipedia/commons/thumb/0/02/Transparent_square.svg/1024px-Transparent_square.svg.png"
-                          }
-                          alt="Card image"
-                        />
-                        <Card.ImgOverlay>
+                        
+                       
                           <Card.Title
                             style={{
                               fontSize: "17px",
                               color: "black",
-                              fontFamily: "'Be Vietnam Pro', sans-serif",
-                              marginTop:"4%"
+                              fontFamily: "'Be Vietnam Pro', sans-serif",                             
                             }}
                           >
-                            <b>{foodItem.name.substring(0, 46)}</b>
+                           <div className="invert"> <b>{foodItem.name.substring(0, 46)}</b></div>
                           </Card.Title>
 
                           {/* ======================== Author  */}
@@ -128,12 +119,7 @@ class studentf extends Component {
                           <form
                             onSubmit={(event) => {
                               event.preventDefault();
-                              console.log(
-                                Number(key),
-                                this.state.quantity,
-                                this.state.hostelOrCanteen,
-                                this.state.number
-                              );
+                              
                               this.props.order(
                                 key,
                                 Number(this.state.quantity),
@@ -142,26 +128,17 @@ class studentf extends Component {
                               );
                             }}
                           >
-                            <h5
-                              class="card-subtitle text-muted"
-                              style={{ textAlign: "center", fontSize: "12px" }}
-                            >
-                              Where do you want to get your food?
-                            </h5>
+                            
                             <ButtonGroup
                               className="me-2"
                               aria-label="First group"
                             >
                               <Button
                                 id="hostel"
-                                variant={
-                                  this.state.hostelChecked
-                                    ? "primary"
-                                    : "primary"
-                                }
+                                variant="primary"
                                 onClick={() => {
-                                  this.setState({ hostelOrCanteen: 0 });
-                                  console.log(this.hostelOrCanteen);
+                                  this.setState({ hostelOrCanteen: 0 });                                  
+                                  window.alert("Food will be delivered to hostel");
                                 }}
                                 disabled={
                                   foodItem.available == 1 ||
@@ -172,14 +149,10 @@ class studentf extends Component {
                               </Button>
                               <Button
                                 id="canteen"
-                                variant={
-                                  this.state.canteenChecked
-                                    ? "success"
-                                    : "secondary"
-                                }
+                                variant="primary"
                                 onClick={() => {
-                                  this.setState({ hostelOrCanteen: 1 });
-                                  console.log(this.hostelOrCanteen);
+                                  this.setState({ hostelOrCanteen: 1 });                                  
+                                  window.alert("Food will be delivered at canteen");
                                 }}
                                 disabled={
                                   foodItem.available == 1 ||
@@ -234,8 +207,7 @@ class studentf extends Component {
                             >
                               Order
                             </Button>
-                          </form>
-                        </Card.ImgOverlay>
+                          </form>                        
                       </Card.Body>
                     </Card>
                   </Col>

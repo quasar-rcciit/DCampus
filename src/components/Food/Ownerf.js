@@ -164,7 +164,7 @@ class Ownerf extends Component {
                             foodItem.image.match(/\.(jpeg|jpg|gif|png)$/) !=
                             null
                               ? foodItem.image
-                              : "https://imgur.com/QuzUb7b.jpg"
+                              : "https://images.squarespace-cdn.com/content/v1/5c484f81e2ccd1a693aede65/1548432147844-YRT7JI9EMGHOKH731DSX/junk-food-square.jpg"
                           }
                          
                         />

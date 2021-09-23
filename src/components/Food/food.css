@@ -322,6 +322,10 @@ h5 {
     color: #555;
     width: 30em;
   }
+  .invert{
+    color: #bbb;
+    mix-blend-mode: difference;
+  }
 
   .cards {
     display: block;
