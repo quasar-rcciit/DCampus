@@ -49,15 +49,16 @@ function Makers() {
     }
   }, []);
 
-  if(loading0) return "loading...";
-  if(loading1) return "loading...";
-  if(loading2) return "loading...";
-  if(loading3) return "loading...";
-  if(loading4) return "loading...";
+  if(loading0) return (<div style={{textAlign: "center"}}>loading...</div>);
+  if(loading1) return (<div style={{textAlign: "center"}}>loading...</div>);
+  if(loading2) return (<div style={{textAlign: "center"}}>loading...</div>);
+  if(loading3) return (<div style={{textAlign: "center"}}>loading...</div>);
+  if(loading4) return (<div style={{textAlign: "center"}}>loading...</div>);
 
   return (
     <div className="container">
-      <h2 className="teamhead">The developers of DCampus</h2>
+      <h2 style={{marginTop: "2%"}} className="teamhead"><b>The developers of DCampus</b></h2>
+      <h6 style={{textAlign: "center"}}>This page is being fetched from GitHub</h6>
       <section className="teammem">
         <div className="teammemcont">
           {data1 && (
