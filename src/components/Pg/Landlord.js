@@ -40,9 +40,9 @@ class Landlord extends Component {
             const _houseaddress = this.houseaddress.value;
             const _rentcost = this.rentcost.value;
             const _securitydeposit = this.securitydeposit.value;
-            if (_houseaddress.length > 80 || _housename.length > 20) {
+            if (_houseaddress.length > 80 || _housename.length > 30) {
               window.alert(
-                "Please enter Name within 20 characters\nor, Enter Address within 80 characters"
+                "Please enter Name within 30 characters\nor, Enter Address within 80 characters"
               );
             } else {
               this.props.addRoom(
