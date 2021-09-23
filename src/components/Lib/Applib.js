@@ -66,7 +66,8 @@ class Applib extends Component {
       // ============================================== Admin & librarian
       admin = await this.state.library.methods.admin().call();
       librarian = await this.state.library.methods.librarian().call();
-      this.setState({ librarian })
+      this.setState({ admin });
+      this.setState({ librarian });
 
       // ============================================== Total Books
       const no_of_books = await library.methods.BookCount().call();
@@ -299,7 +300,8 @@ class Applib extends Component {
     this.state = {
       account: "",
       library: null,
-      librarian: null,
+      librarian: "",
+      admin: "",
       books: [],
       notes: [],
       loading: false,
@@ -340,7 +342,7 @@ class Applib extends Component {
                   deletenote={this.deletenote}
                   reportnote={this.reportnote}
                   account={this.state.account}
-                  librarian={librarian}
+                  librarian={this.state.librarian}
                 />
               )}
             </Route>
@@ -361,7 +363,7 @@ class Applib extends Component {
               <Admin
                 changelibrarian={this.changelibrarian}
                 account={this.state.account}
-                admin={admin}
+                admin={this.state.admin}
                 librarian={this.state.librarian}
               />
             </Route>
@@ -380,7 +382,7 @@ class Applib extends Component {
                   uploadBook={this.uploadBook}
                   deletebook={this.deletebook}
                   account={this.state.account}
-                  librarian={librarian}
+                  librarian={this.state.librarian}
                 />
               )}
             </Route>

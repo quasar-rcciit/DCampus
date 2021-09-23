@@ -1,15 +1,15 @@
 import React, { Component } from "react";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
-import FoodOrder from '../build/contracts/FoodOrder.json';
+import FoodOrder from "../build/contracts/FoodOrder.json";
 import "./studentf.css";
 import Student from "./Studentf";
 import Admin from "./Adminf";
 import Owner from "./Ownerf";
 import AllOrders from "./AllOrders";
 import Navbar from "./Navbar";
-const Web3 = require('web3');
+const Web3 = require("web3");
 
-class AppFood extends Component{
+class AppFood extends Component {
   async componentWillMount() {
     await this.loadWeb3();
     await this.loadBlockchainData();
@@ -43,7 +43,10 @@ class AppFood extends Component{
     const networkData = FoodOrder.networks[networkId]; // Collect network id (like in Ganache : 5777)
     //IF got connection, get data from contracts
     if (networkData) {
-      const foodOrder = new web3.eth.Contract(FoodOrder.abi, networkData.address);
+      const foodOrder = new web3.eth.Contract(
+        FoodOrder.abi,
+        networkData.address
+      );
       this.setState({ foodOrder });
 
       const no_of_cards = await foodOrder.methods.numberOfFoods().call();
@@ -71,13 +74,12 @@ class AppFood extends Component{
       const orderNumber = await foodOrder.methods.orderNumber().call();
       this.setState({ orderNumber });
 
-      for (var i = orderNumber-1; i >= 0 ; i--) {
+      for (var i = orderNumber - 1; i >= 0; i--) {
         const orderItem = await foodOrder.methods.orders(i).call();
         this.setState({
           orders: [...this.state.orders, orderItem],
         });
       }
-
     } else {
       window.alert("FoodOrder contract not deployed to detected network.");
     }
@@ -86,7 +88,7 @@ class AppFood extends Component{
   addFood = (image, name, price, category, available) => {
     this.setState({ loading: true });
 
-    var priceInWei = this.state.web3.utils.toWei(price, 'ether');
+    var priceInWei = this.state.web3.utils.toWei(price, "ether");
 
     this.state.foodOrder.methods
       .addFood(image, name, priceInWei, category, available)
@@ -132,7 +134,10 @@ class AppFood extends Component{
 
     this.state.foodOrder.methods
       .order(index, quantity, hostelOrCanteen, number)
-      .send({ from: this.state.account, value: this.state.foods[index].price * quantity })
+      .send({
+        from: this.state.account,
+        value: this.state.foods[index].price * quantity,
+      })
       .on("transactionHash", (hash) => {
         this.setState({
           loading: false,
@@ -171,7 +176,7 @@ class AppFood extends Component{
     this.setState({ loading: true });
     console.log(price);
 
-    var priceInWei = this.state.web3.utils.toWei(price, 'ether');
+    var priceInWei = this.state.web3.utils.toWei(price, "ether");
     this.state.foodOrder.methods
       .priceChange(index, priceInWei)
       .send({ from: this.state.account })
@@ -186,27 +191,27 @@ class AppFood extends Component{
   orderDeliver = (index) => {
     this.setState({ loading: true });
     this.state.foodOrder.methods
-    .orderDeliver(index)
-    .send({ from: this.state.account })
-    .on("transactionHash", (hash) => {
-      this.setState({
-        loading: false,
+      .orderDeliver(index)
+      .send({ from: this.state.account })
+      .on("transactionHash", (hash) => {
+        this.setState({
+          loading: false,
+        });
+        window.location.reload();
       });
-      window.location.reload();
-    });
   };
 
   onOrderDelivered = (index, rating) => {
     this.setState({ loading: true });
     this.state.foodOrder.methods
-    .onOrderDelivered(index, rating)
-    .send({ from: this.state.account })
-    .on("transactionHash", (hash) => {
-      this.setState({
-        loading: false,
+      .onOrderDelivered(index, rating)
+      .send({ from: this.state.account })
+      .on("transactionHash", (hash) => {
+        this.setState({
+          loading: false,
+        });
+        window.location.reload();
       });
-      window.location.reload();
-    });
   };
 
   constructor(props) {
@@ -225,9 +230,9 @@ class AppFood extends Component{
       admin: "",
       web3: null,
     };
-    this.order=this.order.bind(this);
+    this.order = this.order.bind(this);
   }
-  
+
   render() {
     return (
       <div>
@@ -236,36 +241,37 @@ class AppFood extends Component{
             <Route path="/foodiegenie">
               <Navbar account={this.state.account} />
               <Student
-              no_of_cards={this.state.no_of_cards}
-              order={this.order}
-              foods={this.state.foods}
-              account={this.state.account}
-              canteenOwner={this.state.canteenOwner}
-              web3={this.state.web3}
-            />
+                no_of_cards={this.state.no_of_cards}
+                order={this.order}
+                foods={this.state.foods}
+                account={this.state.account}
+                canteenOwner={this.state.canteenOwner}
+                web3={this.state.web3}
+              />
             </Route>
             <Route path="/admin">
               <Admin
-              changeFees={this.changeFees}
-              changeOwner={this.changeOwner}
-              ownerAddress={this.state.ownerAddress}
-              collegeFees={this.state.collegeFees}
-              admin={this.state.admin}
-              account={this.state.account}
-            />
+                changeFees={this.changeFees}
+                changeOwner={this.changeOwner}
+                ownerAddress={this.state.ownerAddress}
+                collegeFees={this.state.collegeFees}
+                admin={this.state.admin}
+                account={this.state.account}
+                canteenOwner={this.state.canteenOwner}
+              />
             </Route>
             <Route path="/foodiegenie-owner">
               <Navbar account={this.state.account} />
               <Owner
-              addFood={this.addFood}
-              foods={this.state.foods}
-              deleteItem={this.deleteItem}
-              availabilityChange={this.availabilityChange}
-              priceChange={this.priceChange}
-              canteenOwner={this.state.canteenOwner}
-              account={this.state.account}
-              web3={this.state.web3}
-            />
+                addFood={this.addFood}
+                foods={this.state.foods}
+                deleteItem={this.deleteItem}
+                availabilityChange={this.availabilityChange}
+                priceChange={this.priceChange}
+                canteenOwner={this.state.canteenOwner}
+                account={this.state.account}
+                web3={this.state.web3}
+              />
             </Route>
             <Route path="/foodiegenie-orders">
               <Navbar account={this.state.account} />
