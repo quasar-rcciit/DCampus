@@ -59,10 +59,13 @@ class Adminpg extends Component {
       // Room_Count = await this.state.rentalagreement.methods.no_of_rooms().call();
       // console.log("room total ", Room_Count);
       admin = await this.state.rentalagreement.methods.Admin().call();
+      this.setState({ admin });
       // console.log("Admin", admin);
       // console.log("Commision", commision);
 
-      const commission = await this.state.rentalagreement.methods.commisionpercentage().call();
+      const commission = await this.state.rentalagreement.methods
+        .commisionpercentage()
+        .call();
       this.setState({ commission });
       // ============================================== Total Books
       const no_of_rooms = await rentalagreement.methods.no_of_rooms().call();
@@ -398,6 +401,7 @@ class Adminpg extends Component {
     super(props);
     this.state = {
       account: "",
+      admin: "",
       commission: 0,
       rentalagreement: null,
       Room_by_No: [],
@@ -470,7 +474,7 @@ class Adminpg extends Component {
                 reject={this.reject}
                 // signAgreement={this.signAgreement}
                 // payRent={this.payRent}
-                admin={admin}
+                admin={this.state.admin}
                 // commision={commision}
               />
             </Route>
@@ -490,7 +494,7 @@ class Adminpg extends Component {
                 reject={this.reject}
                 // signAgreement={this.signAgreement}
                 // payRent={this.payRent}
-                adminp={admin}
+                adminp={this.state.admin}
                 commission={this.state.commission}
               />
             </Route>
@@ -510,7 +514,7 @@ class Adminpg extends Component {
                 reject={this.reject}
                 // signAgreement={this.signAgreement}
                 // payRent={this.payRent}
-                admin={admin}
+                admin={this.state.admin}
                 // commision={commision}
               />
             </Route>
