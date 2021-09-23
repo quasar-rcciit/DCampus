@@ -20,12 +20,24 @@ class Admin extends Component {
         >
           <div class="form-row container">
             <div className="form-group col-md-6">
-              <h3 style={{marginBottom: "2%",textAlign:"left"}}>Change Librarian: </h3>
-              <h6 style={{marginBottom: "2%",textAlign:"left"}}>Current Librarian:&nbsp;{this.props.librarian}</h6>
+              <h3 style={{ marginBottom: "2%", textAlign: "left" }}>
+                Change Librarian:{" "}
+              </h3>
+              <h6 style={{ marginBottom: "2%", textAlign: "left" }}>
+                Current Librarian:&nbsp;
+                <a
+                  href={"https://etherscan.io/address/" + this.props.librarian}
+                  rel="noopener noreferrer"
+                  target="_blank"
+                >
+                  {this.props.librarian.substring(0, 6)}...
+                  {this.props.librarian.substring(38, 42)}
+                </a>
+              </h6>
               <InputGroup>
                 <input
                   id="librarian"
-                  style={{marginBottom:"2%"}}
+                  style={{ marginBottom: "2%" }}
                   disabled={this.props.account != this.props.admin}
                   type="text"
                   ref={(input) => {
@@ -36,7 +48,7 @@ class Admin extends Component {
                   required
                 />
                 <button
-                  style={{ height: 38 ,textAlign:"left"}}
+                  style={{ height: 38, textAlign: "left" }}
                   disabled={this.props.account != this.props.admin}
                   type="submit"
                   className="btn btn-warning"
