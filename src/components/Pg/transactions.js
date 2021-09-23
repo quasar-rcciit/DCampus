@@ -250,6 +250,7 @@ class Transactions extends Component {
                 Submit
               </button>
             </div>
+            <br></br>
             <table
               id="myTable"
               class="table table-bordered"
@@ -314,8 +315,8 @@ class Transactions extends Component {
                       <tr>
                         <td>{file.agreementid}</td>
                         <td>{file.roomid}</td>
-                        <td>{file.Roomname}</td>
-                        <td>{file.RoomAddresss}</td>
+                        <td>{file.Roomname.substring(0, 20)}</td>
+                        <td>{file.RoomAddresss.substring(0, 25)}...</td>
                         <td>
                           {Web3.utils.fromWei(
                             file.securityDeposit.toString(),
@@ -333,12 +334,30 @@ class Transactions extends Component {
                         <td>{file.commisionpercentage}</td>
                         <td>365 Days</td>
                         <td>
-                          {file.landlordAddress.substring(0, 6)}...
-                          {file.landlordAddress.substring(38, 42)}
+                          <a
+                            href={
+                              "https://etherscan.io/address/" +
+                              file.landlordAddress
+                            }
+                            rel="noopener noreferrer"
+                            target="_blank"
+                          >
+                            {file.landlordAddress.substring(0, 6)}...
+                            {file.landlordAddress.substring(38, 42)}
+                          </a>
                         </td>
                         <td>
-                          {file.tenantAddress.substring(0, 6)}...
-                          {file.tenantAddress.substring(38, 42)}
+                          <a
+                            href={
+                              "https://etherscan.io/address/" +
+                              file.tenantAddress
+                            }
+                            rel="noopener noreferrer"
+                            target="_blank"
+                          >
+                            {file.tenantAddress.substring(0, 6)}...
+                            {file.tenantAddress.substring(38, 42)}
+                          </a>
                         </td>
 
                         <td>
@@ -421,6 +440,7 @@ class Transactions extends Component {
                 Submit
               </button>
             </div>
+            <br></br>
             <table
               id="rentTable"
               class="table table-bordered"
@@ -479,8 +499,30 @@ class Transactions extends Component {
                           )}{" "}
                           ETH
                         </td>
-                        <td>{file.landlordAddress}</td>
-                        <td>{file.tenantAddress}</td>
+                        <td>
+                          <a
+                            href={
+                              "https://etherscan.io/address/" +
+                              file.landlordAddress
+                            }
+                            rel="noopener noreferrer"
+                            target="_blank"
+                          >
+                            {file.landlordAddress}
+                          </a>
+                        </td>
+                        <td>
+                          <a
+                            href={
+                              "https://etherscan.io/address/" +
+                              file.tenantAddress
+                            }
+                            rel="noopener noreferrer"
+                            target="_blank"
+                          >
+                            {file.tenantAddress}
+                          </a>
+                        </td>
 
                         <td>
                           {moment

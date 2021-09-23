@@ -11,6 +11,7 @@ import {
   faThumbsDown,
   faWindowClose,
   faUpload,
+  faPlus,
 } from "@fortawesome/free-solid-svg-icons";
 
 class Landlord extends Component {
@@ -35,15 +36,22 @@ class Landlord extends Component {
           onSubmit={(event) => {
             event.preventDefault();
             const _housename = this.housename.value;
+
             const _houseaddress = this.houseaddress.value;
             const _rentcost = this.rentcost.value;
             const _securitydeposit = this.securitydeposit.value;
-            this.props.addRoom(
-              _housename,
-              _houseaddress,
-              _rentcost,
-              _securitydeposit
-            );
+            if (_houseaddress.length > 80 || _housename.length > 20) {
+              window.alert(
+                "Please enter Name within 20 characters\nor, Enter Address within 80 characters"
+              );
+            } else {
+              this.props.addRoom(
+                _housename,
+                _houseaddress,
+                _rentcost,
+                _securitydeposit
+              );
+            }
           }}
         >
           <div style={{ marginBottom: "2.5%", marginTop: "2.5%" }}>
@@ -119,7 +127,8 @@ class Landlord extends Component {
                 className="btn btn-success col-md-1.5"
               >
                 <b>
-                  Upload &nbsp; <FontAwesomeIcon icon={faUpload} />
+                  <FontAwesomeIcon icon={faPlus} />
+                  &nbsp;&nbsp; Add Room
                 </b>
               </button>
             </div>
@@ -134,8 +143,8 @@ class Landlord extends Component {
                   <Card
                     border="shadow"
                     style={{
-                      height: "22rem",
-                      width: "20rem",
+                      height: "24.5rem",
+                      width: "19.5rem",
                       backgroundColor: "#e6f9d4",
                       textAlign: "left",
                     }}
@@ -189,40 +198,40 @@ class Landlord extends Component {
                             fontFamily: "monospace",
                           }}
                         >
-                          <b> Name: {file.housename}</b>
+                          <b>{file.housename}</b>
                         </Card.Title>
 
                         {/* ======================== Author  */}
                         <Card.Title
                           style={{
-                            fontSize: "16px",
-                            color: "green",
+                            fontSize: "14px",
                             fontFamily: "monospace",
                           }}
                         >
-                          Room No: {file.roomid}
+                          <b>Room No:</b> {file.roomid}
                         </Card.Title>
                         <Card.Title
                           style={{
-                            fontSize: "16px",
-                            color: "green",
+                            fontSize: "14px",
                             fontFamily: "monospace",
                           }}
                         >
-                          Current Agreement : {file.agreementid}
+                          <b>Current Agreement:</b> {file.agreementid}
                         </Card.Title>
                         <Card.Title
-                          className="mb-1 text-dark"
+                          // className="mb-1 text"
                           style={{ fontSize: "14px", fontFamily: "monospace" }}
                         >
-                          Address: {file.houseaddress}
+                          <b>Address:</b> {file.houseaddress.substring(0, 50)}
+                          ...
                         </Card.Title>
                         {/* ======================== ISBN No.  */}
                         <Card.Title
-                          className="mb-1 text-muted"
-                          style={{ fontSize: "14px" }}
+                          // className="mb-1 text"
+                          style={{ fontSize: "14px", fontFamily: "monospace" }}
                         >
-                          Rent / Month :{"  "}
+                          <b>Rent / Month:</b>
+                          {"  "}
                           {Web3.utils.fromWei(
                             file.rent_per_month.toString(),
                             "ether"
@@ -230,10 +239,11 @@ class Landlord extends Component {
                           ETH
                         </Card.Title>
                         <Card.Title
-                          className="mb-1 text-muted"
-                          style={{ fontSize: "14px" }}
+                          // className="mb-1 text"
+                          style={{ fontSize: "14px", fontFamily: "monospace" }}
                         >
-                          Security Deposit :{"  "}
+                          <b>Security Deposit :</b>
+                          {"  "}
                           {Web3.utils.fromWei(
                             file.securityDeposit.toString(),
                             "ether"
@@ -241,52 +251,78 @@ class Landlord extends Component {
                           ETH
                         </Card.Title>
                         <Card.Title
-                          className="mb-1 text-muted"
-                          style={{ fontSize: "14px" }}
+                          // className="mb-1 text"
+                          style={{ fontSize: "14px", fontFamily: "monospace" }}
                         >
-                          New Contract on:{"  "}
+                          <b>New Contract on:</b>
+                          {"  "}
                           {file.timestamp != 0
                             ? moment.unix(file.timestamp).format("D-MM-YYYY ")
                             : " "}
                         </Card.Title>
                         {/* ======================== Google Books Link  */}
                         <Card.Title
-                          className="mb-1 text-muted"
-                          style={{ fontSize: "14px" }}
+                          // className="mb-1 text"
+                          style={{ fontSize: "14px", fontFamily: "monospace" }}
                         >
-                          Landlord: {file.landlord.substring(0, 6)}...
-                          {file.landlord.substring(38, 42)}
+                          <b>Landlord:</b>{" "}
+                          <Card.Link
+                            href={
+                              "https://etherscan.io/address/" + file.landlord
+                            }
+                            rel="noopener noreferrer"
+                            target="_blank"
+                          >
+                            {file.landlord.substring(0, 6)}...
+                            {file.landlord.substring(38, 42)}
+                          </Card.Link>
                         </Card.Title>
                         {/* ======================== Button : Delete  */}
                         <Card.Title
-                          className="mb-1 text-muted"
-                          style={{ fontSize: "14px" }}
+                          // className="mb-1 text"
+                          style={{ fontSize: "14px", fontFamily: "monospace" }}
                         >
-                          {file.vacant ? "Previous " : "Current "} Tenant:{" "}
-                          {file.currentTenant !=
-                          "0x0000000000000000000000000000000000000000"
-                            ? file.currentTenant.substring(0, 6)
-                            : "0x0"}
-                          ...
-                          {file.currentTenant !=
-                          "0x0000000000000000000000000000000000000000"
-                            ? file.currentTenant.substring(38, 42)
-                            : "0x0"}
+                          <b>
+                            {file.vacant ? "Previous " : "Current "} Tenant:{" "}
+                          </b>
+                          <Card.Link
+                            href={
+                              "https://etherscan.io/address/" +
+                              file.currentTenant
+                            }
+                            rel="noopener noreferrer"
+                            target="_blank"
+                          >
+                            {file.currentTenant !=
+                            "0x0000000000000000000000000000000000000000"
+                              ? file.currentTenant.substring(0, 6)
+                              : "0x0"}
+                            ...
+                            {file.currentTenant !=
+                            "0x0000000000000000000000000000000000000000"
+                              ? file.currentTenant.substring(38, 42)
+                              : "0x0"}
+                          </Card.Link>
                         </Card.Title>
                         <Card.Title
-                          className="mb-1 text-muted"
-                          style={{ fontSize: "14px" }}
+                          // className="mb-1 text"
+                          style={{ fontSize: "14px", fontFamily: "monospace" }}
                         >
-                          Vacancy: {file.vacant ? "YES" : "NO"}
+                          <b>Vacancy:</b> {file.vacant ? "YES" : "NO"}
                         </Card.Title>
                         <Card.Title
-                          className="mb-1 text-muted"
-                          style={{ fontSize: "14px" }}
+                          className="mb-1 text"
+                          style={{ fontSize: "14px", fontFamily: "monospace" }}
                         >
-                          Reports:&nbsp; <FontAwesomeIcon icon={faThumbsDown} />
+                          <b>Reports:</b>&nbsp;{" "}
+                          <FontAwesomeIcon icon={faThumbsDown} />
                           <a
                             id="report"
-                            style={{ margin: "1%", borderRadius: "8px" }}
+                            style={{
+                              margin: "1%",
+                              borderRadius: "8px",
+                              fontFamily: "monospace",
+                            }}
                             disabled
                           >
                             {" "}
