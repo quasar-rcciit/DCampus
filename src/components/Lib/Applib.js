@@ -45,7 +45,6 @@ class Applib extends Component {
   // ============================================== Load Blockchain with WEB3
   async loadBlockchainData() {
     const web3 = window.web3;
-    console.log(web3);
     //Declare Web3
 
     //Load account   //Using web3 get account

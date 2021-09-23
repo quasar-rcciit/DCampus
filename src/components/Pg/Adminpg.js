@@ -34,20 +34,16 @@ class Adminpg extends Component {
   // ============================================== Load Blockchain with WEB3
   async loadBlockchainData() {
     const web3 = window.web3;
-    console.log("Web3", web3);
     //Declare Web3
 
     //Load account   //Using web3 get account
     const accounts = await web3.eth.getAccounts();
     this.setState({ account: accounts[0] }); //============ METAMASK 1st account Address
-    console.log("Account", accounts);
 
     // ============================================== Network ID (Library.json --> networks --> address)
     const networkId = await web3.eth.net.getId();
-    console.log("networkId", networkId);
     // ============================================== Contract Hash & Address
     const networkData = RentalAgreement.networks[networkId];
-    console.log("networkdata", networkData);
     // ============================================== Connect to Contract
     if (networkData) {
       const rentalagreement = new web3.eth.Contract(
@@ -70,11 +66,9 @@ class Adminpg extends Component {
       // ============================================== Total Books
       const no_of_rooms = await rentalagreement.methods.no_of_rooms().call();
       this.setState({ no_of_rooms });
-      console.log("no of rooms", no_of_rooms);
 
       for (var i = 1; i <= no_of_rooms; i++) {
         const file = await rentalagreement.methods.Room_by_No(i).call();
-        console.log(file);
         this.setState({
           Room_by_No: [...this.state.Room_by_No, file],
         });
@@ -84,13 +78,11 @@ class Adminpg extends Component {
         .no_of_agreement()
         .call();
       this.setState({ no_of_agreement });
-      console.log("no of Agreements", no_of_agreement);
 
       for (var j = 1; j <= no_of_agreement; j++) {
         const file_A = await rentalagreement.methods
           .RoomAgreement_by_No(j)
           .call();
-        console.log(file_A);
         this.setState({
           RoomAgreement_by_No: [...this.state.RoomAgreement_by_No, file_A],
         });
@@ -98,11 +90,9 @@ class Adminpg extends Component {
 
       const no_of_rent = await rentalagreement.methods.no_of_rent().call();
       this.setState({ no_of_rent });
-      console.log("no of Rents", no_of_rent);
 
       for (var k = 1; k <= no_of_rent; k++) {
         const file_R = await rentalagreement.methods.Rent_by_No(k).call();
-        console.log(file_R);
         this.setState({
           Rent_by_No: [...this.state.Rent_by_No, file_R],
         });
@@ -112,13 +102,11 @@ class Adminpg extends Component {
         .no_of_terminationrequest()
         .call();
       this.setState({ no_of_terminationrequest });
-      console.log("no of Agreements", no_of_terminationrequest);
 
       for (var m = 1; m <= no_of_terminationrequest; m++) {
         const file_X = await rentalagreement.methods
           .RequestAgreementTermination_By_No(m)
           .call();
-        console.log(file_X);
         this.setState({
           RequestAgreementTermination_By_No: [
             ...this.state.RequestAgreementTermination_By_No,
@@ -127,9 +115,6 @@ class Adminpg extends Component {
         });
       }
 
-      console.log("Room", this.state.Room_by_No);
-      console.log("Agreeement", this.state.RoomAgreement_by_No);
-      console.log("Agreeement", this.state.Rent_by_No);
     } else {
       window.alert("Library contract not deployed to detected network.");
     }
@@ -170,7 +155,6 @@ class Adminpg extends Component {
 
   // ============================================== Upload Books
   async signAgreement(_index) {
-    console.log("Index", _index);
 
     const web3 = window.web3;
     web3.eth.getBalance(this.state.account).then(console.log);
@@ -181,7 +165,6 @@ class Adminpg extends Component {
       .totalfee(_index)
       .call();
     // const Total = total.then(result);
-    console.log("Total", total);
 
     // var amount = Web3.utils.toWei(total.toString(), "ether");
     // const amount = Web3.utils.toWei(total, "ether");
@@ -217,10 +200,8 @@ class Adminpg extends Component {
   }
 
   async payRent(_index) {
-    console.log("Index", _index);
 
     const rent = await this.state.rentalagreement.methods.rent(_index).call();
-    console.log("Rent", rent);
     //Set state to loading
     this.setState({ loading: true });
 
@@ -240,7 +221,6 @@ class Adminpg extends Component {
   }
 
   reportroom = (_index) => {
-    console.log("Note Index", _index);
 
     //Set state to loading
     this.setState({ loading: true });
@@ -265,12 +245,10 @@ class Adminpg extends Component {
   };
 
   async agreementCompleted(_index) {
-    console.log("Index", _index);
 
     const securitydeposit = await this.state.rentalagreement.methods
       .securitydeposit(_index)
       .call();
-    console.log("Rent", securitydeposit);
 
     // //Set state to loading
     // this.setState({ loading: true });
@@ -291,7 +269,6 @@ class Adminpg extends Component {
   }
 
   agreementTerminated = (_index, _terminateno) => {
-    console.log("Index", _index);
 
     //Set state to loading
     this.setState({ loading: true });
@@ -312,7 +289,6 @@ class Adminpg extends Component {
   };
 
   reject = (_index, _agreementno, _terminateno) => {
-    console.log("Index", _index);
 
     //Set state to loading
     this.setState({ loading: true });
@@ -333,7 +309,6 @@ class Adminpg extends Component {
   };
 
   changeCommision = (_commision) => {
-    console.log("Commision", _commision);
 
     //Set state to loading
     this.setState({ loading: true });
@@ -355,7 +330,6 @@ class Adminpg extends Component {
   };
 
   diableRoom = (_index) => {
-    console.log("Commision", _index);
 
     //Set state to loading
     this.setState({ loading: true });
@@ -376,7 +350,6 @@ class Adminpg extends Component {
   };
 
   requestTermination = (_index, _agreementid) => {
-    console.log("Index", _index);
 
     //Set state to loading
     this.setState({ loading: true });
