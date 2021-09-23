@@ -106,8 +106,8 @@ function Display() {
             <div class="card-body">
               <h4 class="card-title">Order Food</h4>
               <p class="card-text">
-                Some quick example text to build on the card title and make up
-                the bulk of the card's content.
+                Don't let hunger destroy your work-time. Order food and get it
+                delivered to you.
               </p>
             </div>
           </a>
@@ -124,8 +124,8 @@ function Display() {
             <div class="card-body">
               <h4 class="card-title">Canteen Owner</h4>
               <p class="card-text">
-                Some quick example text to build on the card title and make up
-                the bulk of the card's content.
+                Add remove food dishes, change price and availability. All here,
+                just one click away.
               </p>
             </div>
           </a>
@@ -143,8 +143,8 @@ function Display() {
             <div class="card-body">
               <h4 class="card-title">Order History</h4>
               <p class="card-text">
-                Some quick example text to build on the card title and make up
-                the bulk of the card's content.
+                See every details of all your previous orders here. Take no
+                stress.
               </p>
             </div>
           </a>
