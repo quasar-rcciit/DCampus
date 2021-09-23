@@ -16,7 +16,7 @@ export default function Home() {
     <>
       {/* <img src={ether2} height="700px" /> */}
       <div className="row p-5 home_about_container">
-        <div className="col-lg-4">
+        <div className="col-lg-6">
           <div className="logo">
             <a href="/library">
               <img src={imagebook} width="500px" />
@@ -24,7 +24,7 @@ export default function Home() {
           </div>
         </div>
 
-        <div className="col-lg-7 d-flex align-items-right justify-content-center">
+        <div className="col-lg-5 d-flex align-items-right justify-content-center">
           {/* <div className="col-lg-6"> */}
           <a href="/library">
             <h3 className="home_about_header">Library</h3>
@@ -151,7 +151,7 @@ export default function Home() {
               height="300"
             />
             <div className="card-body " style={{ backgroundColor: "#f2f1f1" }}>
-              <h4 className="card-title ">PGConnect</h4>
+              <h4 className="card-title ">PG Connect</h4>
               <p className="card-text">
                 Find a perfect PG for you nearest to our college. <br /> Feel
                 home away from home.

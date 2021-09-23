@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { InputGroup } from "react-bootstrap";
 // import { convertBytes } from "./helpers";
 // import moment from "moment";
 
@@ -20,25 +21,29 @@ class Admin extends Component {
           <div class="form-row container">
             <div className="form-group col-md-6">
               <h3 style={{marginBottom: "2%",textAlign:"left"}}>Change Librarian: </h3>
-              <input
-                id="librarian"
-                style={{marginBottom:"2%"}}
-                type="text"
-                ref={(input) => {
-                  this.librarian = input;
-                }}
-                className="form-control"
-                placeholder="Change Librarian (By: Address)"
-                required
-              />
-              <button
-                style={{ height: 38 ,textAlign:"left"}}
-                disabled={this.props.account != this.props.admin}
-                type="submit"
-                className="btn btn-warning"
-              >
-                <b>Change</b>
-              </button>
+              <h6 style={{marginBottom: "2%",textAlign:"left"}}>Current Librarian:&nbsp;{this.props.librarian}</h6>
+              <InputGroup>
+                <input
+                  id="librarian"
+                  style={{marginBottom:"2%"}}
+                  disabled={this.props.account != this.props.admin}
+                  type="text"
+                  ref={(input) => {
+                    this.librarian = input;
+                  }}
+                  className="form-control"
+                  placeholder="Change Librarian (By: Address)"
+                  required
+                />
+                <button
+                  style={{ height: 38 ,textAlign:"left"}}
+                  disabled={this.props.account != this.props.admin}
+                  type="submit"
+                  className="btn btn-warning"
+                >
+                  <b>Change</b>
+                </button>
+              </InputGroup>
             </div>
           </div>
         </form>

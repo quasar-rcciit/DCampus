@@ -197,8 +197,8 @@ function Display() {
             <div class="card-body">
               <h4 class="card-title">EBooks</h4>
               <p class="card-text">
-                Don't want to visit college library? No worries. Access all
-                books here.
+                Some quick example text to build on the card title and make up
+                the bulk of the card's content.
               </p>
             </div>
           </a>
@@ -216,7 +216,8 @@ function Display() {
             <div class="card-body">
               <h4 class="card-title">Class Notes</h4>
               <p class="card-text">
-                Couldn't attend a class yesterday? Ok, find the classnotes here.
+                Some quick example text to build on the card title and make up
+                the bulk of the card's content.
               </p>
             </div>
           </a>
@@ -234,7 +235,8 @@ function Display() {
             <div class="card-body">
               <h4 class="card-title">Librarian</h4>
               <p class="card-text">
-                Decorum of online library is in your hand. All the best.
+                Some quick example text to build on the card title and make up
+                the bulk of the card's content.
               </p>
               {/* <a href="/adminl" class="btn btn-primary">
                 Login
