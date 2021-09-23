@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Button, Tab, Tabs } from "react-bootstrap";
+import { Button, InputGroup, Tab, Tabs } from "react-bootstrap";
 import Card from "react-bootstrap/Card";
 import moment from "moment";
 // import Slider from "react-rangeslider";
@@ -32,28 +32,32 @@ class Transactions extends Component {
         >
           <div class="form-row container">
             <div className="form-group col-md-6">
-            <h3 style={{marginBottom: "2%", textAlign:"left"}}>Change Commission %: {this.props.commission}</h3>
-              <input
-                id="commision"
-                type="number"
-                style={{marginBottom:"2%"}}
-                max="50"
-                min="0"
-                ref={(input) => {
-                  this.commision = input;
-                }}
-                className="form-control"
-                placeholder="Change Commission (%). "
-                required
-              />
-              <button
-              style={{ height: 38 }}
-              disabled={this.props.account != this.props.adminp}
-              type="submit"
-              className="btn btn-warning"
-            >
-              <b>Change</b>
-            </button>
+            <h3 style={{marginBottom: "2%", textAlign:"left"}}>Change PGConnect Commission %:</h3>
+            <h6 style={{marginBottom: "2%", textAlign:"left"}}>Current Commission: {this.props.commission}%</h6>
+              <InputGroup>
+                <input
+                  id="commision"
+                  type="number"
+                  disabled={this.props.account != this.props.adminp}
+                  style={{marginBottom:"2%"}}
+                  max="50"
+                  min="0"
+                  ref={(input) => {
+                    this.commision = input;
+                  }}
+                  className="form-control"
+                  placeholder="Change Commission (%). "
+                  required
+                />
+                <button
+                  style={{ height: 38 }}
+                  disabled={this.props.account != this.props.adminp}
+                  type="submit"
+                  className="btn btn-warning"
+                >
+                  <b>Change</b>
+                </button>
+              </InputGroup>
             </div>
             
           </div>
