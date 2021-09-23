@@ -73,19 +73,22 @@ contract Library {
     }
 
   function changelibrarian(address _librarian) public onlyadmin() {
+        require(msg.sender != address(0));
         librarian = _librarian;
     }
     
     
   function deletebook(uint index) public onlylibrarian(){
+      require(msg.sender != address(0));
+      require(BookCount > 0 && index <= BookCount, "Unable to Delete!");
       if(index != BookCount){
         books[index]= Book(index,books[BookCount].book_Hash,books[BookCount].book_Size,books[BookCount].book_Name,books[BookCount].book_Description,books[BookCount].author,books[BookCount].isbn,books[BookCount].uploadTime,books[BookCount].uploader);
         books[BookCount]= Book(0,"",0,"","","",0,0,address(0));
         BookCount --;}
       else
       {
-          books[index]= Book(0,"",0,"","","",0,0,address(0));
-          BookCount--;
+        books[index]= Book(0,"",0,"","","",0,0,address(0));
+        BookCount--;
       }
     }
     
@@ -123,6 +126,8 @@ contract Library {
     }
     
   function deletenote(uint index) public onlyUploaderorLibrarian(index){
+        require(msg.sender != address(0));
+        require(NoteCount > 0 && index <= NoteCount, "Unable to Delete!");
         if(index != NoteCount){
         notes[index]= Note(index,notes[NoteCount].note_Hash,notes[NoteCount].note_Size,notes[NoteCount].stream,notes[NoteCount].subjectcode,notes[NoteCount].teacher,notes[NoteCount].date,notes[NoteCount].uploadTime,notes[NoteCount].uploader,0);
         notes[NoteCount]= Note(0,"",0,"","","","",0,address(0),0);
@@ -134,6 +139,7 @@ contract Library {
         }
     }
   function reportnote(uint index) public notuploader(index){
+    require(msg.sender != address(0));
     uint before = notes[index].reports;
     // require(!reporters[msg.sender].reported);
     if(reporters[msg.sender][index].reported==false){
@@ -148,5 +154,4 @@ contract Library {
     reporters[msg.sender][index].reported=false;
     }
   }
-  
 }

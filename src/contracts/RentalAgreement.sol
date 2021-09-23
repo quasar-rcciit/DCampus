@@ -156,6 +156,7 @@ contract RentalAgreement{
     }
     
     function addRoom(string memory _housename, string memory _houseaddress, uint _rentcost, uint  _securitydeposit) public {
+        require(msg.sender != address(0));
         no_of_rooms ++;
         bool _vacancy = true;
         Room_by_No[no_of_rooms] = Room(no_of_rooms,0,_housename,_houseaddress, _rentcost,_securitydeposit,0,_vacancy, msg.sender, address(0),0,false); 
@@ -163,6 +164,7 @@ contract RentalAgreement{
     }
     
     function signAgreement(uint _index) public payable notLandLord(_index) enoughAgreementfee(_index) OnlyWhileVacant(_index) enabled( _index){
+        require(msg.sender != address(0));
         address payable _landlord = Room_by_No[_index].landlord;
         uint totalfee = Room_by_No[_index].rent_per_month + Room_by_No[_index].securityDeposit;
         
@@ -184,6 +186,7 @@ contract RentalAgreement{
     }
     
     function payRent(uint _index) public payable sameTenant(_index) RentTimesUp(_index) enoughRent(_index) enabled( _index){
+        require(msg.sender != address(0));
         address payable _landlord = Room_by_No[_index].landlord;
         uint _rent = Room_by_No[_index].rent_per_month;
         
@@ -196,6 +199,7 @@ contract RentalAgreement{
     }
 
     function agreementCompleted(uint _index) public payable onlyLandlord(_index) AgreementTimesUp(_index) enabled( _index){
+        require(msg.sender != address(0));
         require(Room_by_No[_index].vacant == false, "Room is currently Occupied.");
         Room_by_No[_index].vacant = true;
         address payable _Tenant = Room_by_No[_index].currentTenant;
@@ -204,6 +208,7 @@ contract RentalAgreement{
     }
     
     function agreementTerminated(uint _index, uint _terminateno) public onlyAdmin() AgreementTimesLeft(_index) enabled( _index){
+        require(msg.sender != address(0));
         require(RequestAgreementTermination_By_No[_terminateno].completed == false, "Request Already Completed");
         Room_by_No[_index].vacant = true;
         RequestAgreementTermination_By_No[_terminateno].terminated = true;
@@ -212,6 +217,7 @@ contract RentalAgreement{
     }
 
     function reject(uint _index, uint _agreementno, uint _terminateno) public onlyAdmin() {
+        require(msg.sender != address(0));
         require(RequestAgreementTermination_By_No[_terminateno].completed == false, "Request Already Completed");
         terminationreq[_index][_agreementno].requested = false;
         RequestAgreementTermination_By_No[_terminateno].rejected = true;
@@ -219,6 +225,7 @@ contract RentalAgreement{
     }
     
     function requestTermination(uint _index,uint _agreementid) public onlyLandlord(_index) AgreementTimesLeft(_index) notrequested(_index,_agreementid) enabled( _index){
+        require(msg.sender != address(0));
         terminationreq[_index][_agreementid].requested = true;
         no_of_terminationrequest++;
         RequestAgreementTermination_By_No[no_of_terminationrequest] = RequestAgreementTermination(no_of_terminationrequest,_index,_agreementid,now,Room_by_No[_index].landlord,Room_by_No[_index].currentTenant,false,false,false);
@@ -226,12 +233,14 @@ contract RentalAgreement{
     }
      
     function changeCommision(uint _commision) public onlyAdmin() {
+        require(msg.sender != address(0));
         require(_commision >= 0, "can not be negative");
         require(_commision < 100, "can not be equal or more than 100");
         commisionpercentage = _commision;
     }
     
     function diableRoom(uint _index) public onlyAdmin() {
+        require(msg.sender != address(0));
         if(Room_by_No[_index].disableroom == false){
             Room_by_No[_index].disableroom = true;
         }else{
@@ -266,6 +275,7 @@ contract RentalAgreement{
     }
 
     function reportroom(uint index) public notLandLord(index) enabled( index){
+        require(msg.sender != address(0));
         uint before = Room_by_No[index].reports;
         if(reporters[msg.sender][index].reported==false){
             before++;
