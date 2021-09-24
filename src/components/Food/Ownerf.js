@@ -137,7 +137,7 @@ class Ownerf extends Component {
             </div>
           </div>
         </form>
-        <div class="cardnav">
+        <div class="cardnavfood">
           <div class="card-group">
             {this.props.foods.map((foodItem, key) => {
               return (
