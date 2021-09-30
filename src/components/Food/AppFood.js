@@ -190,21 +190,23 @@ class AppFood extends Component {
 
   orderDeliver = (index) => {
     this.setState({ loading: true });
+    const actualIndex = this.state.orderNumber - index - 1;
     this.state.foodOrder.methods
-      .orderDeliver(index)
-      .send({ from: this.state.account })
-      .on("transactionHash", (hash) => {
-        this.setState({
-          loading: false,
-        });
-        window.location.reload();
+    .orderDeliver(actualIndex)
+    .send({ from: this.state.account })
+    .on("transactionHash", (hash) => {
+      this.setState({
+        loading: false,
       });
+      window.location.reload();
+    });
   };
 
   onOrderDelivered = (index, rating) => {
+    const actualIndex = this.state.orderNumber - index - 1;
     this.setState({ loading: true });
     this.state.foodOrder.methods
-      .onOrderDelivered(index, rating)
+      .onOrderDelivered(actualIndex, rating)
       .send({ from: this.state.account })
       .on("transactionHash", (hash) => {
         this.setState({
