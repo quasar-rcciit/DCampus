@@ -1,0 +1,16 @@
+name: ❓ Question
+description: Submit your question
+title: "[Bug]: "
+labels: [question]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for interesting in the project! 🙏🏻
+  - type: textarea
+    id: explained-question
+    attributes:
+      label: Submit your question 📥
+      description: Brief description of your doubts
+    validations:
+      required: true
